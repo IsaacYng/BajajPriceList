@@ -50,14 +50,9 @@ function renderBikes(bikes) {
   const sorted = sortBySn(bikes);
 
   container.innerHTML = sorted.map(bike => {
-    const snLabel = (bike.sn !== undefined && bike.sn !== null && bike.sn !== '')
-      ? `<span class="absolute top-3 left-3 bg-slate-800 text-white text-[10px] font-black px-2 py-1 rounded-lg tracking-widest opacity-80">#${bike.sn}</span>`
-      : '';
-
     return `
       <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-500">
         <div class="relative h-52 bg-slate-50 flex items-center justify-center p-6">
-          ${snLabel}
           <img src="${bike.img || 'https://cdn-icons-png.flaticon.com/512/8163/8163149.png'}"
                alt="${bike.name}"
                class="h-full object-contain group-hover:scale-110 transition-transform duration-500">
