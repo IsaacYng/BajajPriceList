@@ -1,9 +1,13 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+/* ══════════════════════════════════════════════════
+   Go! YNG — Bajaj Price List · script.js
+   Self-contained: every card pixel uses inline styles.
+   No Tailwind. No external CSS dependency.
+══════════════════════════════════════════════════ */
+
+import { initializeApp }                   from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
-/* ════════════════════════════════════════
-   FIREBASE CONFIG
-════════════════════════════════════════ */
+/* ── Firebase ── */
 const firebaseConfig = {
   apiKey:            "AIzaSyAXQW4khEovrBUtP5JpYFTUch_p5KT-8F8",
   authDomain:        "first-project-2082-12-26.firebaseapp.com",
@@ -13,29 +17,74 @@ const firebaseConfig = {
   appId:             "1:545170954251:web:0d2f7905834af3b0be8f0e",
   measurementId:     "G-17X7R542YC"
 };
+const app      = initializeApp(firebaseConfig);
+const db       = getFirestore(app);
+const bikesCol = collection(db, "bikes");
 
-const app       = initializeApp(firebaseConfig);
-const db        = getFirestore(app);
-const bikesCol  = collection(db, "bikes");
-
-let allBikes    = [];
+/* ── State ── */
+let allBikes     = [];
 let activeFilter = "all";
 
+/* ═══════════════════════════════════════
+   DESIGN TOKENS  (mirrors CSS vars)
+═══════════════════════════════════════ */
+const T = {
+  red:    "#D0271D",
+  redDk:  "#A01E16",
+  redLt:  "#FDF1F0",
+  ink:    "#111110",
+  ink2:   "#3A3A38",
+  ink3:   "#6B6B68",
+  ink4:   "#9A9A97",
+  line:   "#E8E6E1",
+  bg:     "#F6F4F0",
+  white:  "#FFFFFF",
+  green:  "#1A6B3C",
+  greenL: "#EAF4EE",
+};
 
-/* ════════════════════════════════════════
+/* ── Inject card hover styles once ── */
+(function injectHoverCSS() {
+  if (document.getElementById("_yng_card_css")) return;
+  const s = document.createElement("style");
+  s.id = "_yng_card_css";
+  s.textContent = `
+    .yng-card {
+      transition: transform .24s cubic-bezier(.25,.46,.45,.94),
+                  box-shadow .24s cubic-bezier(.25,.46,.45,.94),
+                  border-color .24s;
+    }
+    .yng-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(17,17,16,.12);
+      border-color: rgba(208,39,29,.3) !important;
+    }
+    .yng-card:hover .yng-img  { transform: scale(1.05); }
+    .yng-card:hover .yng-arr  {
+      background: #D0271D !important;
+      border-color: #D0271D !important;
+      color: #fff !important;
+    }
+    .yng-card:hover .yng-arr i { transform: translateX(2px); }
+    .yng-img  { transition: transform .38s cubic-bezier(.25,.46,.45,.94); }
+    .yng-arr  { transition: background .18s, border-color .18s, color .18s; }
+    .yng-arr i { transition: transform .18s; }
+  `;
+  document.head.appendChild(s);
+})();
+
+/* ═══════════════════════════════════════
    HELPERS
-════════════════════════════════════════ */
+═══════════════════════════════════════ */
 
-/** Sort by `sn` field ascending; missing sn goes to end */
 function sortBySn(bikes) {
   return [...bikes].sort((a, b) => {
-    const snA = (a.sn != null && a.sn !== "") ? Number(a.sn) : 9999;
-    const snB = (b.sn != null && b.sn !== "") ? Number(b.sn) : 9999;
-    return snA - snB;
+    const A = (a.sn != null && a.sn !== "") ? Number(a.sn) : 9999;
+    const B = (b.sn != null && b.sn !== "") ? Number(b.sn) : 9999;
+    return A - B;
   });
 }
 
-/** Derive display series label from bike name */
 function getSeries(name = "") {
   const n = name.toLowerCase();
   if (n.includes("pulsar"))   return "Pulsar Series";
@@ -48,7 +97,6 @@ function getSeries(name = "") {
   return "Bajaj Motorcycles";
 }
 
-/** Derive filter category from bike name */
 function getCategory(name = "") {
   const n = name.toLowerCase();
   if (n.includes("pulsar"))  return "pulsar";
@@ -59,204 +107,157 @@ function getCategory(name = "") {
   return "other";
 }
 
-/** Format number to Rs. with commas */
-function formatPrice(val) {
-  const num = parseFloat(val);
-  if (!val || isNaN(num)) return "On Request";
-  return "Rs. " + num.toLocaleString("en-IN");
+function fmtPrice(val) {
+  const n = parseFloat(val);
+  if (!val || isNaN(n)) return "On Request";
+  return "Rs. " + n.toLocaleString("en-IN");
 }
 
-/** Format insurance similarly */
-function formatInsurance(val) {
-  const num = Number(val);
-  if (!val || isNaN(num) || num === 0) return null;
-  return "Rs. " + num.toLocaleString("en-IN");
+function fmtInsurance(val) {
+  const n = Number(val);
+  if (!val || isNaN(n) || n === 0) return null;
+  return "Rs. " + n.toLocaleString("en-IN");
 }
 
-
-/* ════════════════════════════════════════
-   INLINE STYLE CONSTANTS
-   All card colours / radii defined here
-   so cards are self-contained.
-════════════════════════════════════════ */
-const C = {
-  red:      "#D0271D",
-  redDk:    "#A01E16",
-  redLt:    "#FDF1F0",
-  ink:      "#111110",
-  ink2:     "#3A3A38",
-  ink3:     "#6B6B68",
-  ink4:     "#9A9A97",
-  line:     "#E6E4DF",
-  bg:       "#F7F5F2",
-  white:    "#FFFFFF",
-  greenLt:  "#EAF4EE",
-  green:    "#1A6B3C",
-};
-const R = { sm: "8px", md: "12px", lg: "16px" };
-const ease = "cubic-bezier(.25,.46,.45,.94)";
-
-/* Card hover via JS — we toggle a class to stay CSS-free */
-const cardHoverStyle = `
-  .bike-card { transition: transform .25s ${ease}, box-shadow .25s ${ease}, border-color .25s; }
-  .bike-card:hover { transform: translateY(-5px); box-shadow: 0 22px 52px rgba(17,17,16,.11); border-color: rgba(208,39,29,.28); }
-  .bike-card:hover .card-img { transform: scale(1.05); }
-  .bike-card:hover .card-arrow { background: ${C.red}; border-color: ${C.red}; color: ${C.white}; }
-  .bike-card:hover .card-arrow i { transform: translateX(2px); }
-`;
-
-/* Inject once */
-if (!document.getElementById("card-hover-styles")) {
-  const st = document.createElement("style");
-  st.id = "card-hover-styles";
-  st.textContent = cardHoverStyle;
-  document.head.appendChild(st);
-}
-
-
-/* ════════════════════════════════════════
-   BUILD SINGLE CARD HTML
-════════════════════════════════════════ */
-function buildCard(bike, index) {
-  const name      = bike.name  || "Bajaj";
+/* ═══════════════════════════════════════
+   BUILD ONE CARD  (100% inline styles)
+═══════════════════════════════════════ */
+function buildCard(bike, idx) {
+  const name      = bike.name || "Bajaj";
   const series    = getSeries(bike.name);
-  const price     = formatPrice(bike.price);
-  const insurance = formatInsurance(bike.Insurance);
-  const imgSrc    = bike.img || `https://placehold.co/600x320/${C.bg.slice(1)}/${C.ink3.slice(1)}?text=${encodeURIComponent(name)}`;
+  const price     = fmtPrice(bike.price);
+  const ins       = fmtInsurance(bike.Insurance);
   const isNew     = !!bike.isNew;
   const badge     = bike.badge || null;
+  const imgSrc    = bike.img
+    || `https://placehold.co/600x340/${T.bg.slice(1)}/${T.ink4.slice(1)}?text=${encodeURIComponent(name)}`;
 
-  /* ── Badge chip ── */
-  const badgeHtml = isNew
-    ? `<span style="
-          position:absolute; top:12px; left:12px;
-          background:${C.red}; color:${C.white};
-          font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-          padding:5px 10px; border-radius:${R.sm};">
-          NEW
-        </span>`
+  /* Chip — top-left */
+  const chipL = isNew
+    ? `<span style="position:absolute;top:11px;left:11px;
+          background:${T.red};color:${T.white};
+          font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+          padding:4px 10px;border-radius:6px;">NEW</span>`
     : badge
-    ? `<span style="
-          position:absolute; top:12px; left:12px;
-          background:${C.ink}; color:${C.white};
-          font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-          padding:5px 10px; border-radius:${R.sm};">
-          ${badge}
-        </span>`
+    ? `<span style="position:absolute;top:11px;left:11px;
+          background:${T.ink};color:${T.white};
+          font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+          padding:4px 10px;border-radius:6px;">${badge}</span>`
     : "";
 
-  /* ── Official chip ── */
-  const officialHtml = `
-    <span style="
-      position:absolute; top:12px; right:12px;
-      background:rgba(255,255,255,.93); border:1px solid ${C.line};
-      color:${C.green}; font-size:10px; font-weight:700; letter-spacing:.06em;
-      padding:5px 10px; border-radius:${R.sm};
-      display:flex; align-items:center; gap:5px;">
-      <i class="fa-solid fa-circle-check" style="font-size:10px;"></i> Official
+  /* Chip — top-right "Official" */
+  const chipR = `
+    <span style="position:absolute;top:11px;right:11px;
+      background:rgba(255,255,255,.94);border:1px solid ${T.line};
+      color:${T.green};font-size:10px;font-weight:700;letter-spacing:.06em;
+      padding:4px 9px;border-radius:6px;
+      display:flex;align-items:center;gap:5px;">
+      <i class="fa-solid fa-circle-check" style="font-size:10px;color:${T.green};"></i>
+      Official
     </span>`;
 
-  /* ── Insurance row ── */
-  const insuranceHtml = insurance
-    ? `<div style="
-          display:flex; align-items:center; justify-content:space-between;
-          padding:12px 0; border-bottom:1px solid ${C.line};">
-          <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500;color:${C.ink3};">
-            <i class="fa-solid fa-shield-halved" style="color:${C.red};font-size:11px;"></i>
-            Insurance
-          </span>
-          <span style="font-size:13px; font-weight:600; color:${C.ink2};">${insurance}</span>
-        </div>`
-    : "";
+  /* Insurance row */
+  const insRow = ins ? `
+    <div style="display:flex;align-items:center;justify-content:space-between;
+      padding:11px 0;border-bottom:1px solid ${T.line};">
+      <span style="display:flex;align-items:center;gap:7px;
+        font-size:12.5px;font-weight:500;color:${T.ink3};">
+        <i class="fa-solid fa-shield-halved" style="color:${T.red};font-size:12px;"></i>
+        Insurance
+      </span>
+      <span style="font-size:13px;font-weight:600;color:${T.ink2};">${ins}</span>
+    </div>` : "";
 
-  /* ── Spec rows ── */
+  /* Optional specs grid */
   const specs = [];
-  if (bike.cc)      specs.push({ label: "Engine",   val: bike.cc + " cc" });
-  if (bike.power)   specs.push({ label: "Power",     val: bike.power });
-  if (bike.mileage) specs.push({ label: "Mileage",   val: bike.mileage });
-  if (bike.weight)  specs.push({ label: "Weight",    val: bike.weight });
+  if (bike.cc)      specs.push({ l: "Engine",  v: bike.cc + " cc" });
+  if (bike.power)   specs.push({ l: "Power",   v: bike.power });
+  if (bike.mileage) specs.push({ l: "Mileage", v: bike.mileage });
+  if (bike.weight)  specs.push({ l: "Weight",  v: bike.weight });
 
-  const specsHtml = specs.length
-    ? `<div style="
-          display:grid; grid-template-columns:1fr 1fr; gap:10px;
-          padding-top:12px; border-top:1px solid ${C.line};">
-          ${specs.map(s => `
-            <div style="display:flex;flex-direction:column;gap:2px;">
-              <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:${C.ink4};">
-                ${s.label}
-              </span>
-              <span style="font-size:13px;font-weight:500;color:${C.ink2};">${s.val}</span>
-            </div>`).join("")}
-        </div>`
-    : "";
+  const specGrid = specs.length ? `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;
+      padding-top:11px;border-top:1px solid ${T.line};">
+      ${specs.map(s => `
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="font-size:10px;font-weight:700;letter-spacing:.1em;
+            text-transform:uppercase;color:${T.ink4};">${s.l}</span>
+          <span style="font-size:12.5px;font-weight:500;color:${T.ink2};">${s.v}</span>
+        </div>`).join("")}
+    </div>` : "";
+
+  const delay = `${Math.min(idx, 9) * 50}ms`;
 
   return `
-    <div class="bike-card fade-card"
-         style="
-           background:${C.white};
-           border-radius:${R.lg};
-           border:1px solid ${C.line};
-           overflow:hidden;
-           display:flex; flex-direction:column;
-           cursor:default;
-           animation-delay:${Math.min(index, 9) * 55}ms;
-         ">
+    <div class="yng-card fc"
+      style="
+        background:${T.white};
+        border-radius:14px;
+        border:1px solid ${T.line};
+        overflow:hidden;
+        display:flex;flex-direction:column;
+        animation-delay:${delay};
+      ">
 
-      <!-- IMAGE -->
-      <div style="position:relative; height:210px; background:${C.bg}; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+      <!-- ── Image ── -->
+      <div style="position:relative;height:200px;background:${T.bg};overflow:hidden;display:flex;align-items:center;justify-content:center;">
         <img
+          class="yng-img"
           src="${imgSrc}"
           alt="${name}"
-          class="card-img"
           loading="lazy"
-          onerror="this.src='https://placehold.co/600x320/F7F5F2/9A9A97?text=Bajaj'"
-          style="width:100%; height:100%; object-fit:cover; transition:transform .4s ${ease};"
+          onerror="this.src='https://placehold.co/600x340/F6F4F0/9A9A97?text=Bajaj'"
+          style="width:100%;height:100%;object-fit:cover;"
         >
-        ${badgeHtml}
-        ${officialHtml}
+        ${chipL}
+        ${chipR}
       </div>
 
-      <!-- BODY -->
-      <div style="padding:1.25rem; display:flex; flex-direction:column; gap:.9rem; flex:1;">
+      <!-- ── Body ── -->
+      <div style="padding:1.1rem;display:flex;flex-direction:column;gap:.85rem;flex:1;">
 
         <!-- Name + Price -->
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:.5rem;">
-          <div>
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.03em; line-height:1.1; color:${C.ink};">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:21px;
+              letter-spacing:.03em;line-height:1.1;color:${T.ink};
+              white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
               ${name}
             </div>
-            <div style="font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:${C.ink3}; margin-top:2px;">
+            <div style="font-size:10.5px;font-weight:600;letter-spacing:.11em;
+              text-transform:uppercase;color:${T.ink3};margin-top:2px;">
               ${series}
             </div>
           </div>
-          <div style="
-            background:${C.redLt}; border:1px solid rgba(208,39,29,.15);
-            border-radius:${R.sm}; padding:8px 12px; text-align:right; flex-shrink:0;">
-            <div style="font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:${C.redDk};">
+          <!-- Price badge -->
+          <div style="flex-shrink:0;background:${T.redLt};border:1px solid rgba(208,39,29,.15);
+            border-radius:8px;padding:7px 11px;text-align:right;">
+            <div style="font-size:9.5px;font-weight:700;letter-spacing:.08em;
+              text-transform:uppercase;color:${T.redDk};margin-bottom:1px;">
               MRP Price
             </div>
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:.02em; color:${C.red}; line-height:1.2; white-space:nowrap;">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;
+              letter-spacing:.02em;color:${T.red};line-height:1.2;white-space:nowrap;">
               ${price}
             </div>
           </div>
         </div>
 
-        ${insuranceHtml}
-        ${specsHtml}
+        ${insRow}
+        ${specGrid}
 
-        <!-- Footer -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:.25rem;">
-          <span style="display:flex; align-items:center; gap:7px; font-size:12px; font-weight:500; color:${C.ink3};">
-            <i class="fa-solid fa-hand-holding-dollar" style="color:${C.red}; font-size:13px;"></i>
+        <!-- Footer row -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.15rem;">
+          <span style="display:flex;align-items:center;gap:7px;
+            font-size:12px;font-weight:500;color:${T.ink3};">
+            <i class="fa-solid fa-hand-holding-dollar" style="color:${T.red};font-size:13px;"></i>
             EMI Available
           </span>
-          <span class="card-arrow" style="
-            width:32px; height:32px; border-radius:${R.sm};
-            background:${C.bg}; border:1px solid ${C.line};
-            display:flex; align-items:center; justify-content:center;
-            color:${C.ink2}; font-size:12px;
-            transition:background .2s, border-color .2s, color .2s;">
-            <i class="fa-solid fa-arrow-right" style="transition:transform .2s;"></i>
+          <span class="yng-arr" style="width:30px;height:30px;border-radius:7px;
+            background:${T.bg};border:1px solid ${T.line};
+            display:flex;align-items:center;justify-content:center;
+            color:${T.ink2};font-size:11px;">
+            <i class="fa-solid fa-arrow-right"></i>
           </span>
         </div>
 
@@ -264,68 +265,58 @@ function buildCard(bike, index) {
     </div>`;
 }
 
-
-/* ════════════════════════════════════════
+/* ═══════════════════════════════════════
    EMPTY STATE
-════════════════════════════════════════ */
-function emptyState(msg = "No bikes match your search.") {
+═══════════════════════════════════════ */
+function emptyState(msg) {
   return `
-    <div style="
-      grid-column:1/-1;
-      display:flex; flex-direction:column; align-items:center;
-      padding:5rem 2rem; gap:1rem; text-align:center;">
-      <div style="
-        width:64px; height:64px; background:${C.redLt};
-        border-radius:${R.lg}; display:flex; align-items:center;
-        justify-content:center; color:${C.red}; font-size:24px;">
+    <div style="grid-column:1/-1;display:flex;flex-direction:column;
+      align-items:center;padding:4.5rem 1rem;gap:1rem;text-align:center;">
+      <div style="width:58px;height:58px;border-radius:14px;
+        background:${T.redLt};border:1px solid rgba(208,39,29,.15);
+        display:flex;align-items:center;justify-content:center;
+        color:${T.red};font-size:22px;">
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
-      <div style="font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:.03em; color:${C.ink};">
-        No Results Found
-      </div>
-      <p style="font-size:14px; color:${C.ink3}; max-width:260px; font-weight:300; line-height:1.7;">
-        ${msg}
-      </p>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;
+        letter-spacing:.03em;color:${T.ink};">No Results Found</div>
+      <p style="font-size:13.5px;color:${T.ink3};max-width:240px;
+        font-weight:300;line-height:1.7;">${msg}</p>
     </div>`;
 }
 
-
-/* ════════════════════════════════════════
-   RENDER BIKES
-════════════════════════════════════════ */
-function renderBikes(bikes) {
+/* ═══════════════════════════════════════
+   RENDER
+═══════════════════════════════════════ */
+function render(bikes) {
   const container = document.getElementById("bike-container");
   if (!container) return;
 
-  const query = (document.getElementById("search-input")?.value || "").toLowerCase().trim();
+  const q = (document.getElementById("search-input")?.value || "").toLowerCase().trim();
 
-  /* Filter */
-  const filtered = sortBySn(
-    bikes.filter(bike => {
-      const n   = (bike.name || "").toLowerCase();
-      const cat = getCategory(bike.name);
-      const matchSearch = !query || n.includes(query);
-      const matchFilter = activeFilter === "all" || cat === activeFilter;
-      return matchSearch && matchFilter;
+  const list = sortBySn(
+    bikes.filter(b => {
+      const n   = (b.name || "").toLowerCase();
+      const cat = getCategory(b.name);
+      return (!q || n.includes(q)) &&
+             (activeFilter === "all" || cat === activeFilter);
     })
   );
 
-  if (filtered.length === 0) {
+  if (!list.length) {
     container.innerHTML = emptyState(
-      query
-        ? `No bikes found for "${query}". Try a different name.`
-        : "No bikes are listed in this category yet."
+      q ? `No bikes found for "${q}". Try a different name.`
+        : "No bikes listed in this category yet."
     );
     return;
   }
 
-  container.innerHTML = filtered.map((bike, i) => buildCard(bike, i)).join("");
+  container.innerHTML = list.map((b, i) => buildCard(b, i)).join("");
 }
 
-
-/* ════════════════════════════════════════
-   FILTER TABS + SEARCH WIRING
-════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   WIRE UP FILTERS + SEARCH
+═══════════════════════════════════════ */
 document.addEventListener("DOMContentLoaded", () => {
 
   /* Filter tabs */
@@ -334,22 +325,21 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".ftab").forEach(t => t.classList.remove("active"));
       tab.classList.add("active");
       activeFilter = tab.dataset.filter;
-      renderBikes(allBikes);
+      render(allBikes);
     });
   });
 
   /* Live search */
   document.getElementById("search-input")?.addEventListener("input", () => {
-    renderBikes(allBikes);
+    render(allBikes);
   });
 
 });
 
-
-/* ════════════════════════════════════════
-   FIREBASE LIVE SYNC
-════════════════════════════════════════ */
-onSnapshot(bikesCol, snapshot => {
-  allBikes = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-  renderBikes(allBikes);
+/* ═══════════════════════════════════════
+   FIREBASE — real-time listener
+═══════════════════════════════════════ */
+onSnapshot(bikesCol, snap => {
+  allBikes = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  render(allBikes);
 });
