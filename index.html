@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go! YNG — Bajaj Price List Nepal</title>
-  <meta name="description" content="Official Bajaj bike price list at Go! YNG, Phidim. Check the latest prices for Pulsar, Dominar, and Avenger. Easy finance options available.">
+  <meta name="description" content="Official Bajaj bike price list at Go! YNG, Phidim. Latest prices for Pulsar, Dominar, Avenger. Easy finance options available.">
   <meta name="keywords" content="Bajaj Price List Nepal, Go YNG Phidim, Bajaj Pulsar Price Phidim, Bajaj Finance Nepal">
   <meta property="og:title" content="Go! YNG | Bajaj Price List Phidim">
   <meta property="og:description" content="Check the latest Bajaj bike prices and finance schemes in Phidim.">
@@ -12,1460 +12,724 @@
   <link rel="icon" type="image/png" href="favicons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; }
+    button { border: none; background: none; cursor: pointer; font: inherit; }
 
+    /* ── TOKENS ── */
     :root {
-      --red: #D0271D;
-      --red-dark: #A01E16;
-      --red-pale: #FDF1F0;
-      --ink: #111110;
-      --ink-2: #3A3A38;
-      --ink-3: #6B6B68;
-      --line: #E6E4DF;
-      --surface: #F7F5F2;
-      --white: #FFFFFF;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-      --nav-h: 72px;
-      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --red:      #D0271D;
+      --red-dk:   #A01E16;
+      --red-lt:   #FDF1F0;
+      --ink:      #111110;
+      --ink2:     #3A3A38;
+      --ink3:     #6B6B68;
+      --ink4:     #9A9A97;
+      --line:     #E6E4DF;
+      --bg:       #F7F5F2;
+      --white:    #FFFFFF;
+      --green:    #1A6B3C;
+      --green-lt: #EAF4EE;
+      --D: 'Bebas Neue', sans-serif;
+      --B: 'DM Sans', sans-serif;
+      --ease: cubic-bezier(.25,.46,.45,.94);
+      --nav-h: 68px;
+      --r8: 8px;
+      --r12: 12px;
+      --r16: 16px;
     }
 
     html { scroll-behavior: smooth; }
+    body { font-family: var(--B); background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--surface);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─── */
+    /* ════════════ NAV ════════════ */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 200;
       height: var(--nav-h);
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: center;
     }
-
     .nav-inner {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-
-    .nav-logo-mark {
-      width: 38px;
-      height: 38px;
-      background: var(--red);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .nav-logo-mark svg { display: block; }
-
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .nav-logo-text .go {
-      font-family: var(--font-display);
-      font-size: 20px;
-      letter-spacing: 0.05em;
-      color: var(--red);
-    }
-
-    .nav-logo-text .sub {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--ink-2);
-      transition: background 0.2s var(--ease), color 0.2s var(--ease);
-    }
-
-    .nav-links a:hover { background: var(--surface); color: var(--ink); }
-    .nav-links a.active { background: var(--red-pale); color: var(--red); }
-    .nav-links a i { font-size: 15px; }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn-nav {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--red);
-      color: var(--white);
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
-    }
-
-    .btn-nav:hover { background: var(--red-dark); transform: translateY(-1px); }
-
-    /* Mobile menu button */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: none;
-      border: 1px solid var(--line);
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 18px;
-      height: 1.5px;
-      background: var(--ink);
-      border-radius: 2px;
-      transition: all 0.3s var(--ease);
-    }
-
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* Mobile drawer */
-    .nav-drawer {
-      display: none;
-      position: fixed;
-      inset: var(--nav-h) 0 0 0;
-      background: rgba(17,17,16,0.5);
-      z-index: 90;
-    }
-
-    .nav-drawer.open { display: block; }
-
-    .nav-drawer-panel {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: min(340px, 90vw);
+      max-width: 1320px; margin: 0 auto;
+      padding: 0 1.5rem;
       height: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+
+    /* Logo */
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--red); border-radius: var(--r8);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark svg { width: 18px; height: 18px; }
+    .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-name { font-family: var(--D); font-size: 19px; letter-spacing: .06em; color: var(--red); }
+    .logo-sub  { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+
+    /* Desktop links */
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 15px; border-radius: var(--r8);
+      font-size: 14px; font-weight: 500; color: var(--ink2);
+      transition: background .18s, color .18s;
+    }
+    .nav-links a:hover   { background: var(--bg); color: var(--ink); }
+    .nav-links a.active  { background: var(--red-lt); color: var(--red); }
+    .nav-links a i { font-size: 14px; }
+
+    /* Nav right */
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; background: var(--red); color: var(--white);
+      border-radius: var(--r8); font-size: 13px; font-weight: 600;
+      transition: background .18s, transform .18s;
+    }
+    .nav-wa:hover { background: var(--red-dk); transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      width: 40px; height: 40px; border-radius: var(--r8);
+      border: 1px solid var(--line);
+      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    }
+    .hamburger span {
+      display: block; width: 18px; height: 1.5px;
+      background: var(--ink); border-radius: 2px;
+      transition: transform .28s var(--ease), opacity .2s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile drawer overlay */
+    .drawer-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 190;
+      background: rgba(17,17,16,.45);
+      backdrop-filter: blur(4px);
+    }
+    .drawer-overlay.open { display: block; }
+
+    /* Drawer panel */
+    .drawer {
+      position: fixed; top: var(--nav-h); right: 0; bottom: 0;
+      width: min(320px, 88vw); z-index: 195;
       background: var(--white);
-      padding: 2rem;
-      transform: translateX(100%);
-      transition: transform 0.35s var(--ease);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      transform: translateX(110%);
+      transition: transform .32s var(--ease);
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: .5rem;
       overflow-y: auto;
     }
-
-    .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
-
-    .nav-drawer-panel a {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--ink-2);
-      transition: background 0.2s, color 0.2s;
-      border: 1px solid transparent;
-    }
-
-    .nav-drawer-panel a:hover { background: var(--surface); color: var(--ink); }
-
-    .nav-drawer-panel .drawer-cta {
-      margin-top: 1rem;
-      background: var(--red);
-      color: var(--white);
-      justify-content: center;
-      border-color: var(--red);
-    }
-
-    .nav-drawer-panel .drawer-cta:hover { background: var(--red-dark); border-color: var(--red-dark); }
-
+    .drawer.open { transform: translateX(0); }
     .drawer-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      padding: 0 4px;
-      margin-bottom: 4px;
+      font-size: 10px; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--ink4);
+      padding: 0 4px; margin-bottom: 4px;
     }
+    .drawer a {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 14px; border-radius: var(--r12);
+      font-size: 14px; font-weight: 500; color: var(--ink2);
+      border: 1px solid transparent;
+      transition: background .18s, color .18s;
+    }
+    .drawer a:hover { background: var(--bg); color: var(--ink); }
+    .drawer a i { width: 18px; text-align: center; font-size: 15px; }
+    .drawer-divider { height: 1px; background: var(--line); margin: .5rem 0; }
+    .drawer-cta {
+      background: var(--red) !important; color: var(--white) !important;
+      justify-content: center; border-color: var(--red) !important;
+    }
+    .drawer-cta:hover { background: var(--red-dk) !important; }
 
-    /* ─── HERO ─── */
+    /* ════════════ HERO ════════════ */
     .hero {
-      position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
+      position: relative; min-height: 92vh;
+      display: flex; align-items: flex-end; overflow: hidden;
     }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: var(--ink);
-      z-index: 0;
-    }
-
+    .hero-bg { position: absolute; inset: 0; background: var(--ink); }
     .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.45;
-      mix-blend-mode: luminosity;
-      z-index: 1;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: .42; mix-blend-mode: luminosity;
     }
-
-    .hero-gradient {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(17,17,16,0.96) 0%,
-        rgba(17,17,16,0.5) 45%,
-        rgba(17,17,16,0.15) 100%
-      );
-      z-index: 2;
+    .hero-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(17,17,16,.97) 0%, rgba(17,17,16,.55) 42%, rgba(17,17,16,.12) 100%);
     }
-
     .hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 6rem 2rem 5rem;
-      width: 100%;
+      position: relative; z-index: 2;
+      max-width: 1320px; margin: 0 auto; width: 100%;
+      padding: 5rem 1.5rem 4.5rem;
     }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(208,39,29,0.15);
-      border: 1px solid rgba(208,39,29,0.3);
-      color: #F4756E;
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(208,39,29,.12); border: 1px solid rgba(208,39,29,.28);
+      color: #F27B74; padding: 6px 14px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
     }
-
-    .hero-eyebrow i { font-size: 11px; }
-
-    .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(64px, 11vw, 140px);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      margin-bottom: 2rem;
+    .hero-pill i { font-size: 10px; }
+    .hero-h1 {
+      font-family: var(--D);
+      font-size: clamp(58px, 10.5vw, 138px);
+      line-height: .9; letter-spacing: .025em;
+      color: var(--white); margin-bottom: 2.5rem;
     }
-
-    .hero-title .accent { color: var(--red); }
-
-    .hero-bottom {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
+    .hero-h1 .r { color: var(--red); }
+    .hero-foot {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem; flex-wrap: wrap;
     }
-
-    .hero-desc {
-      max-width: 420px;
-      color: rgba(255,255,255,0.6);
-      font-size: 15px;
-      line-height: 1.75;
-      font-weight: 300;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .hero-desc { max-width: 400px; color: rgba(255,255,255,.55); font-size: 15px; font-weight: 300; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background: var(--red);
-      color: var(--white);
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 26px; background: var(--red); color: var(--white);
+      border-radius: var(--r12); font-size: 14px; font-weight: 600;
+      transition: background .18s, transform .2s;
     }
-
-    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 24px;
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.85);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background 0.2s var(--ease), border-color 0.2s;
+    .btn-primary:hover { background: var(--red-dk); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 22px; color: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.18); border-radius: var(--r12);
+      font-size: 14px; font-weight: 500;
+      background: rgba(255,255,255,.06);
+      transition: background .18s, border-color .18s;
     }
-
-    .btn-ghost:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
-
-    /* Scroll indicator */
-    .hero-scroll {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.4);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 500;
+    .btn-outline:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); }
+    .hero-scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.35); font-size: 10px; font-weight: 600;
+      letter-spacing: .18em; text-transform: uppercase;
     }
-
-    .hero-scroll-line {
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.35));
-      animation: scroll-pulse 2s ease-in-out infinite;
+    .scroll-bar {
+      width: 1px; height: 38px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.3));
+      animation: sb 2.2s ease-in-out infinite;
     }
+    @keyframes sb { 0%,100% { opacity:.35; } 50% { opacity:1; } }
 
-    @keyframes scroll-pulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.2); }
-    }
-
-    /* ─── STATS STRIP ─── */
-    .stats-strip {
+    /* ════════════ STAT STRIP ════════════ */
+    .stats {
       background: var(--white);
       border-bottom: 1px solid var(--line);
     }
-
     .stats-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      max-width: 1320px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
     }
-
-    .stat-item {
-      padding: 2rem 1.5rem;
+    .stat {
+      padding: 1.75rem 1.5rem;
       border-right: 1px solid var(--line);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      display: flex; flex-direction: column; gap: 4px;
     }
-
-    .stat-item:last-child { border-right: none; }
-
+    .stat:last-child { border-right: none; }
     .stat-num {
-      font-family: var(--font-display);
-      font-size: 44px;
-      line-height: 1;
-      color: var(--ink);
-      letter-spacing: 0.02em;
+      font-family: var(--D); font-size: 42px;
+      letter-spacing: .02em; line-height: 1; color: var(--ink);
+    }
+    .stat-num sup { font-size: 22px; color: var(--red); vertical-align: top; margin-top: 4px; }
+    .stat-lbl {
+      font-size: 11px; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ink3);
     }
 
-    .stat-num .stat-unit { font-size: 24px; color: var(--red); }
-
-    .stat-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    /* ─── PRICE SECTION ─── */
+    /* ════════════ PRICE SECTION ════════════ */
     .section {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
+      max-width: 1320px; margin: 0 auto; padding: 4.5rem 1.5rem;
     }
-
-    .section-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
+    .sec-head {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem;
+      margin-bottom: 2.5rem; flex-wrap: wrap;
     }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 10px;
+    .sec-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--red); margin-bottom: 8px;
     }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      color: var(--ink);
+    .sec-title {
+      font-family: var(--D);
+      font-size: clamp(38px, 5.5vw, 68px);
+      line-height: .95; letter-spacing: .02em; color: var(--ink);
     }
-
-    .section-desc {
-      max-width: 340px;
-      color: var(--ink-3);
-      font-size: 14px;
-      line-height: 1.7;
-      font-weight: 300;
+    .sec-note {
+      max-width: 300px; color: var(--ink3);
+      font-size: 13px; font-weight: 300; line-height: 1.75;
       text-align: right;
     }
 
-    /* Search */
-    .search-wrap {
-      position: relative;
-      margin-bottom: 3rem;
+    /* Search bar */
+    .search-wrap { position: relative; margin-bottom: 1.75rem; }
+    .search-icon-el {
+      position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+      color: var(--ink4); font-size: 14px; pointer-events: none;
+      transition: color .2s;
     }
-
-    .search-icon {
-      position: absolute;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--ink-3);
-      font-size: 15px;
-      pointer-events: none;
-      transition: color 0.2s;
-    }
-
-    .search-input {
-      width: 100%;
-      height: 56px;
-      border-radius: 12px;
-      border: 1.5px solid var(--line);
+    #search-input {
+      width: 100%; height: 54px;
+      border: 1.5px solid var(--line); border-radius: var(--r12);
       background: var(--white);
-      padding: 0 140px 0 52px;
-      font-family: var(--font-body);
-      font-size: 15px;
-      color: var(--ink);
+      padding: 0 130px 0 48px;
+      font-family: var(--B); font-size: 15px; color: var(--ink);
       outline: none;
-      transition: border-color 0.25s, box-shadow 0.25s;
+      transition: border-color .22s, box-shadow .22s;
     }
-
-    .search-input::placeholder { color: var(--ink-3); font-weight: 300; }
-
-    .search-input:focus {
+    #search-input::placeholder { color: var(--ink4); font-weight: 300; }
+    #search-input:focus {
       border-color: var(--red);
-      box-shadow: 0 0 0 4px rgba(208,39,29,0.08);
+      box-shadow: 0 0 0 4px rgba(208,39,29,.08);
     }
-
-    .search-input:focus ~ .search-icon { color: var(--red); }
-
+    #search-input:focus ~ .search-icon-el { color: var(--red); }
     .search-badge {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      color: var(--ink-3);
-      font-size: 11px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 8px;
-      letter-spacing: 0.06em;
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      background: var(--bg); border: 1px solid var(--line);
+      color: var(--ink3); font-size: 11px; font-weight: 600;
+      padding: 4px 11px; border-radius: var(--r8); letter-spacing: .06em;
+      pointer-events: none;
     }
 
     /* Filter tabs */
-    .filter-tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .ftab {
+      padding: 8px 18px; border-radius: 100px;
+      border: 1.5px solid var(--line); background: var(--white);
+      font-family: var(--B); font-size: 13px; font-weight: 500; color: var(--ink2);
+      cursor: pointer; transition: all .18s var(--ease);
     }
+    .ftab:hover { border-color: var(--ink3); color: var(--ink); }
+    .ftab.active { background: var(--red); border-color: var(--red); color: var(--white); }
 
-    .filter-tab {
-      padding: 8px 18px;
-      border-radius: 100px;
-      border: 1.5px solid var(--line);
-      background: var(--white);
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-2);
-      cursor: pointer;
-      transition: all 0.2s var(--ease);
-    }
-
-    .filter-tab:hover { border-color: var(--ink-3); color: var(--ink); }
-    .filter-tab.active { background: var(--red); border-color: var(--red); color: var(--white); }
-
-    /* ─── BIKE CARDS ─── */
+    /* ════════════ BIKE GRID (layout only — cards styled in JS) ════════════ */
     .bike-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .bike-card {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s;
-      cursor: pointer;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .bike-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(17,17,16,0.1);
-      border-color: rgba(208,39,29,0.25);
-    }
-
-    .bike-card-img-wrap {
-      background: var(--surface);
-      height: 200px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .bike-card-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s var(--ease);
-    }
-
-    .bike-card:hover .bike-card-img { transform: scale(1.04); }
-
-    .bike-card-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--ink);
-      color: var(--white);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 5px 10px;
-      border-radius: 6px;
-    }
-
-    .bike-card-new {
-      background: var(--red);
-    }
-
-    .bike-card-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      flex: 1;
-    }
-
-    .bike-card-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-
-    .bike-card-name {
-      font-family: var(--font-display);
-      font-size: 22px;
-      line-height: 1.1;
-      letter-spacing: 0.03em;
-      color: var(--ink);
-    }
-
-    .bike-card-series {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-top: 2px;
-    }
-
-    .bike-card-price-tag {
-      background: var(--red-pale);
-      border: 1px solid rgba(208,39,29,0.15);
-      border-radius: 8px;
-      padding: 8px 12px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .bike-card-price-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #A01E16;
-    }
-
-    .bike-card-price {
-      font-family: var(--font-display);
-      font-size: 20px;
-      color: var(--red);
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-
-    .bike-card-divider {
-      height: 1px;
-      background: var(--line);
-    }
-
-    .bike-card-specs {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .bike-spec {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .bike-spec-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    .bike-spec-val {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-2);
-    }
-
-    .bike-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .bike-card-finance {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--ink-3);
-    }
-
-    .bike-card-finance i { color: var(--red); }
-
-    .bike-card-arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--ink-2);
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-    }
-
-    .bike-card:hover .bike-card-arrow {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--white);
-    }
-
-    /* ─── LOADING STATE ─── */
-    .loading-state {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 5rem 2rem;
-      gap: 1.5rem;
-    }
-
-    .loading-spinner {
-      width: 48px;
-      height: 48px;
-      border: 2px solid var(--line);
-      border-top-color: var(--red);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .loading-text {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    /* Skeleton cards */
-    .skeleton-card {
-      background: var(--white);
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      overflow: hidden;
-    }
-
-    .skeleton-img {
-      height: 200px;
-      background: var(--surface);
-      background: linear-gradient(90deg, var(--surface) 25%, #EDEBE6 50%, var(--surface) 75%);
-      background-size: 400% 100%;
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-
-    .skeleton-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 10px; }
-
-    .skeleton-line {
-      height: 14px;
-      border-radius: 6px;
-      background: var(--surface);
-      background: linear-gradient(90deg, var(--surface) 25%, #EDEBE6 50%, var(--surface) 75%);
-      background-size: 400% 100%;
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-
-    .skeleton-line.short { width: 50%; }
-    .skeleton-line.medium { width: 70%; }
-
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Official badge (top-right of image) */
-    .bike-card-official {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--line);
-      color: #1A6B3C;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      padding: 5px 10px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    /* Insurance row */
-    .bike-insurance-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .bike-insurance-label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--ink-3);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .bike-insurance-label i { color: var(--red); font-size: 11px; }
-
-    .bike-insurance-val {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink-2);
-    }
-
-    /* Empty state */
-    .empty-state {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 5rem 2rem;
-      gap: 1rem;
-      text-align: center;
-    }
-
-    .empty-icon {
-      width: 64px;
-      height: 64px;
-      background: var(--red-pale);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--red);
-      font-size: 24px;
-    }
-
-    .empty-title {
-      font-family: var(--font-display);
-      font-size: 28px;
-      color: var(--ink);
-      letter-spacing: 0.03em;
-    }
-
-    .empty-desc { font-size: 14px; color: var(--ink-3); max-width: 280px; }
-
-    /* ─── FINANCE PROMO ─── */
-    .promo-band {
-      background: var(--ink);
-      color: var(--white);
-      margin: 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .promo-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .promo-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(208,39,29,0.9);
-      margin-bottom: 12px;
-    }
-
-    .promo-title {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 6vw, 80px);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    .promo-desc {
-      color: rgba(255,255,255,0.5);
-      font-size: 14px;
-      line-height: 1.8;
-      font-weight: 300;
-      max-width: 360px;
-    }
-
-    .promo-features {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
       gap: 1.25rem;
     }
 
-    .promo-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
+    /* ── Skeleton loader ── */
+    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .sk {
+      background: var(--white); border-radius: var(--r16);
+      border: 1px solid var(--line); overflow: hidden;
+    }
+    .sk-img {
+      height: 200px;
+      background: linear-gradient(90deg, var(--bg) 25%, #EDEBE6 50%, var(--bg) 75%);
+      background-size: 400%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+    .sk-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
+    .sk-line {
+      height: 13px; border-radius: 6px;
+      background: linear-gradient(90deg, var(--bg) 25%, #EDEBE6 50%, var(--bg) 75%);
+      background-size: 400%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+    .sk-short { width: 45%; }
+    .sk-med   { width: 68%; }
+
+    /* ── fade-in for cards ── */
+    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
+    .fade-card {
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .45s var(--ease) forwards;
+    }
+
+    /* ════════════ FINANCE BAND ════════════ */
+    .finance-band { background: var(--ink); overflow: hidden; }
+    .finance-inner {
+      max-width: 1320px; margin: 0 auto; padding: 5rem 1.5rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    }
+    .fi-tag { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(208,39,29,.9); margin-bottom: 12px; }
+    .fi-title {
+      font-family: var(--D); font-size: clamp(44px, 5.5vw, 76px);
+      line-height: .95; letter-spacing: .02em; color: var(--white); margin-bottom: 1.25rem;
+    }
+    .fi-desc { color: rgba(255,255,255,.45); font-size: 14px; line-height: 1.85; font-weight: 300; max-width: 360px; }
+    .fi-cta {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-top: 2rem; padding: 13px 26px;
+      background: var(--red); color: var(--white);
+      border-radius: var(--r12); font-size: 14px; font-weight: 600;
+      transition: background .18s;
+    }
+    .fi-cta:hover { background: var(--red-dk); }
+    .fi-features { display: flex; flex-direction: column; gap: 1.25rem; }
+    .fi-feat {
+      display: flex; align-items: flex-start; gap: 14px;
       padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-
-    .promo-feature:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .promo-feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(208,39,29,0.15);
-      border: 1px solid rgba(208,39,29,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #F4756E;
-      font-size: 16px;
-      flex-shrink: 0;
+    .fi-feat:last-child { border-bottom: none; padding-bottom: 0; }
+    .fi-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border-radius: var(--r12);
+      background: rgba(208,39,29,.14); border: 1px solid rgba(208,39,29,.22);
+      display: flex; align-items: center; justify-content: center;
+      color: #F27B74; font-size: 16px;
     }
+    .fi-feat-title { font-weight: 600; font-size: 14px; color: var(--white); margin-bottom: 3px; }
+    .fi-feat-desc  { font-size: 13px; color: rgba(255,255,255,.4); font-weight: 300; line-height: 1.65; }
 
-    .promo-feature-title {
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 3px;
-    }
-
-    .promo-feature-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      font-weight: 300;
-    }
-
-    .promo-cta {
-      margin-top: 2.5rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      background: var(--red);
-      color: var(--white);
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .promo-cta:hover { background: var(--red-dark); }
-
-    /* ─── FOOTER ─── */
-    .footer {
-      background: var(--white);
-      border-top: 1px solid var(--line);
-    }
-
+    /* ════════════ FOOTER ════════════ */
+    .footer { background: var(--white); border-top: 1px solid var(--line); }
     .footer-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 4rem 2rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4rem;
+      max-width: 1320px; margin: 0 auto; padding: 4rem 1.5rem 3rem;
+      display: grid; grid-template-columns: 240px 1fr; gap: 4rem;
     }
-
-    .footer-brand {}
-
-    .footer-logo-text {
-      font-family: var(--font-display);
-      font-size: 32px;
-      letter-spacing: 0.04em;
-      color: var(--red);
-      margin-bottom: 6px;
+    .f-logo-name { font-family: var(--D); font-size: 30px; letter-spacing: .04em; color: var(--red); margin-bottom: 4px; }
+    .f-logo-sub  { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.25rem; }
+    .f-address   { font-size: 13px; color: var(--ink3); line-height: 1.9; font-weight: 300; }
+    .f-social { display: flex; gap: 8px; margin-top: 1.5rem; }
+    .f-social a {
+      width: 36px; height: 36px; border-radius: var(--r8);
+      border: 1px solid var(--line); background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; color: var(--ink3);
+      transition: background .18s, color .18s, border-color .18s;
     }
-
-    .footer-tagline {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 1.5rem;
+    .f-social a:hover { background: var(--red-lt); color: var(--red); border-color: rgba(208,39,29,.2); }
+    .f-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .f-col-hd {
+      font-size: 11px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--ink); margin-bottom: 1rem;
     }
-
-    .footer-address {
-      font-size: 13px;
-      color: var(--ink-3);
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    .footer-links-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .footer-col-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--ink);
-      margin-bottom: 1rem;
-    }
-
-    .footer-col-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      list-style: none;
-    }
-
-    .footer-col-links a {
-      font-size: 13px;
-      color: var(--ink-3);
-      text-decoration: none;
-      font-weight: 300;
-      transition: color 0.2s;
-    }
-
-    .footer-col-links a:hover { color: var(--red); }
-
-    .footer-social {
-      display: flex;
-      gap: 10px;
-      margin-top: 0.5rem;
-    }
-
-    .footer-social a {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      color: var(--ink-3);
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .footer-social a:hover { background: var(--red-pale); color: var(--red); border-color: rgba(208,39,29,0.2); }
-
+    .f-col-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .f-col-links a { font-size: 13px; color: var(--ink3); font-weight: 300; transition: color .18s; }
+    .f-col-links a:hover { color: var(--red); }
     .footer-bottom {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
+      max-width: 1320px; margin: 0 auto; padding: 1.25rem 1.5rem;
       border-top: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     }
-
-    .footer-copy { font-size: 12px; color: var(--ink-3); font-weight: 300; }
-
-    .footer-authorized {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      padding: 5px 12px;
-      border-radius: 100px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-3);
+    .f-copy { font-size: 12px; color: var(--ink4); font-weight: 300; }
+    .f-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg); border: 1px solid var(--line);
+      padding: 5px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--ink3);
     }
+    .f-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
 
-    .footer-authorized .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--red);
-      display: inline-block;
-    }
-
-    /* ─── RESPONSIVE ─── */
+    /* ════════════ RESPONSIVE ════════════ */
     @media (max-width: 1024px) {
-      .promo-inner { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .footer-links-grid { grid-template-columns: repeat(3, 1fr); }
+      .finance-inner { grid-template-columns: 1fr; }
+      .footer-inner  { grid-template-columns: 1fr; gap: 2.5rem; }
+      .f-cols { grid-template-columns: repeat(3,1fr); }
     }
-
     @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-hamburger { display: flex; }
+      /* nav */
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+      /* hero */
       .hero { min-height: 80vh; }
-      .section-header { flex-direction: column; align-items: flex-start; }
-      .section-desc { text-align: left; }
+      .hero-foot { flex-direction: column; align-items: flex-start; }
+      /* stats */
       .stats-inner { grid-template-columns: 1fr; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--line); }
-      .stat-item:last-child { border-bottom: none; }
-      .bike-grid { grid-template-columns: 1fr; }
-      .footer-links-grid { grid-template-columns: 1fr 1fr; }
-      .promo-inner { padding: 3rem 1.5rem; }
-    }
-
-    @media (max-width: 480px) {
-      .footer-links-grid { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--line); }
+      .stat:last-child { border-bottom: none; }
+      /* section */
+      .sec-head { flex-direction: column; align-items: flex-start; }
+      .sec-note { text-align: left; }
+      /* finance */
+      .finance-inner { padding: 3rem 1.5rem; gap: 2.5rem; }
+      /* footer */
+      .f-cols { grid-template-columns: 1fr 1fr; }
       .footer-inner { padding: 3rem 1.5rem 2rem; }
-      .hero-title { font-size: 58px; }
     }
-
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeIn 0.6s var(--ease) forwards;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 54px; }
+      .hero-content { padding: 4rem 1.25rem 3.5rem; }
+      .f-cols { grid-template-columns: 1fr; }
+      .search-badge { display: none; }
+      #search-input { padding-right: 18px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── NAV ─── -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <div class="nav-logo-mark">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M3 14 L10 4 L17 14 M6 11 L14 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="nav-logo-text">
-          <span class="go">Go! YNG</span>
-          <span class="sub">Bajaj Partner · Phidim</span>
-        </div>
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 13 L9 3 L16 13 M5.5 10 L12.5 10" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo-text-wrap">
+        <span class="logo-name">Go! YNG</span>
+        <span class="logo-sub">Bajaj Partner · Phidim</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="finance.html"><i class="fa-solid fa-chart-line"></i> Finance</a></li>
+      <li><a href="#prices"><i class="fa-solid fa-list-ul"></i> Price List</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="https://wa.me/9779802315425" target="_blank" class="nav-wa">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
       </a>
+    </div>
 
-      <ul class="nav-links">
-        <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="finance.html"><i class="fa-solid fa-chart-line"></i> Finance</a></li>
-      </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-      <div class="nav-cta">
-        <a href="https://wa.me/9779802315425" target="_blank" class="btn-nav">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+<!-- Drawer overlay -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+
+<!-- Drawer panel -->
+<div class="drawer" id="drawer">
+  <p class="drawer-label">Navigation</p>
+  <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+  <a href="#prices"><i class="fa-solid fa-list-ul"></i> Price List</a>
+  <a href="finance.html"><i class="fa-solid fa-chart-line"></i> Finance Plans</a>
+  <div class="drawer-divider"></div>
+  <a href="https://wa.me/9779802315425" target="_blank" class="drawer-cta">
+    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+  </a>
+</div>
+
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <img src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg"
+       class="hero-img" alt="Bajaj motorcycle">
+  <div class="hero-grad"></div>
+
+  <div class="hero-content">
+    <div class="hero-pill">
+      <i class="fa-solid fa-circle-dot"></i>
+      Authorized Bajaj Partner &mdash; Phidim, Nepal
+    </div>
+    <h1 class="hero-h1">
+      FIND YOUR<br><span class="r">PERFECT</span><br>RIDE.
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-desc">
+        Browse Nepal's freshest Bajaj price list — updated live.
+        Pulsar. Dominar. Avenger. Your road, your rules.
+      </p>
+      <div class="hero-btns">
+        <a href="#prices" class="btn-primary">
+          <i class="fa-solid fa-list-ul"></i> View Prices
+        </a>
+        <a href="finance.html" class="btn-outline">
+          <i class="fa-solid fa-hand-holding-dollar"></i> Finance Options
         </a>
       </div>
-
-      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Drawer -->
-  <div class="nav-drawer" id="drawer">
-    <div class="nav-drawer-panel" id="drawer-panel">
-      <p class="drawer-label">Navigation</p>
-      <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="finance.html"><i class="fa-solid fa-money-bill-trend-up"></i> Finance</a>
-      <a href="#prices"><i class="fa-solid fa-list"></i> Price List</a>
-      <a href="https://wa.me/9779802315425" target="_blank" class="drawer-cta">
-        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-      </a>
     </div>
   </div>
 
-  <!-- ─── HERO ─── -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <img
-      src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg"
-      class="hero-img"
-      alt="Bajaj motorcycle"
-    >
-    <div class="hero-gradient"></div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-bar"></div>
+    Scroll
+  </div>
+</section>
 
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <i class="fa-solid fa-circle-dot"></i>
-        Authorized Bajaj Partner · Phidim
-      </div>
-      <h1 class="hero-title">
-        FIND YOUR<br><span class="accent">PERFECT</span><br>RIDE.
-      </h1>
-      <div class="hero-bottom">
-        <p class="hero-desc">
-          Browse Nepal's freshest Bajaj price list — updated in real time.
-          Pulsar. Dominar. Avenger. Your road, your rules.
-        </p>
-        <div class="hero-actions">
-          <a href="#prices" class="btn-primary">
-            <i class="fa-solid fa-list-ul"></i> View Price List
-          </a>
-          <a href="finance.html" class="btn-ghost">
-            <i class="fa-solid fa-hand-holding-dollar"></i> Finance Options
-          </a>
-        </div>
-      </div>
+
+<!-- ══════════ STATS ══════════ -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">20<sup>+</sup></div>
+      <div class="stat-lbl">Models Available</div>
     </div>
-
-    <div class="hero-scroll">
-      <div class="hero-scroll-line"></div>
-      Scroll
+    <div class="stat">
+      <div class="stat-num">0<sup>%</sup></div>
+      <div class="stat-lbl">Down Payment Options</div>
     </div>
-  </section>
-
-  <!-- ─── STATS ─── -->
-  <div class="stats-strip">
-    <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-num">20<span class="stat-unit">+</span></div>
-        <div class="stat-label">Models Available</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">0<span class="stat-unit">%</span></div>
-        <div class="stat-label">Down Payment Options</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">24<span class="stat-unit">hr</span></div>
-        <div class="stat-label">WhatsApp Support</div>
-      </div>
+    <div class="stat">
+      <div class="stat-num">24<sup>hr</sup></div>
+      <div class="stat-lbl">WhatsApp Support</div>
     </div>
   </div>
+</div>
 
-  <!-- ─── PRICE LIST ─── -->
-  <section id="prices">
-    <div class="section">
-      <div class="section-header">
-        <div>
-          <div class="section-label">Live Price List — 2026</div>
-          <h2 class="section-title">FIND<br>YOUR RIDE</h2>
-        </div>
-        <p class="section-desc">Prices updated directly from Go! YNG. All rates are on-road in Phidim, Panchthar.</p>
-      </div>
 
-      <div class="search-wrap">
-        <i class="fa-solid fa-magnifying-glass search-icon" id="search-icon"></i>
-        <input
-          type="text"
-          class="search-input"
-          id="search-input"
-          placeholder="Search bikes — Pulsar, Dominar, Avenger…"
-          autocomplete="off"
-        >
-        <span class="search-badge">Go! YNG</span>
-      </div>
-
-      <div class="filter-tabs" id="filter-tabs">
-        <button class="filter-tab active" data-filter="all">All Models</button>
-        <button class="filter-tab" data-filter="pulsar">Pulsar</button>
-        <button class="filter-tab" data-filter="dominar">Dominar</button>
-        <button class="filter-tab" data-filter="avenger">Avenger</button>
-        <button class="filter-tab" data-filter="platina">Platina</button>
-        <button class="filter-tab" data-filter="ct">CT Series</button>
-      </div>
-
-      <div class="bike-grid" id="bike-container">
-        <!-- Skeleton cards while loading -->
-        <div class="skeleton-card">
-          <div class="skeleton-img"></div>
-          <div class="skeleton-body">
-            <div class="skeleton-line medium"></div>
-            <div class="skeleton-line short"></div>
-            <div class="skeleton-line"></div>
-          </div>
-        </div>
-        <div class="skeleton-card">
-          <div class="skeleton-img"></div>
-          <div class="skeleton-body">
-            <div class="skeleton-line medium"></div>
-            <div class="skeleton-line short"></div>
-            <div class="skeleton-line"></div>
-          </div>
-        </div>
-        <div class="skeleton-card">
-          <div class="skeleton-img"></div>
-          <div class="skeleton-body">
-            <div class="skeleton-line medium"></div>
-            <div class="skeleton-line short"></div>
-            <div class="skeleton-line"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FINANCE PROMO ─── -->
-  <section class="promo-band">
-    <div class="promo-inner">
+<!-- ══════════ PRICE LIST ══════════ -->
+<section id="prices">
+  <div class="section">
+    <div class="sec-head">
       <div>
-        <p class="promo-label">Easy Finance</p>
-        <h2 class="promo-title">RIDE NOW,<br>PAY EASY.</h2>
-        <p class="promo-desc">
-          Flexible EMI plans designed around your budget.
-          Low down payment, competitive rates, fast approval —
-          get on the road today.
-        </p>
-        <a href="finance.html" class="promo-cta">
-          Explore Finance Plans <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <div class="sec-tag">Live Price List &mdash; 2026</div>
+        <h2 class="sec-title">FIND<br>YOUR RIDE</h2>
       </div>
-      <div class="promo-features">
-        <div class="promo-feature">
-          <div class="promo-feature-icon"><i class="fa-solid fa-bolt"></i></div>
-          <div>
-            <div class="promo-feature-title">Fast Approval</div>
-            <div class="promo-feature-desc">Get your loan approved in as little as 24 hours with minimal paperwork.</div>
-          </div>
+      <p class="sec-note">All prices are on-road in Phidim, Panchthar. Updated in real time from Go! YNG.</p>
+    </div>
+
+    <div class="search-wrap">
+      <i class="fa-solid fa-magnifying-glass search-icon-el" id="search-icon"></i>
+      <input type="text" id="search-input"
+             placeholder="Search — Pulsar, Dominar, Avenger…"
+             autocomplete="off">
+      <span class="search-badge">Go! YNG</span>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="ftab active" data-filter="all">All Models</button>
+      <button class="ftab" data-filter="pulsar">Pulsar</button>
+      <button class="ftab" data-filter="dominar">Dominar</button>
+      <button class="ftab" data-filter="avenger">Avenger</button>
+      <button class="ftab" data-filter="platina">Platina</button>
+      <button class="ftab" data-filter="ct">CT Series</button>
+    </div>
+
+    <!-- Skeleton while loading -->
+    <div class="bike-grid" id="bike-container">
+      <div class="sk"><div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-med"></div><div class="sk-line sk-short"></div><div class="sk-line"></div></div></div>
+      <div class="sk"><div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-med"></div><div class="sk-line sk-short"></div><div class="sk-line"></div></div></div>
+      <div class="sk"><div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-med"></div><div class="sk-line sk-short"></div><div class="sk-line"></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ FINANCE BAND ══════════ -->
+<section class="finance-band">
+  <div class="finance-inner">
+    <div>
+      <p class="fi-tag">Easy Finance</p>
+      <h2 class="fi-title">RIDE NOW,<br>PAY EASY.</h2>
+      <p class="fi-desc">
+        Flexible EMI plans built around your budget. Low down payment,
+        competitive rates, and fast approval — get on the road today.
+      </p>
+      <a href="finance.html" class="fi-cta">
+        Explore Finance Plans <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="fi-features">
+      <div class="fi-feat">
+        <div class="fi-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div>
+          <div class="fi-feat-title">Fast Approval</div>
+          <div class="fi-feat-desc">Loan approved in as little as 24 hours with minimal paperwork required.</div>
         </div>
-        <div class="promo-feature">
-          <div class="promo-feature-icon"><i class="fa-solid fa-percent"></i></div>
-          <div>
-            <div class="promo-feature-title">Low Interest Rates</div>
-            <div class="promo-feature-desc">Competitive rates with flexible tenure options from 12 to 60 months.</div>
-          </div>
+      </div>
+      <div class="fi-feat">
+        <div class="fi-icon"><i class="fa-solid fa-percent"></i></div>
+        <div>
+          <div class="fi-feat-title">Competitive Interest Rates</div>
+          <div class="fi-feat-desc">Flexible tenure options from 12 to 60 months at market-best rates.</div>
         </div>
-        <div class="promo-feature">
-          <div class="promo-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div>
-            <div class="promo-feature-title">Zero Hidden Charges</div>
-            <div class="promo-feature-desc">Fully transparent pricing. What you see is what you pay.</div>
-          </div>
+      </div>
+      <div class="fi-feat">
+        <div class="fi-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <div class="fi-feat-title">Zero Hidden Charges</div>
+          <div class="fi-feat-desc">Fully transparent pricing. What you see is exactly what you pay.</div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ─── FOOTER ─── -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-logo-text">Go! YNG</div>
-        <div class="footer-tagline">Authorized Bajaj Partner</div>
-        <address class="footer-address" style="font-style:normal;">
-          Phidim-1, Panchthar<br>
-          Koshi Province, Nepal
-        </address>
-        <div class="footer-social" style="margin-top:1.5rem;">
-          <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://wa.me/9779802315425" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="https://www.tiktok.com/@bajajphidim" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-      </div>
 
-      <div class="footer-links-grid">
-        <div>
-          <div class="footer-col-label">Navigation</div>
-          <ul class="footer-col-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#prices">Price List</a></li>
-            <li><a href="finance.html">Finance Plans</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-label">Models</div>
-          <ul class="footer-col-links">
-            <li><a href="#">Pulsar Series</a></li>
-            <li><a href="#">Dominar Series</a></li>
-            <li><a href="#">Avenger Series</a></li>
-            <li><a href="#">CT Series</a></li>
-            <li><a href="#">Platina Series</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-label">Contact</div>
-          <ul class="footer-col-links">
-            <li><a href="https://wa.me/9779802315425" target="_blank">+977 9802315425</a></li>
-            <li><a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a></li>
-            <li><a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a></li>
-          </ul>
-        </div>
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-logo-name">Go! YNG</div>
+      <div class="f-logo-sub">Authorized Bajaj Partner</div>
+      <address class="f-address" style="font-style:normal;">
+        Phidim-1, Panchthar<br>
+        Koshi Province, Nepal
+      </address>
+      <div class="f-social">
+        <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.me/9779802315425" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.tiktok.com/@bajajphidim" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Go! YNG — Go Your Dream</span>
-      <span class="footer-authorized">
-        <span class="dot"></span> Authorized Bajaj Dealer
-      </span>
+    <div class="f-cols">
+      <div>
+        <div class="f-col-hd">Navigation</div>
+        <ul class="f-col-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#prices">Price List</a></li>
+          <li><a href="finance.html">Finance Plans</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-hd">Models</div>
+        <ul class="f-col-links">
+          <li><a href="#">Pulsar Series</a></li>
+          <li><a href="#">Dominar Series</a></li>
+          <li><a href="#">Avenger Series</a></li>
+          <li><a href="#">Platina Series</a></li>
+          <li><a href="#">CT Series</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-hd">Contact</div>
+        <ul class="f-col-links">
+          <li><a href="https://wa.me/9779802315425" target="_blank">+977 980-231-5425</a></li>
+          <li><a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a></li>
+          <li><a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a></li>
+        </ul>
+      </div>
     </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <span class="f-copy">&copy; 2026 Go! YNG &mdash; Go Your Dream</span>
+    <span class="f-badge"><span class="dot"></span> Authorized Bajaj Dealer</span>
+  </div>
+</footer>
 
-  <script>
-    // ── NAV MOBILE ──
-    const hamburger = document.getElementById('hamburger');
-    const drawer = document.getElementById('drawer');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      drawer.classList.toggle('open');
-      document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
-    });
+<!-- ══════════ SCRIPTS ══════════ -->
+<script>
+  /* ── Mobile nav ── */
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('drawer');
+  const overlay   = document.getElementById('drawer-overlay');
 
-    drawer.addEventListener('click', (e) => {
-      if (e.target === drawer) {
-        hamburger.classList.remove('open');
-        drawer.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-    });
+  function toggleDrawer(open) {
+    hamburger.classList.toggle('open', open);
+    drawer.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
 
-    // ── SEARCH ICON FOCUS ──
-    const searchInput = document.getElementById('search-input');
-    const searchIcon = document.getElementById('search-icon');
-    if (searchInput) {
-      searchInput.addEventListener('focus', () => searchIcon.style.color = 'var(--red)');
-      searchInput.addEventListener('blur',  () => searchIcon.style.color = '');
-    }
-  </script>
+  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
+  overlay.addEventListener('click',   () => toggleDrawer(false));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleDrawer(false)));
 
-  <script type="module" src="script.js"></script>
+  /* ── Search focus ring on icon ── */
+  const si = document.getElementById('search-input');
+  const ic = document.getElementById('search-icon');
+  si.addEventListener('focus', () => ic.style.color = 'var(--red)');
+  si.addEventListener('blur',  () => ic.style.color = '');
+</script>
+
+<script type="module" src="script.js"></script>
 </body>
 </html>
