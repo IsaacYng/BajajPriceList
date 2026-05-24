@@ -57,7 +57,7 @@ function getCategory(name) {
 function formatPrice(val) {
   const num = parseFloat(val);
   if (!val || isNaN(num)) return 'On Request';
-  return 'रू ' + num.toLocaleString('en-NP');
+  return 'Rs. ' + num.toLocaleString('en-NP');
 }
 
 // ── RENDER CARDS ──
@@ -91,7 +91,7 @@ function renderBikes(bikes) {
     const name         = bike.name || 'Bajaj';
     const series       = getSeries(bike.name);
     const price        = formatPrice(bike.price);
-    const insurance    = bike.Insurance ? 'रू ' + Number(bike.Insurance).toLocaleString('en-NP') : null;
+    const insurance    = bike.Insurance ? 'Rs. ' + Number(bike.Insurance).toLocaleString('en-NP') : null;
     const imgSrc       = bike.img || `https://placehold.co/600x320/F7F5F2/6B6B68?text=${encodeURIComponent(name)}`;
     const isNew        = !!bike.isNew;
     const badge        = bike.badge || null;
