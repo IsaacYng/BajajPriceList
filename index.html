@@ -826,6 +826,48 @@
       100% { background-position: -200% 0; }
     }
 
+    /* Official badge (top-right of image) */
+    .bike-card-official {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      color: #1A6B3C;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 5px 10px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Insurance row */
+    .bike-insurance-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bike-insurance-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-3);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bike-insurance-label i { color: var(--red); font-size: 11px; }
+
+    .bike-insurance-val {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+
     /* Empty state */
     .empty-state {
       grid-column: 1 / -1;
@@ -1396,7 +1438,7 @@
     </div>
   </footer>
 
-  <script type="module">
+  <script>
     // ── NAV MOBILE ──
     const hamburger = document.getElementById('hamburger');
     const drawer = document.getElementById('drawer');
@@ -1418,122 +1460,10 @@
     // ── SEARCH ICON FOCUS ──
     const searchInput = document.getElementById('search-input');
     const searchIcon = document.getElementById('search-icon');
-    searchInput.addEventListener('focus', () => searchIcon.style.color = 'var(--red)');
-    searchInput.addEventListener('blur', () => searchIcon.style.color = '');
-
-    // ── FILTER TABS ──
-    let activeFilter = 'all';
-    const filterTabs = document.querySelectorAll('.filter-tab');
-    filterTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        filterTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        activeFilter = tab.dataset.filter;
-        renderCards(window._allBikes || []);
-      });
-    });
-
-    // ── SEARCH ──
-    searchInput.addEventListener('input', () => {
-      renderCards(window._allBikes || []);
-    });
-
-    // ── RENDER ──
-    function renderCards(bikes) {
-      const container = document.getElementById('bike-container');
-      const query = searchInput.value.toLowerCase().trim();
-
-      let filtered = bikes.filter(b => {
-        const name = (b.name || '').toLowerCase();
-        const series = (b.series || '').toLowerCase();
-        const matchSearch = !query || name.includes(query) || series.includes(query);
-        const matchFilter = activeFilter === 'all' || name.includes(activeFilter) || series.includes(activeFilter);
-        return matchSearch && matchFilter;
-      });
-
-      if (!filtered.length) {
-        container.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <div class="empty-title">NO RESULTS</div>
-            <p class="empty-desc">We couldn't find any bikes matching your search. Try a different name.</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = filtered.map((bike, i) => {
-        const isNew = bike.isNew || false;
-        const badgeHtml = isNew
-          ? `<span class="bike-card-badge bike-card-new">New</span>`
-          : (bike.badge ? `<span class="bike-card-badge">${bike.badge}</span>` : '');
-
-        const imgSrc = bike.imageUrl
-          ? bike.imageUrl
-          : `https://placehold.co/600x300/F7F5F2/6B6B68?text=${encodeURIComponent(bike.name || 'Bajaj')}`;
-
-        const priceDisplay = bike.price
-          ? `रू ${Number(bike.price).toLocaleString('en-NP')}`
-          : 'On Request';
-
-        const specs = [];
-        if (bike.cc) specs.push({ label: 'Engine', val: bike.cc + ' cc' });
-        if (bike.power) specs.push({ label: 'Power', val: bike.power });
-        if (bike.mileage) specs.push({ label: 'Mileage', val: bike.mileage });
-        if (bike.weight) specs.push({ label: 'Weight', val: bike.weight });
-
-        const specsHtml = specs.length ? `
-          <div class="bike-card-divider"></div>
-          <div class="bike-card-specs">
-            ${specs.map(s => `
-              <div class="bike-spec">
-                <span class="bike-spec-label">${s.label}</span>
-                <span class="bike-spec-val">${s.val}</span>
-              </div>
-            `).join('')}
-          </div>
-        ` : '';
-
-        return `
-          <div class="bike-card fade-in" style="animation-delay:${i * 60}ms;">
-            <div class="bike-card-img-wrap">
-              <img src="${imgSrc}" alt="${bike.name}" class="bike-card-img" loading="lazy" onerror="this.src='https://placehold.co/600x300/F7F5F2/6B6B68?text=Bajaj'">
-              ${badgeHtml}
-            </div>
-            <div class="bike-card-body">
-              <div class="bike-card-top">
-                <div>
-                  <div class="bike-card-name">${bike.name || 'Bajaj'}</div>
-                  <div class="bike-card-series">${bike.series || 'Bajaj Motorcycles'}</div>
-                </div>
-                <div class="bike-card-price-tag">
-                  <div class="bike-card-price-label">Price</div>
-                  <div class="bike-card-price">${priceDisplay}</div>
-                </div>
-              </div>
-              ${specsHtml}
-              <div class="bike-card-footer">
-                <div class="bike-card-finance">
-                  <i class="fa-solid fa-hand-holding-dollar"></i>
-                  EMI available
-                </div>
-                <div class="bike-card-arrow">
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
+    if (searchInput) {
+      searchInput.addEventListener('focus', () => searchIcon.style.color = 'var(--red)');
+      searchInput.addEventListener('blur',  () => searchIcon.style.color = '');
     }
-
-    // ── FIREBASE LOAD ──
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    // Firebase config will be loaded from script.js — kept here for structure
-    // The actual data fetch happens in script.js; this file sets up the rendering pipeline
-    window.renderBikeCards = renderCards;
   </script>
 
   <script type="module" src="script.js"></script>
