@@ -1,178 +1,1541 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bajaj Bike Price List Nepal</title>
-<meta name="description" content="Official Bajaj bike price list at Go! YNG, Phidim. Check the latest prices for Pulsar, Dominar, and Avenger. Easy finance options available. Latest Bajaj Bike Price">
-<meta name="keywords" content="Bajaj Price List Nepal, Go YNG Phidim, Bajaj Pulsar Price Phidim, Bajaj Finance Nepal">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go! YNG — Bajaj Price List Nepal</title>
+  <meta name="description" content="Official Bajaj bike price list at Go! YNG, Phidim. Check the latest prices for Pulsar, Dominar, and Avenger. Easy finance options available.">
+  <meta name="keywords" content="Bajaj Price List Nepal, Go YNG Phidim, Bajaj Pulsar Price Phidim, Bajaj Finance Nepal">
+  <meta property="og:title" content="Go! YNG | Bajaj Price List Phidim">
+  <meta property="og:description" content="Check the latest Bajaj bike prices and finance schemes in Phidim.">
+  <link rel="canonical" href="https://projectprice.yonghangishak.com.np" />
+  <link rel="icon" type="image/png" href="favicons.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<meta property="og:title" content="Go! YNG | Bajaj Price List Phidim">
-<meta property="og:description" content="Check the latest Bajaj bike prices and finance schemes in Phidim.">
-<meta property="og:image" content="https://yonghangishak.com.np/og-image.jpg">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <script src="https://cdn.tailwindcss.com"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MotorcycleDealer",
-  "name": "Go! YNG",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Phidim-1",
-    "addressLocality": "Phidim",
-    "addressRegion": "Koshi Province",
-    "addressCountry": "NP"
-  },
-  "url": "https://projectprice.yonghangishak.com.np",
-  "priceRange": "रू",
-  "image": "https://projectprice.yonghangishak.com.np/favicons.png",
-  "description": "Authorized Bajaj motorcycle price list and finance details in Phidim, Nepal."
-}
-</script>
-<link rel="canonical" href="https://projectprice.yonghangishak.com.np" />
+    :root {
+      --red: #D0271D;
+      --red-dark: #A01E16;
+      --red-pale: #FDF1F0;
+      --ink: #111110;
+      --ink-2: #3A3A38;
+      --ink-3: #6B6B68;
+      --line: #E6E4DF;
+      --surface: #F7F5F2;
+      --white: #FFFFFF;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --nav-h: 72px;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-      <link rel="icon" type="image/png" href="favicons.png">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--red);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-logo-mark svg { display: block; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-text .go {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 0.05em;
+      color: var(--red);
+    }
+
+    .nav-logo-text .sub {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-2);
+      transition: background 0.2s var(--ease), color 0.2s var(--ease);
+    }
+
+    .nav-links a:hover { background: var(--surface); color: var(--ink); }
+    .nav-links a.active { background: var(--red-pale); color: var(--red); }
+    .nav-links a i { font-size: 15px; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .btn-nav:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    /* Mobile menu button */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: none;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      inset: var(--nav-h) 0 0 0;
+      background: rgba(17,17,16,0.5);
+      z-index: 90;
+    }
+
+    .nav-drawer.open { display: block; }
+
+    .nav-drawer-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: min(340px, 90vw);
+      height: 100%;
+      background: var(--white);
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.35s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: auto;
+    }
+
+    .nav-drawer.open .nav-drawer-panel { transform: translateX(0); }
+
+    .nav-drawer-panel a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink-2);
+      transition: background 0.2s, color 0.2s;
+      border: 1px solid transparent;
+    }
+
+    .nav-drawer-panel a:hover { background: var(--surface); color: var(--ink); }
+
+    .nav-drawer-panel .drawer-cta {
+      margin-top: 1rem;
+      background: var(--red);
+      color: var(--white);
+      justify-content: center;
+      border-color: var(--red);
+    }
+
+    .nav-drawer-panel .drawer-cta:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+    .drawer-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding: 0 4px;
+      margin-bottom: 4px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--ink);
+      z-index: 0;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+      mix-blend-mode: luminosity;
+      z-index: 1;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(17,17,16,0.96) 0%,
+        rgba(17,17,16,0.5) 45%,
+        rgba(17,17,16,0.15) 100%
+      );
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 2rem 5rem;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(208,39,29,0.15);
+      border: 1px solid rgba(208,39,29,0.3);
+      color: #F4756E;
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow i { font-size: 11px; }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 11vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title .accent { color: var(--red); }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-desc {
+      max-width: 420px;
+      color: rgba(255,255,255,0.6);
+      font-size: 15px;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s var(--ease), border-color 0.2s;
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.25); }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.35));
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ─── STATS STRIP ─── */
+    .stats-strip {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stats-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 2rem 1.5rem;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 44px;
+      line-height: 1;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .stat-num .stat-unit { font-size: 24px; color: var(--red); }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ─── PRICE SECTION ─── */
+    .section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .section-desc {
+      max-width: 340px;
+      color: var(--ink-3);
+      font-size: 14px;
+      line-height: 1.7;
+      font-weight: 300;
+      text-align: right;
+    }
+
+    /* Search */
+    .search-wrap {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-3);
+      font-size: 15px;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 56px;
+      border-radius: 12px;
+      border: 1.5px solid var(--line);
+      background: var(--white);
+      padding: 0 140px 0 52px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .search-input::placeholder { color: var(--ink-3); font-weight: 300; }
+
+    .search-input:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px rgba(208,39,29,0.08);
+    }
+
+    .search-input:focus ~ .search-icon { color: var(--red); }
+
+    .search-badge {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--ink-3);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Filter tabs */
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-tab {
+      padding: 8px 18px;
+      border-radius: 100px;
+      border: 1.5px solid var(--line);
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+    }
+
+    .filter-tab:hover { border-color: var(--ink-3); color: var(--ink); }
+    .filter-tab.active { background: var(--red); border-color: var(--red); color: var(--white); }
+
+    /* ─── BIKE CARDS ─── */
+    .bike-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .bike-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bike-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(17,17,16,0.1);
+      border-color: rgba(208,39,29,0.25);
+    }
+
+    .bike-card-img-wrap {
+      background: var(--surface);
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bike-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s var(--ease);
+    }
+
+    .bike-card:hover .bike-card-img { transform: scale(1.04); }
+
+    .bike-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .bike-card-new {
+      background: var(--red);
+    }
+
+    .bike-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .bike-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .bike-card-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .bike-card-series {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-top: 2px;
+    }
+
+    .bike-card-price-tag {
+      background: var(--red-pale);
+      border: 1px solid rgba(208,39,29,0.15);
+      border-radius: 8px;
+      padding: 8px 12px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .bike-card-price-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #A01E16;
+    }
+
+    .bike-card-price {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--red);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .bike-card-divider {
+      height: 1px;
+      background: var(--line);
+    }
+
+    .bike-card-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .bike-spec {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .bike-spec-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .bike-spec-val {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+    }
+
+    .bike-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .bike-card-finance {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+
+    .bike-card-finance i { color: var(--red); }
+
+    .bike-card-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--ink-2);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .bike-card:hover .bike-card-arrow {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    /* ─── LOADING STATE ─── */
+    .loading-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 2rem;
+      gap: 1.5rem;
+    }
+
+    .loading-spinner {
+      width: 48px;
+      height: 48px;
+      border: 2px solid var(--line);
+      border-top-color: var(--red);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-text {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* Skeleton cards */
+    .skeleton-card {
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .skeleton-img {
+      height: 200px;
+      background: var(--surface);
+      background: linear-gradient(90deg, var(--surface) 25%, #EDEBE6 50%, var(--surface) 75%);
+      background-size: 400% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+
+    .skeleton-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 10px; }
+
+    .skeleton-line {
+      height: 14px;
+      border-radius: 6px;
+      background: var(--surface);
+      background: linear-gradient(90deg, var(--surface) 25%, #EDEBE6 50%, var(--surface) 75%);
+      background-size: 400% 100%;
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+
+    .skeleton-line.short { width: 50%; }
+    .skeleton-line.medium { width: 70%; }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 2rem;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .empty-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--red-pale);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      font-size: 24px;
+    }
+
+    .empty-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--ink);
+      letter-spacing: 0.03em;
+    }
+
+    .empty-desc { font-size: 14px; color: var(--ink-3); max-width: 280px; }
+
+    /* ─── FINANCE PROMO ─── */
+    .promo-band {
+      background: var(--ink);
+      color: var(--white);
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .promo-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .promo-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(208,39,29,0.9);
+      margin-bottom: 12px;
+    }
+
+    .promo-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .promo-desc {
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 360px;
+    }
+
+    .promo-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .promo-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .promo-feature:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .promo-feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(208,39,29,0.15);
+      border: 1px solid rgba(208,39,29,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F4756E;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .promo-feature-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .promo-feature-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+    }
+
+    .promo-cta {
+      margin-top: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .promo-cta:hover { background: var(--red-dark); }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+
+    .footer-brand {}
+
+    .footer-logo-text {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-address {
+      font-size: 13px;
+      color: var(--ink-3);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-col-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+    }
+
+    .footer-col-links a {
+      font-size: 13px;
+      color: var(--ink-3);
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+    }
+
+    .footer-col-links a:hover { color: var(--red); }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .footer-social a:hover { background: var(--red-pale); color: var(--red); border-color: rgba(208,39,29,0.2); }
+
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy { font-size: 12px; color: var(--ink-3); font-weight: 300; }
+
+    .footer-authorized {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .footer-authorized .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+      display: inline-block;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .promo-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-links-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero { min-height: 80vh; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .section-desc { text-align: left; }
+      .stats-inner { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--line); }
+      .stat-item:last-child { border-bottom: none; }
+      .bike-grid { grid-template-columns: 1fr; }
+      .footer-links-grid { grid-template-columns: 1fr 1fr; }
+      .promo-inner { padding: 3rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .footer-links-grid { grid-template-columns: 1fr; }
+      .footer-inner { padding: 3rem 1.5rem 2rem; }
+      .hero-title { font-size: 58px; }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeIn 0.6s var(--ease) forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
 
-    <nav class="bg-white border-b sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0">
-                    <span class="text-2xl font-black text-red-600 tracking-tighter">YNG</span>
-                </div>
-
-                <div class="hidden md:flex space-x-8 font-semibold text-gray-600">
-                    <a href="#" class="hover:text-red-600">Home</a>
-                    <a href="finance.html" class="hover:text-red-600">Finance</a>
-                </div>
-
-                <button id="menu-btn" class="md:hidden text-2xl p-2">
-                    <i class="fa-solid fa-bars-staggered"></i>
-                </button>
-            </div>
+  <!-- ─── NAV ─── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M3 14 L10 4 L17 14 M6 11 L14 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </div>
-    </nav>
-
-    <div id="overlay" class="fixed inset-0 bg-black/50 z-[60] hidden backdrop-blur-sm transition-opacity"></div>
-    <div id="drawer" class="fixed top-0 left-0 w-72 h-full bg-white z-[70] shadow-2xl transform -translate-x-full transition-transform duration-300">
-        <div class="p-6">
-            <div class="flex justify-between items-center mb-10">
-                <span class="font-bold text-xl uppercase tracking-widest text-red-600">Menu</span>
-                <button id="close-btn" class="text-3xl text-gray-400">&times;</button>
-            </div>
-            <div class="flex flex-col space-y-6 font-medium text-lg">
-                <a href="#" class="flex items-center space-x-4 p-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition"><i class="fa-solid fa-house"></i> <span>Home</span></a>
-                <a href="finance.html" class="flex items-center space-x-4 p-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition"><i class="fa-solid fa-money-bill-trend-up"></i><span>Finance</span></a>
-            </div>
+        <div class="nav-logo-text">
+          <span class="go">Go! YNG</span>
+          <span class="sub">Bajaj Partner · Phidim</span>
         </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="finance.html"><i class="fa-solid fa-chart-line"></i> Finance</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="https://wa.me/9779802315425" target="_blank" class="btn-nav">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <section class="relative bg-slate-900 text-white overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent z-10"></div>
-        <img src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50" alt="Bajaj Bike">
-        <div class="relative z-20 max-w-7xl mx-auto px-4 py-24 sm:py-32">
-            <h1 class="text-4xl md:text-7xl font-extrabold mb-6">Unleash the <br><span class="text-red-500">Thrill of Riding.</span></h1>
-            <p class="max-w-xl text-lg text-slate-300 mb-8">Browse the latest price list and find your perfect match. Authorized partner in Phidim.</p>
-            <a href="#prices" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-bold transition inline-block">View Price List</a>
-        </div>
-    </section>
+  <!-- Mobile Drawer -->
+  <div class="nav-drawer" id="drawer">
+    <div class="nav-drawer-panel" id="drawer-panel">
+      <p class="drawer-label">Navigation</p>
+      <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="finance.html"><i class="fa-solid fa-money-bill-trend-up"></i> Finance</a>
+      <a href="#prices"><i class="fa-solid fa-list"></i> Price List</a>
+      <a href="https://wa.me/9779802315425" target="_blank" class="drawer-cta">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+    </div>
+  </div>
 
-    <main id="prices" class="max-w-7xl mx-auto px-4 py-20">
-   <section id="Price_list" class="py-20 px-4 max-w-7xl mx-auto flex flex-col items-center">
-    
-    <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-4">
-            FIND YOUR <span class="text-red-600">RIDE</span>
-        </h2>
-        <p class="text-gray-500 font-medium max-w-sm mx-auto">
-            Discover the latest Bajaj prices updated in real-time.
+  <!-- ─── HERO ─── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img
+      src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg"
+      class="hero-img"
+      alt="Bajaj motorcycle"
+    >
+    <div class="hero-gradient"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <i class="fa-solid fa-circle-dot"></i>
+        Authorized Bajaj Partner · Phidim
+      </div>
+      <h1 class="hero-title">
+        FIND YOUR<br><span class="accent">PERFECT</span><br>RIDE.
+      </h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">
+          Browse Nepal's freshest Bajaj price list — updated in real time.
+          Pulsar. Dominar. Avenger. Your road, your rules.
         </p>
+        <div class="hero-actions">
+          <a href="#prices" class="btn-primary">
+            <i class="fa-solid fa-list-ul"></i> View Price List
+          </a>
+          <a href="finance.html" class="btn-ghost">
+            <i class="fa-solid fa-hand-holding-dollar"></i> Finance Options
+          </a>
+        </div>
+      </div>
     </div>
 
-    <div class="w-full max-w-xl relative group mb-16">
-        <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-            <i class="fa-solid fa-magnifying-glass text-gray-400 group-focus-within:text-red-600 transition-colors"></i>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ─── STATS ─── -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">20<span class="stat-unit">+</span></div>
+        <div class="stat-label">Models Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0<span class="stat-unit">%</span></div>
+        <div class="stat-label">Down Payment Options</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">24<span class="stat-unit">hr</span></div>
+        <div class="stat-label">WhatsApp Support</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── PRICE LIST ─── -->
+  <section id="prices">
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Live Price List — 2026</div>
+          <h2 class="section-title">FIND<br>YOUR RIDE</h2>
         </div>
-        <input 
-            type="text" 
-            id="search-input" 
-            placeholder="Search" 
-            class="w-full bg-white border-2 border-gray-100 rounded-full py-5 pl-14 pr-6 shadow-xl shadow-slate-100 focus:outline-none focus:ring-4 focus:ring-red-500/10 focus:border-red-600 transition-all placeholder:text-gray-400 text-slate-700 text-lg"
+        <p class="section-desc">Prices updated directly from Go! YNG. All rates are on-road in Phidim, Panchthar.</p>
+      </div>
+
+      <div class="search-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon" id="search-icon"></i>
+        <input
+          type="text"
+          class="search-input"
+          id="search-input"
+          placeholder="Search bikes — Pulsar, Dominar, Avenger…"
+          autocomplete="off"
         >
-        <div class="absolute inset-y-2 right-2 hidden md:flex items-center pr-2">
-            <span class="bg-slate-50 text-slate-400 text-[10px] font-bold px-3 py-2 rounded-full border">Go! YNG</span>
-        </div>
-    </div>
+        <span class="search-badge">Go! YNG</span>
+      </div>
 
-    <div id="bike-container" class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="col-span-full py-20 text-center">
-            <div class="relative inline-block">
-                <div class="absolute inset-0 rounded-full bg-red-100 animate-ping opacity-25"></div>
-                <div class="relative bg-white p-6 rounded-full shadow-lg text-red-600">
-                    <i class="fa-solid fa-satellite-dish text-3xl"></i>
-                </div>
-            </div>
-            <p class="mt-6 text-slate-400 font-bold uppercase tracking-[0.3em] text-xs">Syncing Live Data</p>
-        </div>
-    </div>
-</section>  
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Models</button>
+        <button class="filter-tab" data-filter="pulsar">Pulsar</button>
+        <button class="filter-tab" data-filter="dominar">Dominar</button>
+        <button class="filter-tab" data-filter="avenger">Avenger</button>
+        <button class="filter-tab" data-filter="platina">Platina</button>
+        <button class="filter-tab" data-filter="ct">CT Series</button>
+      </div>
 
+      <div class="bike-grid" id="bike-container">
+        <!-- Skeleton cards while loading -->
+        <div class="skeleton-card">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-body">
+            <div class="skeleton-line medium"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line"></div>
           </div>
         </div>
-    </main>
-
-    <footer class="bg-white border-t py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="font-bold text-slate-800 text-lg uppercase tracking-wider">Go! YNG</p>
-        <p class="text-gray-500 text-sm mb-2">Authorized Bajaj Partner</p>
-        <p class="text-gray-400 text-xs mb-6 italic">Phidim-1, Panchthar, Koshi Province, Nepal</p>
-        
-        <p class="text-gray-500 mb-6">Go your Dream &copy; 2026</p>
-
-        <div class="flex justify-center space-x-10 text-3xl text-gray-400">
-            <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" class="hover:text-blue-600 transition duration-300">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-
-            <a href="https://wa.me/9779802315425" target="_blank" class="hover:text-green-500 transition duration-300">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-
-            <a href="https://www.tiktok.com/@bajajphidim?_r=1&_t=ZS-964u7521EMz" target="_blank" class="hover:text-black transition duration-300">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
+        <div class="skeleton-card">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-body">
+            <div class="skeleton-line medium"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line"></div>
+          </div>
         </div>
+        <div class="skeleton-card">
+          <div class="skeleton-img"></div>
+          <div class="skeleton-body">
+            <div class="skeleton-line medium"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line"></div>
+          </div>
+        </div>
+      </div>
     </div>
-</footer>
+  </section>
 
+  <!-- ─── FINANCE PROMO ─── -->
+  <section class="promo-band">
+    <div class="promo-inner">
+      <div>
+        <p class="promo-label">Easy Finance</p>
+        <h2 class="promo-title">RIDE NOW,<br>PAY EASY.</h2>
+        <p class="promo-desc">
+          Flexible EMI plans designed around your budget.
+          Low down payment, competitive rates, fast approval —
+          get on the road today.
+        </p>
+        <a href="finance.html" class="promo-cta">
+          Explore Finance Plans <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="promo-features">
+        <div class="promo-feature">
+          <div class="promo-feature-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <div class="promo-feature-title">Fast Approval</div>
+            <div class="promo-feature-desc">Get your loan approved in as little as 24 hours with minimal paperwork.</div>
+          </div>
+        </div>
+        <div class="promo-feature">
+          <div class="promo-feature-icon"><i class="fa-solid fa-percent"></i></div>
+          <div>
+            <div class="promo-feature-title">Low Interest Rates</div>
+            <div class="promo-feature-desc">Competitive rates with flexible tenure options from 12 to 60 months.</div>
+          </div>
+        </div>
+        <div class="promo-feature">
+          <div class="promo-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div>
+            <div class="promo-feature-title">Zero Hidden Charges</div>
+            <div class="promo-feature-desc">Fully transparent pricing. What you see is what you pay.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-text">Go! YNG</div>
+        <div class="footer-tagline">Authorized Bajaj Partner</div>
+        <address class="footer-address" style="font-style:normal;">
+          Phidim-1, Panchthar<br>
+          Koshi Province, Nepal
+        </address>
+        <div class="footer-social" style="margin-top:1.5rem;">
+          <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/9779802315425" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.tiktok.com/@bajajphidim" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+      <div class="footer-links-grid">
+        <div>
+          <div class="footer-col-label">Navigation</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#prices">Price List</a></li>
+            <li><a href="finance.html">Finance Plans</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-label">Models</div>
+          <ul class="footer-col-links">
+            <li><a href="#">Pulsar Series</a></li>
+            <li><a href="#">Dominar Series</a></li>
+            <li><a href="#">Avenger Series</a></li>
+            <li><a href="#">CT Series</a></li>
+            <li><a href="#">Platina Series</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-label">Contact</div>
+          <ul class="footer-col-links">
+            <li><a href="https://wa.me/9779802315425" target="_blank">+977 9802315425</a></li>
+            <li><a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a></li>
+            <li><a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Go! YNG — Go Your Dream</span>
+      <span class="footer-authorized">
+        <span class="dot"></span> Authorized Bajaj Dealer
+      </span>
+    </div>
+  </footer>
 
-        // Drawer Controls
-        const btn = document.getElementById('menu-btn');
-        const close = document.getElementById('close-btn');
-        const drawer = document.getElementById('drawer');
-        const overlay = document.getElementById('overlay');
+  <script type="module">
+    // ── NAV MOBILE ──
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('drawer');
 
-        const toggle = () => {
-            drawer.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
-        };
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      drawer.classList.toggle('open');
+      document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+    });
 
-        btn.addEventListener('click', toggle);
-        close.addEventListener('click', toggle);
-        overlay.addEventListener('click', toggle);
-    </script>
-    <script type="module" src="script.js"></script>
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) {
+        hamburger.classList.remove('open');
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // ── SEARCH ICON FOCUS ──
+    const searchInput = document.getElementById('search-input');
+    const searchIcon = document.getElementById('search-icon');
+    searchInput.addEventListener('focus', () => searchIcon.style.color = 'var(--red)');
+    searchInput.addEventListener('blur', () => searchIcon.style.color = '');
+
+    // ── FILTER TABS ──
+    let activeFilter = 'all';
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        activeFilter = tab.dataset.filter;
+        renderCards(window._allBikes || []);
+      });
+    });
+
+    // ── SEARCH ──
+    searchInput.addEventListener('input', () => {
+      renderCards(window._allBikes || []);
+    });
+
+    // ── RENDER ──
+    function renderCards(bikes) {
+      const container = document.getElementById('bike-container');
+      const query = searchInput.value.toLowerCase().trim();
+
+      let filtered = bikes.filter(b => {
+        const name = (b.name || '').toLowerCase();
+        const series = (b.series || '').toLowerCase();
+        const matchSearch = !query || name.includes(query) || series.includes(query);
+        const matchFilter = activeFilter === 'all' || name.includes(activeFilter) || series.includes(activeFilter);
+        return matchSearch && matchFilter;
+      });
+
+      if (!filtered.length) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <div class="empty-title">NO RESULTS</div>
+            <p class="empty-desc">We couldn't find any bikes matching your search. Try a different name.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((bike, i) => {
+        const isNew = bike.isNew || false;
+        const badgeHtml = isNew
+          ? `<span class="bike-card-badge bike-card-new">New</span>`
+          : (bike.badge ? `<span class="bike-card-badge">${bike.badge}</span>` : '');
+
+        const imgSrc = bike.imageUrl
+          ? bike.imageUrl
+          : `https://placehold.co/600x300/F7F5F2/6B6B68?text=${encodeURIComponent(bike.name || 'Bajaj')}`;
+
+        const priceDisplay = bike.price
+          ? `रू ${Number(bike.price).toLocaleString('en-NP')}`
+          : 'On Request';
+
+        const specs = [];
+        if (bike.cc) specs.push({ label: 'Engine', val: bike.cc + ' cc' });
+        if (bike.power) specs.push({ label: 'Power', val: bike.power });
+        if (bike.mileage) specs.push({ label: 'Mileage', val: bike.mileage });
+        if (bike.weight) specs.push({ label: 'Weight', val: bike.weight });
+
+        const specsHtml = specs.length ? `
+          <div class="bike-card-divider"></div>
+          <div class="bike-card-specs">
+            ${specs.map(s => `
+              <div class="bike-spec">
+                <span class="bike-spec-label">${s.label}</span>
+                <span class="bike-spec-val">${s.val}</span>
+              </div>
+            `).join('')}
+          </div>
+        ` : '';
+
+        return `
+          <div class="bike-card fade-in" style="animation-delay:${i * 60}ms;">
+            <div class="bike-card-img-wrap">
+              <img src="${imgSrc}" alt="${bike.name}" class="bike-card-img" loading="lazy" onerror="this.src='https://placehold.co/600x300/F7F5F2/6B6B68?text=Bajaj'">
+              ${badgeHtml}
+            </div>
+            <div class="bike-card-body">
+              <div class="bike-card-top">
+                <div>
+                  <div class="bike-card-name">${bike.name || 'Bajaj'}</div>
+                  <div class="bike-card-series">${bike.series || 'Bajaj Motorcycles'}</div>
+                </div>
+                <div class="bike-card-price-tag">
+                  <div class="bike-card-price-label">Price</div>
+                  <div class="bike-card-price">${priceDisplay}</div>
+                </div>
+              </div>
+              ${specsHtml}
+              <div class="bike-card-footer">
+                <div class="bike-card-finance">
+                  <i class="fa-solid fa-hand-holding-dollar"></i>
+                  EMI available
+                </div>
+                <div class="bike-card-arrow">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ── FIREBASE LOAD ──
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Firebase config will be loaded from script.js — kept here for structure
+    // The actual data fetch happens in script.js; this file sets up the rendering pipeline
+    window.renderBikeCards = renderCards;
+  </script>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
