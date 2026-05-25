@@ -7,477 +7,421 @@
   <meta name="description" content="Official Bajaj bike price list at Go! YNG, Phidim. Latest prices for Pulsar, Dominar, Avenger. Easy finance options available.">
   <meta name="keywords" content="Bajaj Price List Nepal, Go YNG Phidim, Bajaj Pulsar Price Phidim, Bajaj Finance Nepal">
   <meta property="og:title" content="Go! YNG | Bajaj Price List Phidim">
-  <meta property="og:description" content="Check the latest Bajaj bike prices and finance schemes in Phidim.">
+  <meta property="og:description" content="Latest Bajaj bike prices and finance schemes in Phidim, Nepal.">
   <link rel="canonical" href="https://projectprice.yonghangishak.com.np" />
-  <link rel="icon" type="image/png" href="favicons.png">
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    /* ── RESET ── */
+    /* ─── RESET ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     img { display: block; max-width: 100%; }
-    a { text-decoration: none; }
+    a   { text-decoration: none; color: inherit; }
+    ul  { list-style: none; }
     button { border: none; background: none; cursor: pointer; font: inherit; }
 
-    /* ── TOKENS ── */
+    /* ─── DESIGN TOKENS ─── */
     :root {
-      --red:      #D0271D;
-      --red-dk:   #A01E16;
-      --red-lt:   #FDF1F0;
-      --ink:      #111110;
-      --ink2:     #3A3A38;
-      --ink3:     #6B6B68;
-      --ink4:     #9A9A97;
-      --line:     #E6E4DF;
-      --bg:       #F7F5F2;
-      --white:    #FFFFFF;
-      --green:    #1A6B3C;
-      --green-lt: #EAF4EE;
+      --red:     #D0271D;
+      --red-dk:  #A01E16;
+      --red-lt:  #FDF1F0;
+      --ink:     #111110;
+      --ink2:    #3A3A38;
+      --ink3:    #6B6B68;
+      --ink4:    #9A9A97;
+      --line:    #E8E6E1;
+      --bg:      #F6F4F0;
+      --white:   #FFFFFF;
+      --green:   #1A6B3C;
       --D: 'Bebas Neue', sans-serif;
       --B: 'DM Sans', sans-serif;
       --ease: cubic-bezier(.25,.46,.45,.94);
-      --nav-h: 68px;
-      --r8: 8px;
-      --r12: 12px;
-      --r16: 16px;
+      --nav-h: 64px;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: var(--B); background: var(--bg); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+    body {
+      font-family: var(--B);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    /* ════════════ NAV ════════════ */
+    /* ══════════════════════════════════
+       NAV
+    ══════════════════════════════════ */
     .nav {
-      position: sticky; top: 0; z-index: 200;
+      position: sticky; top: 0; z-index: 300;
       height: var(--nav-h);
       background: rgba(255,255,255,.97);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner {
       max-width: 1320px; margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 1rem;
       height: 100%;
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: .75rem;
     }
 
     /* Logo */
-    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .logo-mark {
-      width: 36px; height: 36px;
-      background: var(--red); border-radius: var(--r8);
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: var(--red); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
     }
-    .logo-mark svg { width: 18px; height: 18px; }
-    .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.1; }
-    .logo-name { font-family: var(--D); font-size: 19px; letter-spacing: .06em; color: var(--red); }
-    .logo-sub  { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
+    .logo-mark svg { width: 16px; height: 16px; }
+    .logo-copy { line-height: 1.15; }
+    .logo-name { font-family: var(--D); font-size: 18px; letter-spacing: .05em; color: var(--red); display: block; }
+    .logo-sub  { font-size: 9.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); display: block; }
 
     /* Desktop links */
-    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links {
+      display: flex; align-items: center; gap: 2px;
+    }
     .nav-links a {
-      display: flex; align-items: center; gap: 7px;
-      padding: 8px 15px; border-radius: var(--r8);
-      font-size: 14px; font-weight: 500; color: var(--ink2);
-      transition: background .18s, color .18s;
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 13px; border-radius: 8px;
+      font-size: 13.5px; font-weight: 500; color: var(--ink2);
+      transition: background .16s, color .16s;
     }
     .nav-links a:hover   { background: var(--bg); color: var(--ink); }
     .nav-links a.active  { background: var(--red-lt); color: var(--red); }
-    .nav-links a i { font-size: 14px; }
 
-    /* Nav right */
-    .nav-right { display: flex; align-items: center; gap: 10px; }
+    /* Nav CTA */
     .nav-wa {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 18px; background: var(--red); color: var(--white);
-      border-radius: var(--r8); font-size: 13px; font-weight: 600;
-      transition: background .18s, transform .18s;
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; background: var(--red); color: var(--white);
+      border-radius: 8px; font-size: 13px; font-weight: 600;
+      transition: background .16s, transform .16s;
+      white-space: nowrap;
     }
     .nav-wa:hover { background: var(--red-dk); transform: translateY(-1px); }
 
     /* Hamburger */
-    .hamburger {
+    .ham {
       display: none;
-      width: 40px; height: 40px; border-radius: var(--r8);
+      width: 38px; height: 38px; border-radius: 8px;
       border: 1px solid var(--line);
       flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      flex-shrink: 0;
     }
-    .hamburger span {
-      display: block; width: 18px; height: 1.5px;
+    .ham span {
+      display: block; width: 17px; height: 1.5px;
       background: var(--ink); border-radius: 2px;
-      transition: transform .28s var(--ease), opacity .2s;
+      transition: transform .26s var(--ease), opacity .18s;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    /* Mobile drawer overlay */
-    .drawer-overlay {
-      display: none;
-      position: fixed; inset: 0; z-index: 190;
-      background: rgba(17,17,16,.45);
-      backdrop-filter: blur(4px);
+    /* Drawer */
+    .drawer-bg {
+      display: none; position: fixed; inset: 0; z-index: 280;
+      background: rgba(17,17,16,.5); backdrop-filter: blur(4px);
     }
-    .drawer-overlay.open { display: block; }
-
-    /* Drawer panel */
+    .drawer-bg.open { display: block; }
     .drawer {
       position: fixed; top: var(--nav-h); right: 0; bottom: 0;
-      width: min(320px, 88vw); z-index: 195;
+      width: min(300px, 86vw); z-index: 290;
       background: var(--white);
       transform: translateX(110%);
-      transition: transform .32s var(--ease);
-      padding: 1.5rem;
-      display: flex; flex-direction: column; gap: .5rem;
+      transition: transform .3s var(--ease);
+      padding: 1.25rem;
+      display: flex; flex-direction: column; gap: .375rem;
       overflow-y: auto;
     }
     .drawer.open { transform: translateX(0); }
-    .drawer-label {
-      font-size: 10px; font-weight: 700; letter-spacing: .18em;
-      text-transform: uppercase; color: var(--ink4);
-      padding: 0 4px; margin-bottom: 4px;
-    }
+    .drawer-tag { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink4); padding: 0 4px; margin-bottom: 2px; }
     .drawer a {
-      display: flex; align-items: center; gap: 12px;
-      padding: 13px 14px; border-radius: var(--r12);
+      display: flex; align-items: center; gap: 11px;
+      padding: 12px 13px; border-radius: 10px;
       font-size: 14px; font-weight: 500; color: var(--ink2);
-      border: 1px solid transparent;
-      transition: background .18s, color .18s;
+      transition: background .16s;
     }
-    .drawer a:hover { background: var(--bg); color: var(--ink); }
-    .drawer a i { width: 18px; text-align: center; font-size: 15px; }
-    .drawer-divider { height: 1px; background: var(--line); margin: .5rem 0; }
-    .drawer-cta {
-      background: var(--red) !important; color: var(--white) !important;
-      justify-content: center; border-color: var(--red) !important;
-    }
-    .drawer-cta:hover { background: var(--red-dk) !important; }
+    .drawer a:hover { background: var(--bg); }
+    .drawer a i { width: 16px; text-align: center; color: var(--ink3); }
+    .drawer hr { border: none; border-top: 1px solid var(--line); margin: .375rem 0; }
+    .drawer .d-cta { background: var(--red); color: var(--white); justify-content: center; border-radius: 10px; }
+    .drawer .d-cta:hover { background: var(--red-dk); }
+    .drawer .d-cta i { color: var(--white); }
 
-    /* ════════════ HERO ════════════ */
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
     .hero {
-      position: relative; min-height: 92vh;
+      position: relative; min-height: 88vh;
       display: flex; align-items: flex-end; overflow: hidden;
     }
-    .hero-bg { position: absolute; inset: 0; background: var(--ink); }
+    .hero-bg  { position: absolute; inset: 0; background: #0D0D0C; }
     .hero-img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; opacity: .42; mix-blend-mode: luminosity;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .72;
     }
     .hero-grad {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(17,17,16,.97) 0%, rgba(17,17,16,.55) 42%, rgba(17,17,16,.12) 100%);
+      background: linear-gradient(
+        to top,
+        rgba(13,13,12,.92) 0%,
+        rgba(13,13,12,.42) 40%,
+        rgba(13,13,12,.08) 100%
+      );
     }
-    .hero-content {
+    .hero-body {
       position: relative; z-index: 2;
       max-width: 1320px; margin: 0 auto; width: 100%;
-      padding: 5rem 1.5rem 4.5rem;
+      padding: 4rem 1.25rem 4.5rem;
     }
     .hero-pill {
       display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(208,39,29,.12); border: 1px solid rgba(208,39,29,.28);
-      color: #F27B74; padding: 6px 14px; border-radius: 100px;
-      font-size: 11px; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; margin-bottom: 1.5rem;
+      background: rgba(208,39,29,.12); border: 1px solid rgba(208,39,29,.3);
+      color: #F07B74; padding: 5px 13px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
     }
-    .hero-pill i { font-size: 10px; }
-    .hero-h1 {
+    h1.hero-h1 {
       font-family: var(--D);
-      font-size: clamp(58px, 10.5vw, 138px);
+      font-size: clamp(56px, 12vw, 136px);
       line-height: .9; letter-spacing: .025em;
-      color: var(--white); margin-bottom: 2.5rem;
+      color: var(--white); margin-bottom: 2.25rem;
     }
-    .hero-h1 .r { color: var(--red); }
-    .hero-foot {
+    h1.hero-h1 .r { color: var(--red); }
+    .hero-row {
       display: flex; align-items: flex-end;
-      justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+      justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
     }
-    .hero-desc { max-width: 400px; color: rgba(255,255,255,.55); font-size: 15px; font-weight: 300; line-height: 1.8; }
-    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 13px 26px; background: var(--red); color: var(--white);
-      border-radius: var(--r12); font-size: 14px; font-weight: 600;
-      transition: background .18s, transform .2s;
+    .hero-desc {
+      max-width: 380px; color: rgba(255,255,255,.5);
+      font-size: 14.5px; font-weight: 300; line-height: 1.8;
     }
-    .btn-primary:hover { background: var(--red-dk); transform: translateY(-2px); }
-    .btn-outline {
-      display: inline-flex; align-items: center; gap: 9px;
-      padding: 13px 22px; color: rgba(255,255,255,.82);
-      border: 1px solid rgba(255,255,255,.18); border-radius: var(--r12);
-      font-size: 14px; font-weight: 500;
-      background: rgba(255,255,255,.06);
-      transition: background .18s, border-color .18s;
+    .hero-btns { display: flex; gap: 9px; flex-wrap: wrap; }
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; background: var(--red); color: var(--white);
+      border-radius: 9px; font-size: 13.5px; font-weight: 600;
+      transition: background .16s, transform .18s;
     }
-    .btn-outline:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); }
-    .hero-scroll-hint {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
-      color: rgba(255,255,255,.35); font-size: 10px; font-weight: 600;
-      letter-spacing: .18em; text-transform: uppercase;
+    .btn-p:hover { background: var(--red-dk); transform: translateY(-2px); }
+    .btn-g {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 20px; color: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.18); border-radius: 9px;
+      font-size: 13.5px; font-weight: 500; background: rgba(255,255,255,.06);
+      transition: background .16s, border-color .16s;
     }
-    .scroll-bar {
-      width: 1px; height: 38px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.3));
-      animation: sb 2.2s ease-in-out infinite;
+    .btn-g:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); }
+    .hero-scroll {
+      position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 7px;
+      color: rgba(255,255,255,.3); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
     }
-    @keyframes sb { 0%,100% { opacity:.35; } 50% { opacity:1; } }
+    .scroll-line {
+      width: 1px; height: 36px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.28));
+      animation: sl 2.2s ease-in-out infinite;
+    }
+    @keyframes sl { 0%,100%{opacity:.3} 50%{opacity:1} }
 
-    /* ════════════ STAT STRIP ════════════ */
-    .stats {
-      background: var(--white);
-      border-bottom: 1px solid var(--line);
-    }
-    .stats-inner {
-      max-width: 1320px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr);
+    /* ══════════════════════════════════
+       STATS STRIP
+    ══════════════════════════════════ */
+    .stats { background: var(--white); border-bottom: 1px solid var(--line); }
+    .stats-row {
+      max-width: 1320px; margin: 0 auto; padding: 0 1rem;
+      display: grid; grid-template-columns: repeat(3,1fr);
     }
     .stat {
-      padding: 1.75rem 1.5rem;
+      padding: 1.5rem 1.25rem;
       border-right: 1px solid var(--line);
-      display: flex; flex-direction: column; gap: 4px;
+      display: flex; flex-direction: column; gap: 3px;
     }
     .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--D); font-size: 42px;
+    .stat-n {
+      font-family: var(--D); font-size: 38px;
       letter-spacing: .02em; line-height: 1; color: var(--ink);
     }
-    .stat-num sup { font-size: 22px; color: var(--red); vertical-align: top; margin-top: 4px; }
-    .stat-lbl {
-      font-size: 11px; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--ink3);
-    }
+    .stat-n sup { font-size: 20px; color: var(--red); vertical-align: top; margin-top: 4px; }
+    .stat-l { font-size: 10.5px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; color: var(--ink3); }
 
-    /* ════════════ PRICE SECTION ════════════ */
-    .section {
-      max-width: 1320px; margin: 0 auto; padding: 4.5rem 1.5rem;
-    }
-    .sec-head {
-      display: flex; align-items: flex-end;
-      justify-content: space-between; gap: 2rem;
-      margin-bottom: 2.5rem; flex-wrap: wrap;
-    }
-    .sec-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: .18em;
-      text-transform: uppercase; color: var(--red); margin-bottom: 8px;
-    }
-    .sec-title {
-      font-family: var(--D);
-      font-size: clamp(38px, 5.5vw, 68px);
-      line-height: .95; letter-spacing: .02em; color: var(--ink);
-    }
-    .sec-note {
-      max-width: 300px; color: var(--ink3);
-      font-size: 13px; font-weight: 300; line-height: 1.75;
-      text-align: right;
-    }
+    /* ══════════════════════════════════
+       PRICE SECTION
+    ══════════════════════════════════ */
+    .section { max-width: 1320px; margin: 0 auto; padding: 3.5rem 1rem 4rem; }
 
-    /* Search bar */
-    .search-wrap { position: relative; margin-bottom: 1.75rem; }
-    .search-icon-el {
-      position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
-      color: var(--ink4); font-size: 14px; pointer-events: none;
-      transition: color .2s;
-    }
+    .sec-hd { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .sec-tag { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 7px; }
+    h2.sec-title { font-family: var(--D); font-size: clamp(36px, 6vw, 68px); line-height: .95; letter-spacing: .02em; color: var(--ink); }
+    .sec-note { max-width: 280px; color: var(--ink3); font-size: 13px; font-weight: 300; line-height: 1.75; text-align: right; }
+
+    /* Search */
+    .search-wrap { position: relative; margin-bottom: 1.5rem; }
+    .s-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--ink4); font-size: 14px; pointer-events: none; transition: color .2s; }
     #search-input {
-      width: 100%; height: 54px;
-      border: 1.5px solid var(--line); border-radius: var(--r12);
-      background: var(--white);
-      padding: 0 130px 0 48px;
-      font-family: var(--B); font-size: 15px; color: var(--ink);
-      outline: none;
-      transition: border-color .22s, box-shadow .22s;
+      width: 100%; height: 52px;
+      border: 1.5px solid var(--line); border-radius: 12px;
+      background: var(--white); padding: 0 16px 0 46px;
+      font-family: var(--B); font-size: 14.5px; color: var(--ink);
+      outline: none; transition: border-color .2s, box-shadow .2s;
     }
     #search-input::placeholder { color: var(--ink4); font-weight: 300; }
-    #search-input:focus {
-      border-color: var(--red);
-      box-shadow: 0 0 0 4px rgba(208,39,29,.08);
-    }
-    #search-input:focus ~ .search-icon-el { color: var(--red); }
-    .search-badge {
-      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
-      background: var(--bg); border: 1px solid var(--line);
-      color: var(--ink3); font-size: 11px; font-weight: 600;
-      padding: 4px 11px; border-radius: var(--r8); letter-spacing: .06em;
-      pointer-events: none;
-    }
+    #search-input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(208,39,29,.09); }
+    #search-input:focus ~ .s-icon { color: var(--red); }
 
     /* Filter tabs */
-    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .filters { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 2rem; }
     .ftab {
-      padding: 8px 18px; border-radius: 100px;
+      padding: 7px 16px; border-radius: 100px;
       border: 1.5px solid var(--line); background: var(--white);
       font-family: var(--B); font-size: 13px; font-weight: 500; color: var(--ink2);
-      cursor: pointer; transition: all .18s var(--ease);
+      cursor: pointer; transition: all .16s;
     }
-    .ftab:hover { border-color: var(--ink3); color: var(--ink); }
+    .ftab:hover { border-color: var(--ink3); }
     .ftab.active { background: var(--red); border-color: var(--red); color: var(--white); }
 
-    /* ════════════ BIKE GRID (layout only — cards styled in JS) ════════════ */
-    .bike-grid {
+    /* Card grid — JS renders cards with inline styles */
+    #bike-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+      gap: 1.1rem;
     }
 
-    /* ── Skeleton loader ── */
-    @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-    .sk {
-      background: var(--white); border-radius: var(--r16);
-      border: 1px solid var(--line); overflow: hidden;
-    }
-    .sk-img {
-      height: 200px;
-      background: linear-gradient(90deg, var(--bg) 25%, #EDEBE6 50%, var(--bg) 75%);
-      background-size: 400%;
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-    .sk-body { padding: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
-    .sk-line {
-      height: 13px; border-radius: 6px;
-      background: linear-gradient(90deg, var(--bg) 25%, #EDEBE6 50%, var(--bg) 75%);
-      background-size: 400%;
-      animation: shimmer 1.5s ease-in-out infinite;
-    }
-    .sk-short { width: 45%; }
-    .sk-med   { width: 68%; }
+    /* Skeleton */
+    @keyframes shim { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .sk { background: var(--white); border-radius: 14px; border: 1px solid var(--line); overflow: hidden; }
+    .sk-img { height: 185px; background: linear-gradient(90deg,var(--bg) 25%,#EDEAE4 50%,var(--bg) 75%); background-size:400%; animation: shim 1.4s ease-in-out infinite; }
+    .sk-bd  { padding: 1.1rem; display:flex; flex-direction:column; gap:9px; }
+    .sk-ln  { height: 12px; border-radius:5px; background:linear-gradient(90deg,var(--bg) 25%,#EDEAE4 50%,var(--bg) 75%); background-size:400%; animation: shim 1.4s ease-in-out infinite; }
+    .sk-s { width:45%; } .sk-m { width:65%; }
 
-    /* ── fade-in for cards ── */
-    @keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
-    .fade-card {
-      opacity: 0; transform: translateY(20px);
-      animation: fadeUp .45s var(--ease) forwards;
-    }
+    /* Card fade-in */
+    @keyframes fup { to { opacity:1; transform:translateY(0); } }
+    .fc { opacity:0; transform:translateY(18px); animation: fup .4s var(--ease) forwards; }
 
-    /* ════════════ FINANCE BAND ════════════ */
-    .finance-band { background: var(--ink); overflow: hidden; }
-    .finance-inner {
-      max-width: 1320px; margin: 0 auto; padding: 5rem 1.5rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    /* Card hover injected by JS */
+
+    /* ══════════════════════════════════
+       FINANCE BAND
+    ══════════════════════════════════ */
+    .fin { background: var(--ink); }
+    .fin-in {
+      max-width: 1320px; margin: 0 auto; padding: 4.5rem 1.25rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
     }
-    .fi-tag { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(208,39,29,.9); margin-bottom: 12px; }
-    .fi-title {
-      font-family: var(--D); font-size: clamp(44px, 5.5vw, 76px);
-      line-height: .95; letter-spacing: .02em; color: var(--white); margin-bottom: 1.25rem;
-    }
-    .fi-desc { color: rgba(255,255,255,.45); font-size: 14px; line-height: 1.85; font-weight: 300; max-width: 360px; }
+    .fi-tag   { font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; color: rgba(208,39,29,.9); margin-bottom: 10px; }
+    h2.fi-ttl { font-family: var(--D); font-size: clamp(42px, 5.5vw, 74px); line-height: .95; letter-spacing: .02em; color: var(--white); margin-bottom: 1.1rem; }
+    .fi-desc  { color: rgba(255,255,255,.42); font-size: 14px; line-height: 1.85; font-weight: 300; max-width: 340px; }
     .fi-cta {
-      display: inline-flex; align-items: center; gap: 9px;
-      margin-top: 2rem; padding: 13px 26px;
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 1.75rem; padding: 12px 24px;
       background: var(--red); color: var(--white);
-      border-radius: var(--r12); font-size: 14px; font-weight: 600;
-      transition: background .18s;
+      border-radius: 9px; font-size: 13.5px; font-weight: 600;
+      transition: background .16s;
     }
     .fi-cta:hover { background: var(--red-dk); }
-    .fi-features { display: flex; flex-direction: column; gap: 1.25rem; }
-    .fi-feat {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
+    .fi-feats { display: flex; flex-direction: column; gap: 1.1rem; }
+    .fi-feat  { display: flex; align-items: flex-start; gap: 13px; padding-bottom: 1.1rem; border-bottom: 1px solid rgba(255,255,255,.06); }
     .fi-feat:last-child { border-bottom: none; padding-bottom: 0; }
-    .fi-icon {
-      width: 42px; height: 42px; flex-shrink: 0;
-      border-radius: var(--r12);
-      background: rgba(208,39,29,.14); border: 1px solid rgba(208,39,29,.22);
+    .fi-ico {
+      width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px;
+      background: rgba(208,39,29,.13); border: 1px solid rgba(208,39,29,.22);
       display: flex; align-items: center; justify-content: center;
-      color: #F27B74; font-size: 16px;
+      color: #F07B74; font-size: 15px;
     }
-    .fi-feat-title { font-weight: 600; font-size: 14px; color: var(--white); margin-bottom: 3px; }
-    .fi-feat-desc  { font-size: 13px; color: rgba(255,255,255,.4); font-weight: 300; line-height: 1.65; }
+    .fi-ft-t { font-weight: 600; font-size: 13.5px; color: var(--white); margin-bottom: 3px; }
+    .fi-ft-d { font-size: 12.5px; color: rgba(255,255,255,.38); font-weight: 300; line-height: 1.65; }
 
-    /* ════════════ FOOTER ════════════ */
-    .footer { background: var(--white); border-top: 1px solid var(--line); }
-    .footer-inner {
-      max-width: 1320px; margin: 0 auto; padding: 4rem 1.5rem 3rem;
-      display: grid; grid-template-columns: 240px 1fr; gap: 4rem;
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    .foot { background: var(--white); border-top: 1px solid var(--line); }
+    .foot-in {
+      max-width: 1320px; margin: 0 auto; padding: 3.5rem 1.25rem 2.5rem;
+      display: grid; grid-template-columns: 220px 1fr; gap: 3.5rem;
     }
-    .f-logo-name { font-family: var(--D); font-size: 30px; letter-spacing: .04em; color: var(--red); margin-bottom: 4px; }
-    .f-logo-sub  { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.25rem; }
-    .f-address   { font-size: 13px; color: var(--ink3); line-height: 1.9; font-weight: 300; }
-    .f-social { display: flex; gap: 8px; margin-top: 1.5rem; }
-    .f-social a {
-      width: 36px; height: 36px; border-radius: var(--r8);
+    .f-nm  { font-family: var(--D); font-size: 28px; letter-spacing: .04em; color: var(--red); margin-bottom: 3px; }
+    .f-sub { font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1rem; }
+    .f-adr { font-size: 13px; color: var(--ink3); line-height: 1.9; font-weight: 300; }
+    .f-soc { display: flex; gap: 8px; margin-top: 1.25rem; }
+    .f-soc a {
+      width: 34px; height: 34px; border-radius: 7px;
       border: 1px solid var(--line); background: var(--bg);
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px; color: var(--ink3);
-      transition: background .18s, color .18s, border-color .18s;
+      font-size: 14px; color: var(--ink3);
+      transition: background .16s, color .16s, border-color .16s;
     }
-    .f-social a:hover { background: var(--red-lt); color: var(--red); border-color: rgba(208,39,29,.2); }
-    .f-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .f-col-hd {
-      font-size: 11px; font-weight: 700; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--ink); margin-bottom: 1rem;
-    }
-    .f-col-links { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .f-col-links a { font-size: 13px; color: var(--ink3); font-weight: 300; transition: color .18s; }
-    .f-col-links a:hover { color: var(--red); }
-    .footer-bottom {
-      max-width: 1320px; margin: 0 auto; padding: 1.25rem 1.5rem;
+    .f-soc a:hover { background: var(--red-lt); color: var(--red); border-color: rgba(208,39,29,.2); }
+    .f-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
+    .f-col-h { font-size: 10.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); margin-bottom: .9rem; }
+    .f-col-l { display: flex; flex-direction: column; gap: 8px; }
+    .f-col-l a { font-size: 13px; color: var(--ink3); font-weight: 300; transition: color .16s; }
+    .f-col-l a:hover { color: var(--red); }
+    .foot-bot {
+      max-width: 1320px; margin: 0 auto; padding: 1.1rem 1.25rem;
       border-top: 1px solid var(--line);
       display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     }
-    .f-copy { font-size: 12px; color: var(--ink4); font-weight: 300; }
+    .f-copy { font-size: 11.5px; color: var(--ink4); font-weight: 300; }
     .f-badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--bg); border: 1px solid var(--line);
-      padding: 5px 12px; border-radius: 100px;
-      font-size: 11px; font-weight: 600; letter-spacing: .08em;
+      padding: 4px 11px; border-radius: 100px;
+      font-size: 10.5px; font-weight: 600; letter-spacing: .07em;
       text-transform: uppercase; color: var(--ink3);
     }
-    .f-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+    .f-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink:0; }
 
-    /* ════════════ RESPONSIVE ════════════ */
+    /* ══════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ══════════════════════════════════ */
     @media (max-width: 1024px) {
-      .finance-inner { grid-template-columns: 1fr; }
-      .footer-inner  { grid-template-columns: 1fr; gap: 2.5rem; }
-      .f-cols { grid-template-columns: repeat(3,1fr); }
+      .fin-in  { grid-template-columns: 1fr; }
+      .foot-in { grid-template-columns: 1fr; gap: 2.25rem; }
     }
     @media (max-width: 768px) {
-      /* nav */
-      .nav-links, .nav-right { display: none; }
-      .hamburger { display: flex; }
-      /* hero */
-      .hero { min-height: 80vh; }
-      .hero-foot { flex-direction: column; align-items: flex-start; }
-      /* stats */
-      .stats-inner { grid-template-columns: 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid var(--line); }
+      .nav-links, .nav-wa { display: none; }
+      .ham { display: flex; }
+      .hero { min-height: 78vh; }
+      .hero-row { flex-direction: column; align-items: flex-start; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--line); padding: 1.1rem 1rem; }
       .stat:last-child { border-bottom: none; }
-      /* section */
-      .sec-head { flex-direction: column; align-items: flex-start; }
-      .sec-note { text-align: left; }
-      /* finance */
-      .finance-inner { padding: 3rem 1.5rem; gap: 2.5rem; }
-      /* footer */
+      .sec-hd { flex-direction: column; align-items: flex-start; }
+      .sec-note { text-align: left; max-width: 100%; }
+      .fin-in { padding: 3rem 1.25rem; gap: 2rem; }
       .f-cols { grid-template-columns: 1fr 1fr; }
-      .footer-inner { padding: 3rem 1.5rem 2rem; }
     }
     @media (max-width: 480px) {
-      .hero-h1 { font-size: 54px; }
-      .hero-content { padding: 4rem 1.25rem 3.5rem; }
-      .f-cols { grid-template-columns: 1fr; }
-      .search-badge { display: none; }
-      #search-input { padding-right: 18px; }
+      h1.hero-h1  { font-size: 52px; }
+      .hero-body  { padding: 3.5rem 1rem 4rem; }
+      .hero-pill  { font-size: 10px; }
+      .stat-n     { font-size: 32px; }
+      .f-cols     { grid-template-columns: 1fr; }
+      .foot-in    { padding: 2.5rem 1rem 2rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════ NAV ══════════ -->
+<!-- ════════════ NAV ════════════ -->
 <nav class="nav">
   <div class="nav-inner">
 
     <a href="#" class="logo">
       <div class="logo-mark">
-        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 13 L9 3 L16 13 M5.5 10 L12.5 10" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M2 12.5 L8 3 L14 12.5 M4.5 9.5 L11.5 9.5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div class="logo-text-wrap">
+      <div class="logo-copy">
         <span class="logo-name">Go! YNG</span>
         <span class="logo-sub">Bajaj Partner · Phidim</span>
       </div>
@@ -485,112 +429,84 @@
 
     <ul class="nav-links">
       <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="finance.html"><i class="fa-solid fa-chart-line"></i> Finance</a></li>
-      <li><a href="#prices"><i class="fa-solid fa-list-ul"></i> Price List</a></li>
+      <li><a href="#prices"><i class="fa-solid fa-list-ul"></i> Prices</a></li>
+      <li><a href="finance.html"><i class="fa-solid fa-calculator"></i> Finance</a></li>
+      <li><a href="#"><i class="fa-solid fa-file-lines"></i> Enquiry</a></li>
+      <li><a href="https://yonghangishak.com.np/" target="_blank"><i class="fa-solid fa-user-tie"></i> About</a></li>
     </ul>
 
-    <div class="nav-right">
-      <a href="https://wa.me/9779802315425" target="_blank" class="nav-wa">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-      </a>
-    </div>
+    <a href="https://wa.me/9779802315425" target="_blank" class="nav-wa">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
 
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <button class="ham" id="ham" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- Drawer overlay -->
-<div class="drawer-overlay" id="drawer-overlay"></div>
-
-<!-- Drawer panel -->
+<div class="drawer-bg" id="draw-bg"></div>
 <div class="drawer" id="drawer">
-  <p class="drawer-label">Navigation</p>
+  <p class="drawer-tag">Navigation</p>
   <a href="#"><i class="fa-solid fa-house"></i> Home</a>
   <a href="#prices"><i class="fa-solid fa-list-ul"></i> Price List</a>
-  <a href="finance.html"><i class="fa-solid fa-chart-line"></i> Finance Plans</a>
-  <div class="drawer-divider"></div>
-  <a href="https://wa.me/9779802315425" target="_blank" class="drawer-cta">
+  <a href="finance.html"><i class="fa-solid fa-calculator"></i> Finance</a>
+  <a href="#"><i class="fa-solid fa-file-lines"></i> Enquiry</a>
+  <a href="https://yonghangishak.com.np/" target="_blank"><i class="fa-solid fa-user-tie"></i> About</a>
+  <hr>
+  <a href="https://wa.me/9779802315425" target="_blank" class="d-cta">
     <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
   </a>
 </div>
 
 
-<!-- ══════════ HERO ══════════ -->
+<!-- ════════════ HERO ════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <img src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg"
-       class="hero-img" alt="Bajaj motorcycle">
+  <img class="hero-img"
+       src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg"
+       alt="Bajaj motorcycle">
   <div class="hero-grad"></div>
 
-  <div class="hero-content">
-    <div class="hero-pill">
-      <i class="fa-solid fa-circle-dot"></i>
-      Authorized Bajaj Partner &mdash; Phidim, Nepal
-    </div>
-    <h1 class="hero-h1">
-      FIND YOUR<br><span class="r">PERFECT</span><br>RIDE.
-    </h1>
-    <div class="hero-foot">
-      <p class="hero-desc">
-        Browse Nepal's freshest Bajaj price list — updated live.
-        Pulsar. Dominar. Avenger. Your road, your rules.
-      </p>
+  <div class="hero-body">
+    <div class="hero-pill"><i class="fa-solid fa-circle-dot"></i> Authorized Bajaj Partner — Phidim, Nepal</div>
+    <h1 class="hero-h1">FIND YOUR<br><span class="r">PERFECT</span><br>RIDE.</h1>
+    <div class="hero-row">
+      <p class="hero-desc">Browse Nepal's freshest Bajaj price list — updated live. Pulsar. Dominar. Avenger. Your road, your rules.</p>
       <div class="hero-btns">
-        <a href="#prices" class="btn-primary">
-          <i class="fa-solid fa-list-ul"></i> View Prices
-        </a>
-        <a href="finance.html" class="btn-outline">
-          <i class="fa-solid fa-hand-holding-dollar"></i> Finance Options
-        </a>
+        <a href="#prices" class="btn-p"><i class="fa-solid fa-list-ul"></i> View Prices</a>
+        <a href="finance.html" class="btn-g"><i class="fa-solid fa-hand-holding-dollar"></i> Finance</a>
       </div>
     </div>
   </div>
-
-  <div class="hero-scroll-hint">
-    <div class="scroll-bar"></div>
-    Scroll
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div> Scroll</div>
 </section>
 
 
-<!-- ══════════ STATS ══════════ -->
+<!-- ════════════ STATS ════════════ -->
 <div class="stats">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num">18<sup>+</sup></div>
-      <div class="stat-lbl">Models Available</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">40<sup>%</sup></div>
-      <div class="stat-lbl">Down Payment Options</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">24<sup>hr</sup></div>
-      <div class="stat-lbl">WhatsApp Support</div>
-    </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">20<sup>+</sup></div><div class="stat-l">Models Available</div></div>
+    <div class="stat"><div class="stat-n">40<sup>%</sup></div><div class="stat-l">Down Payment Option</div></div>
+    <div class="stat"><div class="stat-n">24<sup>hr</sup></div><div class="stat-l">WhatsApp Support</div></div>
   </div>
 </div>
 
 
-<!-- ══════════ PRICE LIST ══════════ -->
+<!-- ════════════ PRICE LIST ════════════ -->
 <section id="prices">
   <div class="section">
-    <div class="sec-head">
+    <div class="sec-hd">
       <div>
-        <div class="sec-tag">Live Price List &mdash; 2026</div>
+        <div class="sec-tag">Live Price List — 2026</div>
         <h2 class="sec-title">FIND<br>YOUR RIDE</h2>
       </div>
       <p class="sec-note">All prices are on-road in Phidim, Panchthar. Updated in real time from Go! YNG.</p>
     </div>
 
     <div class="search-wrap">
-      <i class="fa-solid fa-magnifying-glass search-icon-el" id="search-icon"></i>
-      <input type="text" id="search-input"
-             placeholder="Search"
-             autocomplete="off">
-      <span class="search-badge">Go! YNG</span>
+      <i class="fa-solid fa-magnifying-glass s-icon" id="s-icon"></i>
+      <input type="text" id="search-input" placeholder="Search" autocomplete="off">
     </div>
 
     <div class="filters" id="filters">
@@ -602,68 +518,51 @@
       <button class="ftab" data-filter="ct">N/A Series</button>
     </div>
 
-    <!-- Skeleton while loading -->
-    <div class="bike-grid" id="bike-container">
-      <div class="sk"><div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-med"></div><div class="sk-line sk-short"></div><div class="sk-line"></div></div></div>
-      <div class="sk"><div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-med"></div><div class="sk-line sk-short"></div><div class="sk-line"></div></div></div>
-      <div class="sk"><div class="sk-img"></div><div class="sk-body"><div class="sk-line sk-med"></div><div class="sk-line sk-short"></div><div class="sk-line"></div></div></div>
+    <!-- Skeleton shown while Firebase loads -->
+    <div id="bike-container">
+      <div class="sk"><div class="sk-img"></div><div class="sk-bd"><div class="sk-ln sk-m"></div><div class="sk-ln sk-s"></div><div class="sk-ln"></div></div></div>
+      <div class="sk"><div class="sk-img"></div><div class="sk-bd"><div class="sk-ln sk-m"></div><div class="sk-ln sk-s"></div><div class="sk-ln"></div></div></div>
+      <div class="sk"><div class="sk-img"></div><div class="sk-bd"><div class="sk-ln sk-m"></div><div class="sk-ln sk-s"></div><div class="sk-ln"></div></div></div>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════ FINANCE BAND ══════════ -->
-<section class="finance-band">
-  <div class="finance-inner">
+<!-- ════════════ FINANCE BAND ════════════ -->
+<section class="fin">
+  <div class="fin-in">
     <div>
       <p class="fi-tag">Easy Finance</p>
-      <h2 class="fi-title">RIDE NOW,<br>PAY EASY.</h2>
-      <p class="fi-desc">
-        Flexible EMI plans built around your budget. Low down payment,
-        competitive rates, and fast approval — get on the road today.
-      </p>
-      <a href="finance.html" class="fi-cta">
-        Explore Finance Plans <i class="fa-solid fa-arrow-right"></i>
-      </a>
+      <h2 class="fi-ttl">RIDE NOW,<br>PAY EASY.</h2>
+      <p class="fi-desc">Flexible EMI plans built around your budget. Low down payment, competitive rates, fast approval — get on the road today.</p>
+      <a href="finance.html" class="fi-cta">Explore Finance Plans <i class="fa-solid fa-arrow-right"></i></a>
     </div>
-    <div class="fi-features">
+    <div class="fi-feats">
       <div class="fi-feat">
-        <div class="fi-icon"><i class="fa-solid fa-bolt"></i></div>
-        <div>
-          <div class="fi-feat-title">Fast Approval</div>
-          <div class="fi-feat-desc">Loan approved in as little as office hours with minimal paperwork required.</div>
-        </div>
+        <div class="fi-ico"><i class="fa-solid fa-bolt"></i></div>
+        <div><div class="fi-ft-t">Fast Approval</div><div class="fi-ft-d">Loan approved in as little as 1 hours with minimal paperwork required.</div></div>
       </div>
       <div class="fi-feat">
-        <div class="fi-icon"><i class="fa-solid fa-percent"></i></div>
-        <div>
-          <div class="fi-feat-title">Competitive Interest Rates</div>
-          <div class="fi-feat-desc">Flexible tenure options from 12 to 60 months at market-best rates.</div>
-        </div>
+        <div class="fi-ico"><i class="fa-solid fa-percent"></i></div>
+        <div><div class="fi-ft-t">Competitive Interest Rates</div><div class="fi-ft-d">Flexible tenure from 12 to 36 months at market-best rates.</div></div>
       </div>
       <div class="fi-feat">
-        <div class="fi-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <div>
-          <div class="fi-feat-title">Zero Hidden Charges</div>
-          <div class="fi-feat-desc">Fully transparent pricing. What you see is exactly what you pay.</div>
-        </div>
+        <div class="fi-ico"><i class="fa-solid fa-shield-halved"></i></div>
+        <div><div class="fi-ft-t">Zero Hidden Charges</div><div class="fi-ft-d">Fully transparent pricing. What you see is exactly what you pay.</div></div>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════ FOOTER ══════════ -->
-<footer class="footer">
-  <div class="footer-inner">
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="foot">
+  <div class="foot-in">
     <div>
-      <div class="f-logo-name">Go! YNG</div>
-      <div class="f-logo-sub">Authorized Bajaj Partner</div>
-      <address class="f-address" style="font-style:normal;">
-        Phidim-1, Panchthar<br>
-        Koshi Province, Nepal
-      </address>
-      <div class="f-social">
+      <div class="f-nm">Go! YNG</div>
+      <div class="f-sub">Authorized Bajaj Partner</div>
+      <address class="f-adr" style="font-style:normal;">Phidim-1, Panchthar<br>Koshi Province, Nepal</address>
+      <div class="f-soc">
         <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="https://wa.me/9779802315425" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="https://www.tiktok.com/@bajajphidim" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -671,65 +570,64 @@
     </div>
     <div class="f-cols">
       <div>
-        <div class="f-col-hd">Navigation</div>
-        <ul class="f-col-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#prices">Price List</a></li>
-          <li><a href="finance.html">Finance Plans</a></li>
-        </ul>
+        <div class="f-col-h">Navigate</div>
+        <div class="f-col-l">
+          <a href="#">Home</a>
+          <a href="#prices">Price List</a>
+          <a href="finance.html">Finance</a>
+          <a href="form.html">Form</a>
+          <a href="https://yonghangishak.com.np/" target="_blank">About</a>
+        </div>
       </div>
       <div>
-        <div class="f-col-hd">Models</div>
-        <ul class="f-col-links">
-          <li><a href="#">Pulsar Series</a></li>
-          <li><a href="#">Dominar Series</a></li>
-          <li><a href="#">Avenger Series</a></li>
-          <li><a href="#">Platina Series</a></li>
-          <li><a href="#">N/A Series</a></li>
-        </ul>
+        <div class="f-col-h">Models</div>
+        <div class="f-col-l">
+          <a href="#">Pulsar Series</a>
+          <a href="#">Dominar Series</a>
+          <a href="#">Avenger Series</a>
+          <a href="#">Platina Series</a>
+          <a href="#">N/A Series</a>
+        </div>
       </div>
       <div>
-        <div class="f-col-hd">Contact</div>
-        <ul class="f-col-links">
-          <li><a href="https://wa.me/9779802315425" target="_blank">+977 980-231-5425</a></li>
-          <li><a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a></li>
-          <li><a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a></li>
-        </ul>
+        <div class="f-col-h">Contact</div>
+        <div class="f-col-l">
+          <a href="https://wa.me/9779802315425" target="_blank">+977 980-231-5425</a>
+          <a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a>
+          <a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span class="f-copy">&copy; 2026 Go! YNG &mdash; Go Your Dream</span>
+  <div class="foot-bot">
+    <span class="f-copy">&copy; 2026 Go! YNG — Go Your Dream</span>
     <span class="f-badge"><span class="dot"></span> Authorized Bajaj Dealer</span>
   </div>
 </footer>
 
 
-<!-- ══════════ SCRIPTS ══════════ -->
 <script>
-  /* ── Mobile nav ── */
-  const hamburger = document.getElementById('hamburger');
-  const drawer    = document.getElementById('drawer');
-  const overlay   = document.getElementById('drawer-overlay');
+  /* Mobile nav */
+  const ham   = document.getElementById('ham');
+  const drawBg = document.getElementById('draw-bg');
+  const drawer = document.getElementById('drawer');
 
-  function toggleDrawer(open) {
-    hamburger.classList.toggle('open', open);
+  function setDrawer(open) {
+    ham.classList.toggle('open', open);
     drawer.classList.toggle('open', open);
-    overlay.classList.toggle('open', open);
+    drawBg.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   }
+  ham.addEventListener('click', () => setDrawer(!drawer.classList.contains('open')));
+  drawBg.addEventListener('click', () => setDrawer(false));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
 
-  hamburger.addEventListener('click', () => toggleDrawer(!drawer.classList.contains('open')));
-  overlay.addEventListener('click',   () => toggleDrawer(false));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleDrawer(false)));
-
-  /* ── Search focus ring on icon ── */
+  /* Search icon colour */
   const si = document.getElementById('search-input');
-  const ic = document.getElementById('search-icon');
-  si.addEventListener('focus', () => ic.style.color = 'var(--red)');
+  const ic = document.getElementById('s-icon');
+  si.addEventListener('focus', () => ic.style.color = '#D0271D');
   si.addEventListener('blur',  () => ic.style.color = '');
 </script>
-
 <script type="module" src="script.js"></script>
 </body>
 </html>
