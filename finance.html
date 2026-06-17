@@ -1,284 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Go! YNG — Finance Calculator</title>
-  <meta name="description" content="Calculate your Bajaj bike EMI and finance plan at Go! YNG, Phidim. Easy finance options available.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Calculator | Samriddhi And Brothers — Bajaj Phidim</title>
+  <meta name="description" content="Calculate your Bajaj bike EMI and finance plan at Go! YNG, Phidim. Easy finance options available." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bajaj: {
+              blue: '#005EA6',
+              blueDark: '#004A85',
+              blueLight: '#E8F2FB',
+              amber: '#F59E0B',
+              amberDark: '#D97706',
+            }
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'cursive'],
+            body: ['"DM Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    /* ─── RESET ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    img  { display: block; max-width: 100%; }
-    a    { text-decoration: none; color: inherit; }
-    ul   { list-style: none; }
-    button { border: none; background: none; cursor: pointer; font: inherit; }
-    input, select { font: inherit; }
-
-    /* ─── TOKENS ─── */
-    :root {
-      --red:    #D0271D;
-      --red-dk: #A01E16;
-      --red-lt: #FDF1F0;
-      --ink:    #111110;
-      --ink2:   #3A3A38;
-      --ink3:   #6B6B68;
-      --ink4:   #9A9A97;
-      --line:   #E8E6E1;
-      --bg:     #F6F4F0;
-      --white:  #FFFFFF;
-      --indigo: #4F46E5;
-      --indigo-lt: #EEF2FF;
-      --green:  #16A34A;
-      --green-lt: #F0FDF4;
-      --D: 'Bebas Neue', sans-serif;
-      --B: 'DM Sans', sans-serif;
-      --ease: cubic-bezier(.25,.46,.45,.94);
-      --nav-h: 64px;
-      --r8:  8px;
-      --r12: 12px;
-      --r14: 14px;
-      --r16: 16px;
-    }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--B);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+    body { font-family: 'DM Sans', sans-serif; background: #FFFFFF; color: #0F172A; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV (matches index.html) ── */
+    .nav-blur {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,94,166,0.08);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    }
+    .nav-link {
+      position: relative; font-size: 0.875rem; font-weight: 500; color: #374151;
+      display: flex; align-items: center; gap: 5px; transition: color 0.2s;
+      padding: 4px 2px;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 2px; background: #005EA6; border-radius: 2px; transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #005EA6; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #005EA6; }
+    .nav-link.active::after { width: 100%; }
+
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease; opacity: 0; }
+    #mobile-menu.open { max-height: 560px; opacity: 1; }
+
+    .cta-primary {
+      background: #005EA6; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.925rem;
+      letter-spacing: 0.02em; padding: 14px 28px; border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.22s ease; box-shadow: 0 4px 18px rgba(0,94,166,0.3);
+      text-decoration: none; border: 2px solid #005EA6;
+    }
+    .cta-primary:hover { background: #004A85; border-color: #004A85; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0,94,166,0.38); }
+    .cta-secondary {
+      background: transparent; color: #005EA6;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.925rem;
+      letter-spacing: 0.02em; padding: 14px 28px; border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid #005EA6; transition: all 0.22s ease; text-decoration: none;
+    }
+    .cta-secondary:hover { background: #005EA6; color: #fff; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0,94,166,0.22); }
+
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #005EA6; }
+    .section-title { font-family: 'Bebas Neue', cursive; line-height: 1; letter-spacing: 0.01em; color: #0F172A; }
+
+    /* ── FOOTER (matches index.html) ── */
+    footer { background: #0F172A; }
+    .footer-link { color: #94A3B8; font-size: 0.875rem; transition: color 0.18s; text-decoration: none; }
+    .footer-link:hover { color: #fff; }
+    .feature-icon-wrap {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: #EBF4FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
 
     /* ══════════════════════════════════
-       NAV  (identical to index.html)
+       FINANCE HERO (new, Bajaj Blue)
     ══════════════════════════════════ */
-    .nav {
-      position: sticky; top: 0; z-index: 300;
-      height: var(--nav-h);
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+    .fin-hero {
+      background: linear-gradient(135deg, #F0F7FF 0%, #EBF4FF 55%, #DCEEFB 100%);
+      position: relative; overflow: hidden;
     }
-    .nav-inner {
-      max-width: 1320px; margin: 0 auto;
-      padding: 0 1rem; height: 100%;
-      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+    .fin-hero::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(0,94,166,0.10) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
     }
-    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .logo-mark {
-      width: 34px; height: 34px; flex-shrink: 0;
-      background: var(--red); border-radius: var(--r8);
-      display: flex; align-items: center; justify-content: center;
+    .fin-hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -60px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
     }
-    .logo-mark svg { width: 16px; height: 16px; }
-    .logo-copy { line-height: 1.15; }
-    .logo-name { font-family: var(--D); font-size: 18px; letter-spacing: .05em; color: var(--red); display: block; }
-    .logo-sub  { font-size: 9.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); display: block; }
-    .nav-links { display: flex; align-items: center; gap: 2px; }
-    .nav-links a {
-      display: flex; align-items: center; gap: 6px;
-      padding: 7px 13px; border-radius: var(--r8);
-      font-size: 13.5px; font-weight: 500; color: var(--ink2);
-      transition: background .16s, color .16s;
+    .headline-display { font-family: 'Bebas Neue', cursive; line-height: 0.95; letter-spacing: 0.01em; }
+    .price-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #005EA6; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.75rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,94,166,0.28);
     }
-    .nav-links a:hover  { background: var(--bg); color: var(--ink); }
-    .nav-links a.active { background: var(--red-lt); color: var(--red); }
-    .nav-wa {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px; background: var(--red); color: var(--white);
-      border-radius: var(--r8); font-size: 13px; font-weight: 600;
-      transition: background .16s, transform .16s; white-space: nowrap;
-    }
-    .nav-wa:hover { background: var(--red-dk); transform: translateY(-1px); }
-    .ham {
-      display: none; width: 38px; height: 38px; border-radius: var(--r8);
-      border: 1px solid var(--line);
-      flex-direction: column; align-items: center; justify-content: center; gap: 5px; flex-shrink: 0;
-    }
-    .ham span {
-      display: block; width: 17px; height: 1.5px;
-      background: var(--ink); border-radius: 2px;
-      transition: transform .26s var(--ease), opacity .18s;
-    }
-    .ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .draw-bg {
-      display: none; position: fixed; inset: 0; z-index: 280;
-      background: rgba(17,17,16,.5); backdrop-filter: blur(4px);
-    }
-    .draw-bg.open { display: block; }
-    .drawer {
-      position: fixed; top: var(--nav-h); right: 0; bottom: 0;
-      width: min(300px, 86vw); z-index: 290;
-      background: var(--white);
-      transform: translateX(110%);
-      transition: transform .3s var(--ease);
-      padding: 1.25rem; display: flex; flex-direction: column; gap: .375rem;
-      overflow-y: auto;
-    }
-    .drawer.open { transform: translateX(0); }
-    .draw-tag { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink4); padding: 0 4px; margin-bottom: 2px; }
-    .drawer a {
-      display: flex; align-items: center; gap: 11px;
-      padding: 12px 13px; border-radius: var(--r12);
-      font-size: 14px; font-weight: 500; color: var(--ink2);
-      transition: background .16s;
-    }
-    .drawer a:hover { background: var(--bg); }
-    .drawer a i { width: 16px; text-align: center; color: var(--ink3); }
-    .drawer hr { border: none; border-top: 1px solid var(--line); margin: .375rem 0; }
-    .d-cta { background: var(--red) !important; color: var(--white) !important; justify-content: center; border-radius: var(--r12) !important; }
-    .d-cta:hover { background: var(--red-dk) !important; }
-    .d-cta i { color: var(--white) !important; }
 
     /* ══════════════════════════════════
-       HERO (finance version)
+       CALCULATOR — fresh design
     ══════════════════════════════════ */
-    .hero {
-      position: relative; min-height: 44vh;
-      display: flex; align-items: flex-end; overflow: hidden;
+    :root {
+      --indigo: #005EA6;
+      --indigo-lt: #E8F2FB;
+      --green: #16A34A;
+      --green-lt: #F0FDF4;
+      --red: #DC2626;
+      --line: #E2E8F0;
+      --bg-soft: #F8FAFC;
+      --ink3: #64748B;
+      --ink4: #94A3B8;
     }
-    .hero-bg  { position: absolute; inset: 0; background: #0D0D0C; }
-    .hero-img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover; opacity: .65;
-    }
-    .hero-grad {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,13,12,.96) 0%, rgba(13,13,12,.5) 45%, rgba(13,13,12,.08) 100%);
-    }
-    .hero-body {
-      position: relative; z-index: 2;
-      max-width: 1320px; margin: 0 auto; width: 100%;
-      padding: 3rem 1.25rem 3.5rem;
-    }
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(208,39,29,.12); border: 1px solid rgba(208,39,29,.3);
-      color: #F07B74; padding: 5px 13px; border-radius: 100px;
-      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      margin-bottom: 1.1rem;
-    }
-    h1.hero-h1 {
-      font-family: var(--D);
-      font-size: clamp(48px, 9vw, 110px);
-      line-height: .92; letter-spacing: .025em;
-      color: var(--white); margin-bottom: 1rem;
-    }
-    h1.hero-h1 .r { color: var(--red); }
-    .hero-desc { max-width: 380px; color: rgba(255,255,255,.5); font-size: 14px; font-weight: 300; line-height: 1.8; }
 
-    /* ══════════════════════════════════
-       MAIN LAYOUT
-    ══════════════════════════════════ */
-    .main { max-width: 1320px; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+    /* Sticky bottom EMI bar — mobile only */
+    .mobile-emi-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+      background: #0F172A; color: #fff;
+      padding: 12px 16px; display: none;
+      align-items: center; justify-content: space-between;
+      box-shadow: 0 -8px 28px rgba(0,0,0,0.18);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-emi-bar .lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .mobile-emi-bar .val { font-family: 'Bebas Neue', cursive; font-size: 1.7rem; letter-spacing: 0.02em; color: #fff; }
+    .mobile-emi-bar .badge { background: #005EA6; padding: 8px 16px; border-radius: 10px; font-size: 0.8rem; font-weight: 600; }
 
     /* Total DP banner */
     .total-dp-banner {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--r16);
-      padding: 1.5rem 2rem;
+      background: linear-gradient(120deg, #005EA6 0%, #004A85 70%, #003B6E 100%);
+      border-radius: 20px; padding: 1.5rem 1.75rem;
       display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      gap: 1rem; flex-wrap: wrap; position: relative; overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,94,166,0.22);
     }
-    .tdp-left { display: flex; flex-direction: column; gap: 3px; }
-    .tdp-label {
-      font-size: 11px; font-weight: 700; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--ink3);
+    .total-dp-banner::before {
+      content: ''; position: absolute; top: -60px; right: -40px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%);
+      border-radius: 50%;
     }
-    .tdp-title {
-      font-family: var(--D); font-size: 22px; letter-spacing: .03em; color: var(--ink);
-    }
-    .tdp-value {
-      font-family: var(--D); font-size: 44px; letter-spacing: .02em;
-      line-height: 1; color: var(--indigo);
-    }
+    .tdp-left { display: flex; flex-direction: column; gap: 3px; position: relative; z-index: 1; }
+    .tdp-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #BFDBFE; }
+    .tdp-title { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; letter-spacing: 0.03em; color: #fff; }
+    .tdp-value { font-family: 'Bebas Neue', cursive; font-size: clamp(2.2rem, 6vw, 3rem); letter-spacing: 0.02em; line-height: 1; color: #fff; position: relative; z-index: 1; }
     .tdp-badge {
       display: inline-flex; align-items: center; gap: 7px;
-      background: var(--indigo-lt); border: 1px solid rgba(79,70,229,.18);
-      padding: 8px 16px; border-radius: var(--r8);
-      font-size: 12px; font-weight: 600; color: var(--indigo);
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22);
+      padding: 8px 16px; border-radius: 10px;
+      font-size: 12px; font-weight: 600; color: #fff; position: relative; z-index: 1;
     }
-
-    /* Two-column layout */
-    .calc-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 1.25rem;
-      align-items: start;
-    }
-    .calc-left  { display: flex; flex-direction: column; gap: 1.25rem; }
 
     /* Cards */
-    .card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--r16);
-      padding: 1.5rem;
+    .calc-card {
+      background: #fff; border: 1px solid var(--line); border-radius: 18px;
+      padding: 1.4rem; box-shadow: 0 2px 14px rgba(0,0,0,0.04);
     }
-    .card-title {
+    .calc-card-title {
       display: flex; align-items: center; gap: 10px;
-      font-size: 14px; font-weight: 700; color: var(--ink);
-      letter-spacing: .01em; margin-bottom: 1.25rem;
+      font-size: 0.95rem; font-weight: 700; color: #0F172A;
+      letter-spacing: 0.01em; margin-bottom: 1.2rem;
     }
-    .card-title .icon {
-      width: 32px; height: 32px; border-radius: var(--r8);
+    .calc-card-title .icon {
+      width: 36px; height: 36px; border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px; background: var(--indigo-lt); color: var(--indigo);
+      font-size: 15px; background: var(--indigo-lt); color: var(--indigo);
       flex-shrink: 0;
     }
 
-    /* Model select */
     .field-label {
-      font-size: 10px; font-weight: 700; letter-spacing: .14em;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--ink3); margin-bottom: 6px; display: block;
     }
     select.styled, input.styled {
-      width: 100%; height: 44px;
-      border: 1.5px solid var(--line); border-radius: var(--r12);
-      background: var(--bg); padding: 0 12px;
-      font-family: var(--B); font-size: 14px; color: var(--ink);
-      outline: none; transition: border-color .2s, box-shadow .2s;
+      width: 100%; height: 46px;
+      border: 1.5px solid var(--line); border-radius: 12px;
+      background: var(--bg-soft); padding: 0 14px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; color: #0F172A;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
       appearance: none; -webkit-appearance: none;
     }
     select.styled {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B6B68' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748B' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 36px;
+      padding-right: 38px;
     }
     select.styled:focus, input.styled:focus {
-      border-color: var(--indigo); box-shadow: 0 0 0 3px rgba(79,70,229,.09);
+      border-color: var(--indigo); box-shadow: 0 0 0 3px rgba(0,94,166,0.1);
     }
 
     /* Metrics row */
     .metrics-row {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1rem; margin-top: 1.25rem;
+      gap: 0.75rem; margin-top: 1.25rem;
     }
     .metric-box {
-      background: var(--bg); border: 1px solid var(--line);
-      border-radius: var(--r12); padding: 1rem;
+      background: var(--bg-soft); border: 1px solid var(--line);
+      border-radius: 12px; padding: 0.85rem;
       display: flex; flex-direction: column; gap: 5px;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .metric-box.has-input { padding: .75rem 1rem; }
-    .metric-lbl { font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink3); }
-    .metric-val { font-family: var(--D); font-size: 22px; letter-spacing: .02em; color: var(--ink); line-height: 1.1; }
-    .metric-val.green  { color: var(--green); }
+    .metric-box.has-input:focus-within { border-color: var(--indigo); box-shadow: 0 0 0 3px rgba(0,94,166,0.08); }
+    .metric-lbl { font-size: 9.5px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink3); }
+    .metric-val { font-family: 'Bebas Neue', cursive; font-size: 1.25rem; letter-spacing: 0.02em; color: #0F172A; line-height: 1.1; }
+    .metric-val.green { color: var(--green); }
     .metric-box input {
       border: none; background: transparent; padding: 0;
-      font-family: var(--D); font-size: 22px; color: var(--ink);
-      outline: none; width: 100%; letter-spacing: .02em; line-height: 1.1;
+      font-family: 'Bebas Neue', cursive; font-size: 1.25rem; color: #0F172A;
+      outline: none; width: 100%; letter-spacing: 0.02em; line-height: 1.1;
     }
     .metric-box input::-webkit-outer-spin-button,
     .metric-box input::-webkit-inner-spin-button { -webkit-appearance: none; }
@@ -291,22 +243,22 @@
       border-top: 1px solid var(--line); margin-top: 1.25rem;
     }
 
-    /* Two-up cards */
     .two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
     /* Charge rows */
     .charge-row {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 0; border-bottom: 1px solid var(--line);
+      padding: 11px 0; border-bottom: 1px solid var(--line);
     }
     .charge-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .charge-row label { font-size: 13.5px; color: var(--ink2); font-weight: 500; }
-    .charge-row .val  { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .charge-row label { font-size: 13.5px; color: #334155; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+    .charge-row label i { color: var(--indigo); font-size: 13px; }
+    .charge-row .val { font-size: 14px; font-weight: 700; color: #0F172A; }
     .charge-row input {
       text-align: right; border: none; border-bottom: 1.5px solid var(--line);
-      background: transparent; outline: none; font-size: 14px; font-weight: 600;
-      color: var(--ink); width: 110px; padding: 3px 4px;
-      transition: border-color .18s;
+      background: transparent; outline: none; font-size: 14px; font-weight: 700;
+      color: #0F172A; width: 110px; padding: 5px 4px;
+      transition: border-color 0.18s;
     }
     .charge-row input:focus { border-color: var(--indigo); }
     .charge-row input::-webkit-outer-spin-button,
@@ -314,433 +266,591 @@
 
     /* Accessories grid */
     .acc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .acc-field { display: flex; flex-direction: column; gap: 5px; }
-    .acc-field label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); }
+    .acc-field { display: flex; flex-direction: column; gap: 6px; }
+    .acc-field label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); display: flex; align-items: center; gap: 6px; }
+    .acc-field label i { color: var(--indigo); font-size: 12px; }
     .acc-field input {
       border: none; border-bottom: 1.5px solid var(--line);
       background: transparent; outline: none;
-      font-size: 15px; font-weight: 600; color: var(--ink);
-      padding: 4px 2px; transition: border-color .18s;
+      font-size: 15px; font-weight: 700; color: #0F172A;
+      padding: 5px 2px; transition: border-color 0.18s;
     }
     .acc-field input:focus { border-color: var(--indigo); }
     .acc-field input::-webkit-outer-spin-button,
     .acc-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
 
-    /* ══════════════════════════════════
-       RESULTS PANEL (right sidebar)
-    ══════════════════════════════════ */
+    /* ── RESULTS PANEL ── */
     .results-panel {
-      background: var(--ink);
-      border-radius: var(--r16);
-      padding: 1.5rem;
-      color: var(--white);
-      position: sticky;
-      top: calc(var(--nav-h) + 1rem);
+      background: #0F172A; border-radius: 18px; padding: 1.4rem; color: #fff;
+      position: sticky; top: calc(64px + 1rem);
     }
     .res-title {
       display: flex; align-items: center; gap: 9px;
-      font-size: 13px; font-weight: 700; letter-spacing: .06em;
-      text-transform: uppercase; color: rgba(255,255,255,.5);
-      margin-bottom: 1.5rem;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      margin-bottom: 1.4rem;
     }
-    .res-title i { color: rgba(208,39,29,.8); }
+    .res-title i { color: #F59E0B; }
 
     .res-row {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .res-row:last-child { border-bottom: none; }
-    .res-lbl { font-size: 12.5px; color: rgba(255,255,255,.42); font-weight: 400; }
-    .res-val { font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.88); }
-    .res-val.indigo { color: #818CF8; }
-    .res-val.red    { color: #F87171; }
-    .res-val.blue   { color: #60A5FA; font-style: italic; font-size: 12.5px; }
+    .res-lbl { font-size: 12.5px; color: rgba(255,255,255,0.45); font-weight: 400; }
+    .res-val { font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,0.9); }
+    .res-val.indigo { color: #7DC4FF; }
+    .res-val.red { color: #F87171; }
+    .res-val.amber { color: #FBBF24; font-style: italic; font-size: 12.5px; }
+
+    /* Progress / payment split bar */
+    .split-bar {
+      display: flex; height: 8px; border-radius: 99px; overflow: hidden;
+      margin: 0.9rem 0; background: rgba(255,255,255,0.08);
+    }
+    .split-bar .seg-dp { background: #F59E0B; }
+    .split-bar .seg-loan { background: #005EA6; }
+    .split-legend { display: flex; justify-content: space-between; font-size: 10.5px; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem; }
+    .split-legend span { display: flex; align-items: center; gap: 5px; }
+    .split-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .split-legend .dot.dp { background: #F59E0B; }
+    .split-legend .dot.loan { background: #005EA6; }
 
     /* EMI highlight box */
     .emi-box {
-      background: var(--red);
-      border-radius: var(--r12);
-      padding: 1.25rem; margin: 1.25rem 0;
-      text-align: center;
+      background: linear-gradient(120deg, #005EA6, #0070C7);
+      border-radius: 14px; padding: 1.25rem; margin: 1.1rem 0;
+      text-align: center; position: relative; overflow: hidden;
     }
-    .emi-box-lbl { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 4px; }
-    .emi-box-val { font-family: var(--D); font-size: 42px; letter-spacing: .02em; line-height: 1; }
+    .emi-box::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(245,158,11,0.22) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .emi-box-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 4px; position: relative; z-index: 1; }
+    .emi-box-val { font-family: 'Bebas Neue', cursive; font-size: clamp(2rem, 6vw, 2.6rem); letter-spacing: 0.02em; line-height: 1; color: #fff; position: relative; z-index: 1; }
+    .emi-box-sub { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 4px; position: relative; z-index: 1; }
 
     .adv-box {
-      background: rgba(255,255,255,.06);
-      border-radius: var(--r12); padding: 12px 14px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 12px; padding: 12px 14px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .adv-box-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
-    .adv-box-val { font-family: var(--D); font-size: 24px; letter-spacing: .02em; color: #818CF8; }
+    .adv-box-lbl { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .adv-box-val { font-family: 'Bebas Neue', cursive; font-size: 1.45rem; letter-spacing: 0.02em; color: #7DC4FF; }
 
-    /* ══════════════════════════════════
-       FOOTER
-    ══════════════════════════════════ */
-    .foot { background: var(--white); border-top: 1px solid var(--line); }
-    .foot-in {
-      max-width: 1320px; margin: 0 auto; padding: 3rem 1.25rem 2.5rem;
-      display: grid; grid-template-columns: 220px 1fr; gap: 3rem;
+    /* Rate chips */
+    .rate-chips { display: flex; gap: 6px; margin-top: 0.9rem; flex-wrap: wrap; }
+    .rate-chip {
+      flex: 1; min-width: 70px; text-align: center;
+      background: var(--bg-soft); border: 1.5px solid var(--line);
+      border-radius: 10px; padding: 7px 4px;
+      font-size: 11px; font-weight: 600; color: var(--ink3);
+      transition: all 0.18s;
     }
-    .f-nm  { font-family: var(--D); font-size: 28px; letter-spacing: .04em; color: var(--red); margin-bottom: 3px; }
-    .f-sub { font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1rem; }
-    .f-adr { font-size: 13px; color: var(--ink3); line-height: 1.9; font-weight: 300; }
-    .f-soc { display: flex; gap: 8px; margin-top: 1.25rem; }
-    .f-soc a {
-      width: 34px; height: 34px; border-radius: 7px;
-      border: 1px solid var(--line); background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; color: var(--ink3);
-      transition: background .16s, color .16s, border-color .16s;
-    }
-    .f-soc a:hover { background: var(--red-lt); color: var(--red); border-color: rgba(208,39,29,.2); }
-    .f-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
-    .f-col-h { font-size: 10.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); margin-bottom: .9rem; }
-    .f-col-l { display: flex; flex-direction: column; gap: 8px; }
-    .f-col-l a { font-size: 13px; color: var(--ink3); font-weight: 300; transition: color .16s; }
-    .f-col-l a:hover { color: var(--red); }
-    .foot-bot {
-      max-width: 1320px; margin: 0 auto; padding: 1.1rem 1.25rem;
-      border-top: 1px solid var(--line);
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-    }
-    .f-copy { font-size: 11.5px; color: var(--ink4); font-weight: 300; }
-    .f-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--bg); border: 1px solid var(--line);
-      padding: 4px 11px; border-radius: 100px;
-      font-size: 10.5px; font-weight: 600; letter-spacing: .07em;
-      text-transform: uppercase; color: var(--ink3);
-    }
-    .f-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
+    .rate-chip.active { background: var(--indigo-lt); border-color: var(--indigo); color: var(--indigo); }
+    .rate-chip .pct { font-family: 'Bebas Neue', cursive; font-size: 1.1rem; display: block; }
 
-    /* ══════════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════════ */
     @media (max-width: 1024px) {
-      .calc-grid { grid-template-columns: 1fr; }
+      .calc-grid { grid-template-columns: 1fr !important; }
       .results-panel { position: static; }
-      .foot-in { grid-template-columns: 1fr; gap: 2.25rem; }
     }
     @media (max-width: 768px) {
-      .nav-links, .nav-wa { display: none; }
-      .ham { display: flex; }
       .metrics-row { grid-template-columns: 1fr 1fr; }
       .two-up { grid-template-columns: 1fr; }
-      .f-cols { grid-template-columns: 1fr 1fr; }
+      .mobile-emi-bar { display: flex; }
+      body { padding-bottom: 78px; }
     }
-    @media (max-width: 540px) {
+    @media (max-width: 480px) {
+      .acc-grid { grid-template-columns: 1fr; }
+      .config-row { grid-template-columns: 1fr; }
       .total-dp-banner { flex-direction: column; align-items: flex-start; }
-      .metrics-row { grid-template-columns: 1fr 1fr; }
-      .config-row  { grid-template-columns: 1fr; }
-      .hero-h1     { font-size: 46px; }
-      .f-cols      { grid-template-columns: 1fr; }
-      .foot-in     { padding: 2.5rem 1rem 2rem; }
     }
-    @media (max-width: 380px) {
-      .acc-grid    { grid-template-columns: 1fr; }
-    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,94,166,0.3); border-radius: 99px; }
   </style>
 </head>
 <body>
 
-<!-- ════════════ NAV ════════════ -->
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index.html" class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 16 16" fill="none">
-          <path d="M2 12.5 L8 3 L14 12.5 M4.5 9.5 L11.5 9.5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+<!-- ══════════ NAVIGATION ══════════ -->
+<header class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Brand -->
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="Samriddhi Auto Home">
+        <div class="w-9 h-9 rounded-lg bg-bajaj-blue flex items-center justify-center shadow-sm flex-shrink-0">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M4 16 Q7 8 11 7 Q15 6 18 10" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            <circle cx="5" cy="17" r="2.2" fill="#fff" opacity="0.9"/>
+            <circle cx="17" cy="17" r="2.2" fill="#fff" opacity="0.9"/>
+            <path d="M5 17 L17 17" stroke="#fff" stroke-width="1.4" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <div class="text-sm font-bold text-slate-900 tracking-tight leading-none">Samriddhi And Brothers</div>
+          <div class="text-[10px] font-medium text-bajaj-blue leading-none tracking-wide uppercase mt-0.5">Bajaj Authorized Dealer</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-7">
+        <a href="index.html" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Home
+        </a>
+        <a href="index.html#prices" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Price List
+        </a>
+        <a href="finance.html" class="nav-link active">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Finance
+        </a>
+        <a href="form.html" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Allocations
+        </a>
+        <a href="#" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          KYC
+        </a>
+        <a href="https://yonghangishak.com.np/" target="_blank" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          About
+        </a>
       </div>
-      <div class="logo-copy">
-        <span class="logo-name">Go! YNG</span>
-        <span class="logo-sub">Bajaj Partner · Phidim</span>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="tel:+97723420000" class="text-sm font-semibold text-bajaj-blue flex items-center gap-1.5 hover:text-bajaj-blueDark transition-colors">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Showroom
+        </a>
+        <a href="https://wa.me/9779802315425" target="_blank" class="cta-primary text-sm py-2.5 px-5">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
       </div>
-    </a>
 
-    <ul class="nav-links">
-      <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="index.html#prices"><i class="fa-solid fa-list-ul"></i> Prices</a></li>
-      <li><a href="finance.html" class="active"><i class="fa-solid fa-calculator"></i> Finance</a></li>
-      <li><a href="#"><i class="fa-solid fa-person-circle-question"></i> Enquiry</a></li>
-      <li><a href="https://yonghangishak.com.np/" target="_blank"><i class="fa-solid fa-user-tie"></i> About</a></li>
-    </ul>
+      <!-- Hamburger -->
+      <button id="hamburger-btn" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
 
-    <a href="https://wa.me/9779802315425" target="_blank" class="nav-wa">
-      <i class="fa-brands fa-whatsapp"></i> WhatsApp
-    </a>
-
-    <button class="ham" id="ham" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="draw-bg" id="draw-bg"></div>
-<div class="drawer" id="drawer">
-  <p class="draw-tag">Navigation</p>
-  <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-  <a href="index.html#prices"><i class="fa-solid fa-list-ul"></i> Price List</a>
-  <a href="finance.html"><i class="fa-solid fa-calculator"></i> Finance</a>
-  <a href="#"><i class="fa-solid fa-person-circle-question"></i> Enquiry</a>
-  <a href="https://yonghangishak.com.np/" target="_blank"><i class="fa-solid fa-user-tie"></i> About</a>
-  <hr>
-  <a href="https://wa.me/9779802315425" target="_blank" class="d-cta">
-    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-  </a>
-</div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden">
+      <div class="py-4 border-t border-slate-100 space-y-1">
+        <a href="index.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">Home</a>
+        <a href="index.html#prices" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">Price List</a>
+        <a href="finance.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-bajaj-blue bg-bajaj-blueLight">Finance</a>
+        <a href="form.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">Allocations</a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">KYC</a>
+        <a href="https://yonghangishak.com.np/" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">About</a>
+        <div class="pt-2 grid grid-cols-2 gap-2">
+          <a href="tel:+9779802315425" class="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-bajaj-blue text-bajaj-blue text-sm font-semibold">Call Us</a>
+          <a href="https://wa.me/9779802315425" target="_blank" class="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-bajaj-blue text-white text-sm font-semibold">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
 
 
-<!-- ════════════ HERO ════════════ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <img class="hero-img"
-       src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2070"
-       alt="Bajaj motorcycle finance">
-  <div class="hero-grad"></div>
-  <div class="hero-body">
-    <div class="hero-pill"><i class="fa-solid fa-calculator"></i> EMI Finance Calculator</div>
-    <h1 class="hero-h1">RIDE NOW,<br><span class="r">PAY SMART.</span></h1>
-    <p class="hero-desc">Calculate your monthly EMI, downpayment, and total cost — before you walk into the showroom.</p>
+<!-- ══════════ FINANCE HERO ══════════ -->
+<section class="fin-hero pt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="text-center max-w-2xl mx-auto fade-up">
+      <span class="price-badge">
+        <i class="fa-solid fa-calculator" style="font-size:11px;"></i>
+        EMI Finance Calculator
+      </span>
+      <h1 class="headline-display text-[clamp(2.6rem,7vw,4.6rem)] text-slate-900 mt-4">
+        Ride Now, <span style="color:#005EA6;">Pay Smart.</span>
+      </h1>
+      <p class="text-slate-500 text-base lg:text-lg leading-relaxed mt-4 max-w-md mx-auto">
+        Pick your model, adjust the numbers, and see your EMI, downpayment, and total cost — updated live, right here.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-6">
+        <span class="stat-chip" style="background:#fff;border:1px solid rgba(0,94,166,0.12);border-radius:12px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+          <i class="fa-solid fa-percent" style="color:#005EA6;font-size:13px;"></i>
+          <span class="text-sm font-semibold text-slate-700">From 9.99% Interest</span>
+        </span>
+        <span class="stat-chip" style="background:#fff;border:1px solid rgba(0,94,166,0.12);border-radius:12px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+          <i class="fa-solid fa-calendar-days" style="color:#005EA6;font-size:13px;"></i>
+          <span class="text-sm font-semibold text-slate-700">Up to 36 Months</span>
+        </span>
+        <span class="stat-chip" style="background:#fff;border:1px solid rgba(0,94,166,0.12);border-radius:12px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+          <i class="fa-solid fa-bolt" style="color:#F59E0B;font-size:13px;"></i>
+          <span class="text-sm font-semibold text-slate-700">1 Hr Approval</span>
+        </span>
+      </div>
+    </div>
   </div>
 </section>
 
 
-<!-- ════════════ CALCULATOR ════════════ -->
-<main id="finance" class="main">
+<!-- ══════════ CALCULATOR ══════════ -->
+<main class="bg-[#F8FAFC]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
 
-  <!-- Total DP Banner -->
-  <div class="total-dp-banner">
-    <div class="tdp-left">
-      <span class="tdp-label">Total Amount Due Today</span>
-      <span class="tdp-title">Total Downpayment</span>
-    </div>
-    <div id="displayTotalDP" class="tdp-value">Rs. 0</div>
-    <div class="tdp-badge"><i class="fa-solid fa-circle-check"></i> Live Calculation</div>
-  </div>
-
-  <div class="calc-grid">
-
-    <!-- ── LEFT COLUMN ── -->
-    <div class="calc-left">
-
-      <!-- Model + Core Inputs -->
-      <div class="card">
-        <div class="card-title">
-          <span class="icon"><i class="fa-solid fa-motorcycle"></i></span>
-          Select Model & Pricing
-        </div>
-
-        <label class="field-label">Bike Model</label>
-        <select id="modelSelect" class="styled">
-          <option>Loading bikes…</option>
-        </select>
-
-        <div class="metrics-row">
-          <div class="metric-box">
-            <span class="metric-lbl">MRP Price</span>
-            <span class="metric-val" id="mrp">0</span>
-          </div>
-          <div class="metric-box has-input">
-            <span class="metric-lbl">Discount</span>
-            <input type="number" id="discountInput" value="0" placeholder="0">
-          </div>
-          <div class="metric-box">
-            <span class="metric-lbl">After Discount</span>
-            <span class="metric-val green" id="afterDiscount">0</span>
-          </div>
-          <div class="metric-box has-input">
-            <span class="metric-lbl">Advance EMI</span>
-            <input type="number" id="advEmiInput" value="0" placeholder="0">
-          </div>
-        </div>
-
-        <div class="config-row">
-          <div>
-            <label class="field-label">Downpayment %</label>
-            <select id="dpPercent" class="styled">
-              <option value="30">30%</option>
-              <option value="40">40%</option>
-              <option value="50" selected>50%</option>
-              <option value="60">60%</option>
-            </select>
-          </div>
-          <div>
-            <label class="field-label">Loan Tenure</label>
-            <select id="tenure" class="styled">
-              <option value="12" selected>12 Months</option>
-              <option value="18">18 Months</option>
-              <option value="24">24 Months</option>
-              <option value="36">36 Months</option>
-            </select>
-          </div>
-        </div>
+    <!-- Total DP Banner -->
+    <div class="total-dp-banner mb-6">
+      <div class="tdp-left">
+        <span class="tdp-label">Total Amount Due Today</span>
+        <span class="tdp-title">Total Downpayment</span>
       </div>
-
-      <!-- Additional Charges + Accessories -->
-      <div class="two-up">
-
-        <div class="card">
-          <div class="card-title">
-            <span class="icon"><i class="fa-solid fa-gears"></i></span>
-            Additional Charges
-          </div>
-          <div class="charge-row">
-            <label>Insurance</label>
-            <span class="val" id="displayIns">Rs. 0</span>
-          </div>
-          <div class="charge-row">
-            <label>Registration / Namsari</label>
-            <input type="number" id="namsariInput" value="3000">
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">
-            <span class="icon"><i class="fa-solid fa-helmet-safety"></i></span>
-            Accessories
-          </div>
-          <div class="acc-grid">
-            <div class="acc-field">
-              <label>Helmet</label>
-              <input type="number" id="helmetInput" value="2500">
-            </div>
-            <div class="acc-field">
-              <label>Leg Guard</label>
-              <input type="number" id="legguardInput" value="1800">
-            </div>
-            <div class="acc-field">
-              <label>Seat Cover</label>
-              <input type="number" id="seatcoverInput" value="650">
-            </div>
-            <div class="acc-field">
-              <label>Others</label>
-              <input type="number" id="othersInput" value="0">
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div id="displayTotalDP" class="tdp-value">Rs. 0</div>
+      <div class="tdp-badge"><i class="fa-solid fa-circle-check"></i> Live Calculation</div>
     </div>
 
-    <!-- ── RIGHT PANEL — Results ── -->
-    <div class="results-panel">
-      <div class="res-title">
-        <i class="fa-solid fa-calculator"></i> Results Summary
+    <div class="calc-grid" style="display:grid; grid-template-columns: 1fr 360px; gap: 1.5rem; align-items: start;">
+
+      <!-- ── LEFT COLUMN ── -->
+      <div class="flex flex-col gap-6">
+
+        <!-- Model + Core Inputs -->
+        <div class="calc-card">
+          <div class="calc-card-title">
+            <span class="icon"><i class="fa-solid fa-motorcycle"></i></span>
+            Select Model &amp; Pricing
+          </div>
+
+          <label class="field-label">Bike Model</label>
+          <select id="modelSelect" class="styled">
+            <option>Loading bikes…</option>
+          </select>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <span class="metric-lbl">MRP Price</span>
+              <span class="metric-val" id="mrp">0</span>
+            </div>
+            <div class="metric-box has-input">
+              <span class="metric-lbl">Discount</span>
+              <input type="number" id="discountInput" value="0" placeholder="0">
+            </div>
+            <div class="metric-box">
+              <span class="metric-lbl">After Discount</span>
+              <span class="metric-val green" id="afterDiscount">0</span>
+            </div>
+            <div class="metric-box has-input">
+              <span class="metric-lbl">Advance EMI</span>
+              <input type="number" id="advEmiInput" value="0" placeholder="0">
+            </div>
+          </div>
+
+          <div class="config-row">
+            <div>
+              <label class="field-label">Downpayment %</label>
+              <select id="dpPercent" class="styled">
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+                <option value="50" selected>50%</option>
+                <option value="60">60%</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label">Loan Tenure</label>
+              <select id="tenure" class="styled">
+                <option value="12" selected>12 Months</option>
+                <option value="18">18 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Visual rate reference (informational only, no IDs collide with finance.js) -->
+          <div class="rate-chips">
+            <div class="rate-chip" data-dp="30"><span class="pct">13.99%</span>30% DP</div>
+            <div class="rate-chip" data-dp="40"><span class="pct">12.99%</span>40% DP</div>
+            <div class="rate-chip" data-dp="50"><span class="pct">11.99%</span>50% DP</div>
+            <div class="rate-chip" data-dp="60"><span class="pct">9.99%</span>60% DP</div>
+          </div>
+        </div>
+
+        <!-- Additional Charges + Accessories -->
+        <div class="two-up">
+
+          <div class="calc-card">
+            <div class="calc-card-title">
+              <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+              Additional Charges
+            </div>
+            <div class="charge-row">
+              <label><i class="fa-solid fa-shield-halved"></i> Insurance</label>
+              <span class="val" id="displayIns">Rs. 0</span>
+            </div>
+            <div class="charge-row">
+              <label><i class="fa-solid fa-stamp"></i> Registration / Namsari</label>
+              <input type="number" id="namsariInput" value="3000">
+            </div>
+          </div>
+
+          <div class="calc-card">
+            <div class="calc-card-title">
+              <span class="icon"><i class="fa-solid fa-helmet-safety"></i></span>
+              Accessories
+            </div>
+            <div class="acc-grid">
+              <div class="acc-field">
+                <label><i class="fa-solid fa-helmet-safety"></i> Helmet</label>
+                <input type="number" id="helmetInput" value="2500">
+              </div>
+              <div class="acc-field">
+                <label><i class="fa-solid fa-shield"></i> Leg Guard</label>
+                <input type="number" id="legguardInput" value="1800">
+              </div>
+              <div class="acc-field">
+                <label><i class="fa-solid fa-chair"></i> Seat Cover</label>
+                <input type="number" id="seatcoverInput" value="650">
+              </div>
+              <div class="acc-field">
+                <label><i class="fa-solid fa-plus"></i> Others</label>
+                <input type="number" id="othersInput" value="0">
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      <div class="res-row">
-        <span class="res-lbl">Interest Rate</span>
-        <span class="res-val indigo" id="displayRate">0%</span>
-      </div>
-      <div class="res-row">
-        <span class="res-lbl">Downpayment Amount</span>
-        <span class="res-val" id="displayDpAmt">Rs. 0</span>
-      </div>
-      <div class="res-row">
-        <span class="res-lbl">Loan Amount</span>
-        <span class="res-val" id="displayLoanAmt">Rs. 0</span>
+      <!-- ── RIGHT PANEL — Results ── -->
+      <div class="results-panel">
+        <div class="res-title">
+          <i class="fa-solid fa-chart-pie"></i> Results Summary
+        </div>
+
+        <div class="res-row">
+          <span class="res-lbl">Interest Rate</span>
+          <span class="res-val indigo"><span id="displayRate">0</span>%</span>
+        </div>
+        <div class="res-row">
+          <span class="res-lbl">Downpayment Amount</span>
+          <span class="res-val" id="displayDpAmt">Rs. 0</span>
+        </div>
+        <div class="res-row">
+          <span class="res-lbl">Loan Amount</span>
+          <span class="res-val" id="displayLoanAmt">Rs. 0</span>
+        </div>
+
+        <!-- Visual split bar -->
+        <div class="split-legend">
+          <span><span class="dot dp"></span> Downpayment</span>
+          <span><span class="dot loan"></span> Loan</span>
+        </div>
+        <div class="split-bar" aria-hidden="true">
+          <div class="seg-dp" id="splitDpBar" style="width:50%;"></div>
+          <div class="seg-loan" id="splitLoanBar" style="width:50%;"></div>
+        </div>
+
+        <!-- EMI highlight -->
+        <div class="emi-box">
+          <div class="emi-box-lbl">Monthly EMI</div>
+          <div class="emi-box-val" id="displayEMI">Rs. 0</div>
+          <div class="emi-box-sub" id="emiTenureLabel">for 12 months</div>
+        </div>
+
+        <div class="res-row">
+          <span class="res-lbl">Auto Rounding Adj.</span>
+          <span class="res-val amber" id="displayAutoAdEmi">Rs. 0</span>
+        </div>
+
+        <!-- Advance EMI total -->
+        <div class="adv-box" style="margin: .75rem 0 .25rem;">
+          <span class="adv-box-lbl">Total Advance EMI</span>
+          <span class="adv-box-val" id="displayTotalAdvEmi">Rs. 0</span>
+        </div>
+
+        <div class="res-row">
+          <span class="res-lbl">Due EMI (Remaining)</span>
+          <span class="res-val" id="displayDueEmi">Rs. 0</span>
+        </div>
+        <div class="res-row">
+          <span class="res-lbl">Total Interest Payable</span>
+          <span class="res-val red" id="displayTotalInterest">Rs. 0</span>
+        </div>
+
+        <a href="https://wa.me/9779802315425" target="_blank" class="cta-primary w-full justify-center mt-4" style="background:#F59E0B;border-color:#F59E0B;">
+          <i class="fa-brands fa-whatsapp"></i> Apply via WhatsApp
+        </a>
       </div>
 
-      <!-- EMI highlight -->
-      <div class="emi-box">
-        <div class="emi-box-lbl">Monthly EMI</div>
-        <div class="emi-box-val" id="displayEMI">Rs. 0</div>
-      </div>
-
-      <div class="res-row">
-        <span class="res-lbl">Auto Rounding Adj.</span>
-        <span class="res-val blue" id="displayAutoAdEmi">Rs. 0</span>
-      </div>
-
-      <!-- Advance EMI total -->
-      <div class="adv-box" style="margin: .75rem 0 .25rem;">
-        <span class="adv-box-lbl">Total Advance EMI</span>
-        <span class="adv-box-val" id="displayTotalAdvEmi">Rs. 0</span>
-      </div>
-
-      <div class="res-row">
-        <span class="res-lbl">Due EMI (Remaining)</span>
-        <span class="res-val" id="displayDueEmi">Rs. 0</span>
-      </div>
-      <div class="res-row">
-        <span class="res-lbl">Total Interest Payable</span>
-        <span class="res-val red" id="displayTotalInterest">Rs. 0</span>
-      </div>
     </div>
-
   </div>
 </main>
 
 
-<!-- ════════════ FOOTER ════════════ -->
-<footer class="foot">
-  <div class="foot-in">
-    <div>
-      <div class="f-nm">Go! YNG</div>
-      <div class="f-sub">Authorized Bajaj Partner</div>
-      <address class="f-adr" style="font-style:normal;">Phidim-1, Panchthar<br>Koshi Province, Nepal</address>
-      <div class="f-soc">
-        <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://wa.me/9779802315425" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://www.tiktok.com/@bajajphidim" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-    </div>
-    <div class="f-cols">
-      <div>
-        <div class="f-col-h">Navigate</div>
-        <div class="f-col-l">
-          <a href="index.html">Home</a>
-          <a href="index.html#prices">Price List</a>
-          <a href="finance.html">Finance</a>
-          <a href="form.html">Form</a>
-          <a href="https://yonghangishak.com.np/" target="_blank">About</a>
-        </div>
-      </div>
-      <div>
-        <div class="f-col-h">Models</div>
-        <div class="f-col-l">
-          <a href="index.html">Pulsar Series</a>
-          <a href="index.html">Dominar Series</a>
-          <a href="index.html">Avenger Series</a>
-          <a href="index.html">Platina Series</a>
-          <a href="index.html">N/A Series</a>
-        </div>
-      </div>
-      <div>
-        <div class="f-col-h">Contact</div>
-        <div class="f-col-l">
-          <a href="https://wa.me/9779802315425" target="_blank">+977 980-231-5425</a>
-          <a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a>
-          <a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a>
-        </div>
-      </div>
-    </div>
+<!-- ══════════ MOBILE STICKY EMI BAR ══════════ -->
+<div class="mobile-emi-bar" id="mobileEmiBar">
+  <div>
+    <div class="lbl">Monthly EMI</div>
+    <div class="val" id="mobileEmiVal">Rs. 0</div>
   </div>
-  <div class="foot-bot">
-    <span class="f-copy">&copy; 2026 Go! YNG — Go Your Dream</span>
-    <span class="f-badge"><span class="dot"></span> Authorized Bajaj Dealer</span>
+  <a href="https://wa.me/9779802315425" target="_blank" class="badge">
+    <i class="fa-brands fa-whatsapp"></i> Apply Now
+  </a>
+</div>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="py-12 lg:py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="space-y-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-bajaj-blue flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 16 Q7 8 11 7 Q15 6 18 10" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" fill="none"/><circle cx="5" cy="17" r="2.2" fill="#fff" opacity="0.9"/><circle cx="17" cy="17" r="2.2" fill="#fff" opacity="0.9"/></svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Samriddhi Auto</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-wide">Bajaj</div>
+          </div>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">Panchthar's premier destination for Bajaj motorcycles, genuine parts, and trusted after-sales service.</p>
+        <div class="flex gap-3">
+          <a href="https://www.facebook.com/sambridhi.brothers" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-bajaj-blue transition-all" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="tel:+9779802315425" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-bajaj-blue transition-all" aria-label="Phone">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </a>
+          <a href="https://wa.me/9779802315425" target="_blank" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-bajaj-blue transition-all" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Quick Links</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="index.html#prices" class="footer-link">Price List</a></li>
+          <li><a href="finance.html" class="footer-link">Finance / EMI</a></li>
+          <li><a href="form.html" class="footer-link">Allocations</a></li>
+          <li><a href="#" class="footer-link">KYC Form</a></li>
+          <li><a href="https://yonghangishak.com.np/" target="_blank" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Popular Models</h4>
+        <ul class="space-y-2.5">
+          <li><a href="index.html#prices" class="footer-link">Pulsar N150</a></li>
+          <li><a href="index.html#prices" class="footer-link">Pulsar N160</a></li>
+          <li><a href="index.html#prices" class="footer-link">Pulsar NS200</a></li>
+          <li><a href="index.html#prices" class="footer-link">Dominar 250</a></li>
+          <li><a href="index.html#prices" class="footer-link">Avenger Street 160</a></li>
+          <li><a href="index.html#prices" class="footer-link">Chetak Electric</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Contact</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2 text-slate-400 text-sm">
+            <svg class="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Phidim, Panchthar, Koshi Province, Nepal
+          </li>
+          <li class="flex items-start gap-2 text-slate-400 text-sm">
+            <svg class="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            +977-9802315425
+          </li>
+          <li class="flex items-start gap-2 text-slate-400 text-sm">
+            <svg class="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Sun – Fri: 9AM – 6PM
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-slate-500 text-xs text-center sm:text-left">© Samriddhi And Brothers Auto Pvt. Ltd. All prices are indicative and subject to change without notice.</p>
+      <p class="text-slate-600 text-xs">Powered by <span class="text-bajaj-blue font-semibold">Go! YNG</span></p>
+    </div>
   </div>
 </footer>
 
 
-<!-- ════════════ SCRIPTS ════════════ -->
+<!-- ══════════ SCRIPTS ══════════ -->
 <script>
-  /* Mobile nav */
-  const ham    = document.getElementById('ham');
-  const drawBg = document.getElementById('draw-bg');
-  const drawer = document.getElementById('drawer');
+  /* Hamburger (same behaviour as index.html) */
+  const btn      = document.getElementById("hamburger-btn");
+  const mMenu    = document.getElementById("mobile-menu");
+  const icoOpen  = document.getElementById("icon-open");
+  const icoClose = document.getElementById("icon-close");
 
-  function setDrawer(open) {
-    ham.classList.toggle('open', open);
-    drawer.classList.toggle('open', open);
-    drawBg.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+  btn?.addEventListener("click", () => {
+    const open = mMenu.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open);
+    icoOpen.classList.toggle("hidden", open);
+    icoClose.classList.toggle("hidden", !open);
+  });
+
+  mMenu?.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      mMenu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      icoOpen.classList.remove("hidden");
+      icoClose.classList.add("hidden");
+    });
+  });
+
+  /* ── Visual-only extras layered on top of finance.js ── */
+  function updateExtras() {
+    const dpSel = document.getElementById('dpPercent');
+    const tenureSel = document.getElementById('tenure');
+    const dpVal = dpSel ? dpSel.value : "50";
+
+    // Rate chip highlight
+    document.querySelectorAll('.rate-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.dp === dpVal);
+    });
+
+    // Split bar (DP % vs Loan %)
+    const dpNum = parseFloat(dpVal) || 50;
+    const dpBar = document.getElementById('splitDpBar');
+    const loanBar = document.getElementById('splitLoanBar');
+    if (dpBar && loanBar) {
+      dpBar.style.width = dpNum + '%';
+      loanBar.style.width = (100 - dpNum) + '%';
+    }
+
+    // EMI tenure label
+    const tenureLbl = document.getElementById('emiTenureLabel');
+    if (tenureLbl && tenureSel) {
+      tenureLbl.textContent = `for ${tenureSel.value} months`;
+    }
+
+    // Mirror EMI value into mobile sticky bar
+    const emiVal = document.getElementById('displayEMI');
+    const mobileEmi = document.getElementById('mobileEmiVal');
+    if (emiVal && mobileEmi) {
+      mobileEmi.textContent = emiVal.textContent;
+    }
   }
-  ham.addEventListener('click', () => setDrawer(!drawer.classList.contains('open')));
-  drawBg.addEventListener('click', () => setDrawer(false));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
+
+  document.addEventListener('input', updateExtras);
+
+  // Run extras periodically after finance.js populates the dropdown/results
+  let extrasTries = 0;
+  const extrasInterval = setInterval(() => {
+    updateExtras();
+    extrasTries++;
+    if (extrasTries > 20) clearInterval(extrasInterval);
+  }, 250);
+
+  // Allow clicking a rate chip to set the downpayment % directly
+  document.querySelectorAll('.rate-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const dpSel = document.getElementById('dpPercent');
+      if (dpSel) {
+        dpSel.value = chip.dataset.dp;
+        dpSel.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+  });
 </script>
 <script type="module" src="finance.js"></script>
 </body>
