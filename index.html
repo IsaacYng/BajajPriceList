@@ -1,633 +1,1100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Go! YNG — Bajaj Price List Nepal</title>
-  <meta name="description" content="Official Bajaj bike price list at Go! YNG, Phidim. Latest prices for Pulsar, Dominar, Avenger. Easy finance options available.">
-  <meta name="keywords" content="Bajaj Price List Nepal, Go YNG Phidim, Bajaj Pulsar Price Phidim, Bajaj Finance Nepal">
-  <meta property="og:title" content="Go! YNG | Bajaj Price List Phidim">
-  <meta property="og:description" content="Latest Bajaj bike prices and finance schemes in Phidim, Nepal.">
-  <link rel="canonical" href="https://projectprice.yonghangishak.com.np" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samriddhi And Brother  | Bajaj – Phidim, Panchthar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bajaj: {
+              blue: '#005EA6',
+              blueDark: '#004A85',
+              blueLight: '#E8F2FB',
+              amber: '#F59E0B',
+              amberDark: '#D97706',
+            }
+          },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'cursive'],
+            body: ['"DM Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <style>
-    /* ─── RESET ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    img { display: block; max-width: 100%; }
-    a   { text-decoration: none; color: inherit; }
-    ul  { list-style: none; }
-    button { border: none; background: none; cursor: pointer; font: inherit; }
-
-    /* ─── DESIGN TOKENS ─── */
-    :root {
-      --red:     #D0271D;
-      --red-dk:  #A01E16;
-      --red-lt:  #FDF1F0;
-      --ink:     #111110;
-      --ink2:    #3A3A38;
-      --ink3:    #6B6B68;
-      --ink4:    #9A9A97;
-      --line:    #E8E6E1;
-      --bg:      #F6F4F0;
-      --white:   #FFFFFF;
-      --green:   #1A6B3C;
-      --D: 'Bebas Neue', sans-serif;
-      --B: 'DM Sans', sans-serif;
-      --ease: cubic-bezier(.25,.46,.45,.94);
-      --nav-h: 64px;
-    }
-
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--B);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: #FFFFFF; color: #0F172A; -webkit-font-smoothing: antialiased; }
 
-    /* ══════════════════════════════════
-       NAV
-    ══════════════════════════════════ */
-    .nav {
-      position: sticky; top: 0; z-index: 300;
-      height: var(--nav-h);
-      background: rgba(255,255,255,.97);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+    /* ── NAV ── */
+    .nav-blur {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,94,166,0.08);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
     }
-    .nav-inner {
-      max-width: 1320px; margin: 0 auto;
-      padding: 0 1rem;
-      height: 100%;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: .75rem;
+    .nav-link {
+      position: relative; font-size: 0.875rem; font-weight: 500; color: #374151;
+      display: flex; align-items: center; gap: 5px; transition: color 0.2s;
+      padding: 4px 2px;
     }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 2px; background: #005EA6; border-radius: 2px; transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #005EA6; }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active { color: #005EA6; }
+    .nav-link.active::after { width: 100%; }
 
-    /* Logo */
-    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .logo-mark {
-      width: 34px; height: 34px; flex-shrink: 0;
-      background: var(--red); border-radius: 8px;
+    /* Mobile menu */
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease; opacity: 0; }
+    #mobile-menu.open { max-height: 560px; opacity: 1; }
+
+    /* ── HERO ── */
+    .hero-section {
+      background: linear-gradient(135deg, #F0F7FF 0%, #EBF4FF 60%, #DCEEFB 100%);
+      min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden; position: relative;
+    }
+    .hero-section::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(0,94,166,0.08) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-section::after {
+      content: ''; position: absolute; bottom: -60px; left: -60px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .headline-display { font-family: 'Bebas Neue', cursive; line-height: 0.95; letter-spacing: 0.01em; }
+    .price-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #005EA6; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.75rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,94,166,0.28);
+    }
+    .cta-primary {
+      background: #005EA6; color: #fff;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.925rem;
+      letter-spacing: 0.02em; padding: 14px 28px; border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.22s ease; box-shadow: 0 4px 18px rgba(0,94,166,0.3);
+      text-decoration: none; border: 2px solid #005EA6;
+    }
+    .cta-primary:hover { background: #004A85; border-color: #004A85; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0,94,166,0.38); }
+    .cta-secondary {
+      background: transparent; color: #005EA6;
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 0.925rem;
+      letter-spacing: 0.02em; padding: 14px 28px; border-radius: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid #005EA6; transition: all 0.22s ease; text-decoration: none;
+    }
+    .cta-secondary:hover { background: #005EA6; color: #fff; transform: translateY(-2px); box-shadow: 0 8px 26px rgba(0,94,166,0.22); }
+
+    /* Bike visual */
+    .bike-ring { position: absolute; border-radius: 50%; border: 1.5px solid rgba(0,94,166,0.12); }
+    .bike-placeholder {
+      width: 100%; aspect-ratio: 4/3; border-radius: 24px;
+      background: linear-gradient(135deg, #E8F2FB 0%, #D4E9F7 40%, #C5DDEF 100%);
       display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,94,166,0.14), 0 4px 16px rgba(0,0,0,0.06);
     }
-    .logo-mark svg { width: 16px; height: 16px; }
-    .logo-copy { line-height: 1.15; }
-    .logo-name { font-family: var(--D); font-size: 18px; letter-spacing: .05em; color: var(--red); display: block; }
-    .logo-sub  { font-size: 9.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); display: block; }
+    .bike-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.5) 0%, transparent 65%);
+    }
+    .bike-svg-wrap { width: 82%; position: relative; z-index: 1; filter: drop-shadow(0 12px 32px rgba(0,94,166,0.22)); }
 
-    /* Desktop links */
-    .nav-links {
-      display: flex; align-items: center; gap: 2px;
+    /* Stats */
+    .stat-chip {
+      background: #fff; border: 1px solid rgba(0,94,166,0.12); border-radius: 12px;
+      padding: 14px 20px; display: flex; flex-direction: column; align-items: center;
+      gap: 2px; box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     }
-    .nav-links a {
-      display: flex; align-items: center; gap: 6px;
-      padding: 7px 13px; border-radius: 8px;
-      font-size: 13.5px; font-weight: 500; color: var(--ink2);
-      transition: background .16s, color .16s;
-    }
-    .nav-links a:hover   { background: var(--bg); color: var(--ink); }
-    .nav-links a.active  { background: var(--red-lt); color: var(--red); }
 
-    /* Nav CTA */
-    .nav-wa {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px; background: var(--red); color: var(--white);
-      border-radius: 8px; font-size: 13px; font-weight: 600;
-      transition: background .16s, transform .16s;
-      white-space: nowrap;
-    }
-    .nav-wa:hover { background: var(--red-dk); transform: translateY(-1px); }
-
-    /* Hamburger */
-    .ham {
-      display: none;
-      width: 38px; height: 38px; border-radius: 8px;
-      border: 1px solid var(--line);
-      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-      flex-shrink: 0;
-    }
-    .ham span {
-      display: block; width: 17px; height: 1.5px;
-      background: var(--ink); border-radius: 2px;
-      transition: transform .26s var(--ease), opacity .18s;
-    }
-    .ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* Drawer */
-    .drawer-bg {
-      display: none; position: fixed; inset: 0; z-index: 280;
-      background: rgba(17,17,16,.5); backdrop-filter: blur(4px);
-    }
-    .drawer-bg.open { display: block; }
-    .drawer {
-      position: fixed; top: var(--nav-h); right: 0; bottom: 0;
-      width: min(300px, 86vw); z-index: 290;
-      background: var(--white);
-      transform: translateX(110%);
-      transition: transform .3s var(--ease);
-      padding: 1.25rem;
-      display: flex; flex-direction: column; gap: .375rem;
-      overflow-y: auto;
-    }
-    .drawer.open { transform: translateX(0); }
-    .drawer-tag { font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink4); padding: 0 4px; margin-bottom: 2px; }
-    .drawer a {
-      display: flex; align-items: center; gap: 11px;
-      padding: 12px 13px; border-radius: 10px;
-      font-size: 14px; font-weight: 500; color: var(--ink2);
-      transition: background .16s;
-    }
-    .drawer a:hover { background: var(--bg); }
-    .drawer a i { width: 16px; text-align: center; color: var(--ink3); }
-    .drawer hr { border: none; border-top: 1px solid var(--line); margin: .375rem 0; }
-    .drawer .d-cta { background: var(--red); color: var(--white); justify-content: center; border-radius: 10px; }
-    .drawer .d-cta:hover { background: var(--red-dk); }
-    .drawer .d-cta i { color: var(--white); }
-
-    /* ══════════════════════════════════
-       HERO
-    ══════════════════════════════════ */
-    .hero {
-      position: relative; min-height: 88vh;
-      display: flex; align-items: flex-end; overflow: hidden;
-    }
-    .hero-bg  { position: absolute; inset: 0; background: #0D0D0C; }
-    .hero-img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: cover;
-      opacity: .72;
-    }
-    .hero-grad {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(13,13,12,.92) 0%,
-        rgba(13,13,12,.42) 40%,
-        rgba(13,13,12,.08) 100%
-      );
-    }
-    .hero-body {
-      position: relative; z-index: 2;
-      max-width: 1320px; margin: 0 auto; width: 100%;
-      padding: 4rem 1.25rem 4.5rem;
-    }
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: rgba(208,39,29,.12); border: 1px solid rgba(208,39,29,.3);
-      color: #F07B74; padding: 5px 13px; border-radius: 100px;
-      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-    h1.hero-h1 {
-      font-family: var(--D);
-      font-size: clamp(56px, 12vw, 136px);
-      line-height: .9; letter-spacing: .025em;
-      color: var(--white); margin-bottom: 2.25rem;
-    }
-    h1.hero-h1 .r { color: var(--red); }
-    .hero-row {
-      display: flex; align-items: flex-end;
-      justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
-    }
-    .hero-desc {
-      max-width: 380px; color: rgba(255,255,255,.5);
-      font-size: 14.5px; font-weight: 300; line-height: 1.8;
-    }
-    .hero-btns { display: flex; gap: 9px; flex-wrap: wrap; }
-    .btn-p {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 22px; background: var(--red); color: var(--white);
-      border-radius: 9px; font-size: 13.5px; font-weight: 600;
-      transition: background .16s, transform .18s;
-    }
-    .btn-p:hover { background: var(--red-dk); transform: translateY(-2px); }
-    .btn-g {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 20px; color: rgba(255,255,255,.82);
-      border: 1px solid rgba(255,255,255,.18); border-radius: 9px;
-      font-size: 13.5px; font-weight: 500; background: rgba(255,255,255,.06);
-      transition: background .16s, border-color .16s;
-    }
-    .btn-g:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.3); }
-    .hero-scroll {
-      position: absolute; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
-      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 7px;
-      color: rgba(255,255,255,.3); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
-    }
-    .scroll-line {
-      width: 1px; height: 36px;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.28));
-      animation: sl 2.2s ease-in-out infinite;
-    }
-    @keyframes sl { 0%,100%{opacity:.3} 50%{opacity:1} }
-
-    /* ══════════════════════════════════
-       STATS STRIP
-    ══════════════════════════════════ */
-    .stats { background: var(--white); border-bottom: 1px solid var(--line); }
-    .stats-row {
-      max-width: 1320px; margin: 0 auto; padding: 0 1rem;
-      display: grid; grid-template-columns: repeat(3,1fr);
-    }
-    .stat {
-      padding: 1.5rem 1.25rem;
-      border-right: 1px solid var(--line);
-      display: flex; flex-direction: column; gap: 3px;
-    }
-    .stat:last-child { border-right: none; }
-    .stat-n {
-      font-family: var(--D); font-size: 38px;
-      letter-spacing: .02em; line-height: 1; color: var(--ink);
-    }
-    .stat-n sup { font-size: 20px; color: var(--red); vertical-align: top; margin-top: 4px; }
-    .stat-l { font-size: 10.5px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; color: var(--ink3); }
-
-    /* ══════════════════════════════════
-       PRICE SECTION
-    ══════════════════════════════════ */
-    .section { max-width: 1320px; margin: 0 auto; padding: 3.5rem 1rem 4rem; }
-
-    .sec-hd { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
-    .sec-tag { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 7px; }
-    h2.sec-title { font-family: var(--D); font-size: clamp(36px, 6vw, 68px); line-height: .95; letter-spacing: .02em; color: var(--ink); }
-    .sec-note { max-width: 280px; color: var(--ink3); font-size: 13px; font-weight: 300; line-height: 1.75; text-align: right; }
-
-    /* Search */
-    .search-wrap { position: relative; margin-bottom: 1.5rem; }
-    .s-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--ink4); font-size: 14px; pointer-events: none; transition: color .2s; }
-    #search-input {
-      width: 100%; height: 52px;
-      border: 1.5px solid var(--line); border-radius: 12px;
-      background: var(--white); padding: 0 16px 0 46px;
-      font-family: var(--B); font-size: 14.5px; color: var(--ink);
-      outline: none; transition: border-color .2s, box-shadow .2s;
-    }
-    #search-input::placeholder { color: var(--ink4); font-weight: 300; }
-    #search-input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(208,39,29,.09); }
-    #search-input:focus ~ .s-icon { color: var(--red); }
+    /* ── PRICE SECTION ── */
+    .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #005EA6; }
+    .section-title { font-family: 'Bebas Neue', cursive; line-height: 1; letter-spacing: 0.01em; color: #0F172A; }
 
     /* Filter tabs */
-    .filters { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 2rem; }
-    .ftab {
-      padding: 7px 16px; border-radius: 100px;
-      border: 1.5px solid var(--line); background: var(--white);
-      font-family: var(--B); font-size: 13px; font-weight: 500; color: var(--ink2);
-      cursor: pointer; transition: all .16s;
+    .tab-btn {
+      padding: 8px 20px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; border: 1.5px solid #E2E8F0; background: #fff; color: #64748B;
+      transition: all 0.2s ease;
     }
-    .ftab:hover { border-color: var(--ink3); }
-    .ftab.active { background: var(--red); border-color: var(--red); color: var(--white); }
+    .tab-btn:hover { border-color: #005EA6; color: #005EA6; }
+    .tab-btn.active { background: #005EA6; color: #fff; border-color: #005EA6; box-shadow: 0 4px 14px rgba(0,94,166,0.28); }
 
-    /* Card grid — JS renders cards with inline styles */
-    #bike-container {
+    /* Search bar */
+    .search-wrap {
+      position: relative; max-width: 360px; width: 100%;
+    }
+    .search-wrap input {
+      width: 100%; padding: 10px 16px 10px 42px; border-radius: 10px;
+      border: 1.5px solid #E2E8F0; font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem; color: #0F172A; outline: none;
+      transition: border-color 0.2s; background: #fff;
+    }
+    .search-wrap input:focus { border-color: #005EA6; box-shadow: 0 0 0 3px rgba(0,94,166,0.1); }
+    .search-wrap svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+
+    /* ── BIKE CARDS (Firebase-powered) ── */
+    #bike-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
-      gap: 1.1rem;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
     }
 
-    /* Skeleton */
-    @keyframes shim { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
-    .sk { background: var(--white); border-radius: 14px; border: 1px solid var(--line); overflow: hidden; }
-    .sk-img { height: 185px; background: linear-gradient(90deg,var(--bg) 25%,#EDEAE4 50%,var(--bg) 75%); background-size:400%; animation: shim 1.4s ease-in-out infinite; }
-    .sk-bd  { padding: 1.1rem; display:flex; flex-direction:column; gap:9px; }
-    .sk-ln  { height: 12px; border-radius:5px; background:linear-gradient(90deg,var(--bg) 25%,#EDEAE4 50%,var(--bg) 75%); background-size:400%; animation: shim 1.4s ease-in-out infinite; }
-    .sk-s { width:45%; } .sk-m { width:65%; }
+    .yng-card {
+      background: #fff; border-radius: 18px; border: 1px solid #E8E6E1;
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform .24s cubic-bezier(.25,.46,.45,.94),
+                  box-shadow .24s cubic-bezier(.25,.46,.45,.94),
+                  border-color .24s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      animation: fadeUp 0.45s ease both;
+    }
+    .yng-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,94,166,0.13);
+      border-color: rgba(0,94,166,0.28) !important;
+    }
+    .yng-card:hover .yng-img  { transform: scale(1.05); }
+    .yng-card:hover .yng-arr  { background: #005EA6 !important; border-color: #005EA6 !important; color: #fff !important; }
+    .yng-card:hover .yng-arr i { transform: translateX(2px); }
+    .yng-img  { transition: transform .38s cubic-bezier(.25,.46,.45,.94); }
+    .yng-arr  { transition: background .18s, border-color .18s, color .18s; }
+    .yng-arr i { transition: transform .18s; }
 
-    /* Card fade-in */
-    @keyframes fup { to { opacity:1; transform:translateY(0); } }
-    .fc { opacity:0; transform:translateY(18px); animation: fup .4s var(--ease) forwards; }
+    /* ── FINANCE BANNER ── */
+    .finance-banner {
+      background: linear-gradient(120deg, #005EA6 0%, #004A85 60%, #003B6E 100%);
+      position: relative; overflow: hidden; border-radius: 28px;
+    }
+    .finance-banner::before {
+      content: ''; position: absolute; top: -80px; right: -60px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
 
-    /* Card hover injected by JS */
+    /* ── WHY US feature icon ── */
+    .feature-icon-wrap {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: #EBF4FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
 
-    /* ══════════════════════════════════
-       FINANCE BAND
-    ══════════════════════════════════ */
-    .fin { background: var(--ink); }
-    .fin-in {
-      max-width: 1320px; margin: 0 auto; padding: 4.5rem 1.25rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
-    }
-    .fi-tag   { font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; color: rgba(208,39,29,.9); margin-bottom: 10px; }
-    h2.fi-ttl { font-family: var(--D); font-size: clamp(42px, 5.5vw, 74px); line-height: .95; letter-spacing: .02em; color: var(--white); margin-bottom: 1.1rem; }
-    .fi-desc  { color: rgba(255,255,255,.42); font-size: 14px; line-height: 1.85; font-weight: 300; max-width: 340px; }
-    .fi-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      margin-top: 1.75rem; padding: 12px 24px;
-      background: var(--red); color: var(--white);
-      border-radius: 9px; font-size: 13.5px; font-weight: 600;
-      transition: background .16s;
-    }
-    .fi-cta:hover { background: var(--red-dk); }
-    .fi-feats { display: flex; flex-direction: column; gap: 1.1rem; }
-    .fi-feat  { display: flex; align-items: flex-start; gap: 13px; padding-bottom: 1.1rem; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .fi-feat:last-child { border-bottom: none; padding-bottom: 0; }
-    .fi-ico {
-      width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px;
-      background: rgba(208,39,29,.13); border: 1px solid rgba(208,39,29,.22);
-      display: flex; align-items: center; justify-content: center;
-      color: #F07B74; font-size: 15px;
-    }
-    .fi-ft-t { font-weight: 600; font-size: 13.5px; color: var(--white); margin-bottom: 3px; }
-    .fi-ft-d { font-size: 12.5px; color: rgba(255,255,255,.38); font-weight: 300; line-height: 1.65; }
+    /* ── FOOTER ── */
+    footer { background: #0F172A; }
+    .footer-link { color: #94A3B8; font-size: 0.875rem; transition: color 0.18s; text-decoration: none; }
+    .footer-link:hover { color: #fff; }
 
-    /* ══════════════════════════════════
-       FOOTER
-    ══════════════════════════════════ */
-    .foot { background: var(--white); border-top: 1px solid var(--line); }
-    .foot-in {
-      max-width: 1320px; margin: 0 auto; padding: 3.5rem 1.25rem 2.5rem;
-      display: grid; grid-template-columns: 220px 1fr; gap: 3.5rem;
+    /* Loading & empty states */
+    #loading-state {
+      grid-column: 1/-1; display: flex; flex-direction: column;
+      align-items: center; gap: 16px; padding: 4rem 1rem; text-align: center;
     }
-    .f-nm  { font-family: var(--D); font-size: 28px; letter-spacing: .04em; color: var(--red); margin-bottom: 3px; }
-    .f-sub { font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1rem; }
-    .f-adr { font-size: 13px; color: var(--ink3); line-height: 1.9; font-weight: 300; }
-    .f-soc { display: flex; gap: 8px; margin-top: 1.25rem; }
-    .f-soc a {
-      width: 34px; height: 34px; border-radius: 7px;
-      border: 1px solid var(--line); background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; color: var(--ink3);
-      transition: background .16s, color .16s, border-color .16s;
+    .loader-ring {
+      width: 48px; height: 48px; border: 3px solid #E8F2FB;
+      border-top-color: #005EA6; border-radius: 50%;
+      animation: spin 0.9s linear infinite;
     }
-    .f-soc a:hover { background: var(--red-lt); color: var(--red); border-color: rgba(208,39,29,.2); }
-    .f-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.75rem; }
-    .f-col-h { font-size: 10.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--ink); margin-bottom: .9rem; }
-    .f-col-l { display: flex; flex-direction: column; gap: 8px; }
-    .f-col-l a { font-size: 13px; color: var(--ink3); font-weight: 300; transition: color .16s; }
-    .f-col-l a:hover { color: var(--red); }
-    .foot-bot {
-      max-width: 1320px; margin: 0 auto; padding: 1.1rem 1.25rem;
-      border-top: 1px solid var(--line);
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-    }
-    .f-copy { font-size: 11.5px; color: var(--ink4); font-weight: 300; }
-    .f-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--bg); border: 1px solid var(--line);
-      padding: 4px 11px; border-radius: 100px;
-      font-size: 10.5px; font-weight: 600; letter-spacing: .07em;
-      text-transform: uppercase; color: var(--ink3);
-    }
-    .f-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); flex-shrink:0; }
 
-    /* ══════════════════════════════════
-       RESPONSIVE BREAKPOINTS
-    ══════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .fin-in  { grid-template-columns: 1fr; }
-      .foot-in { grid-template-columns: 1fr; gap: 2.25rem; }
-    }
-    @media (max-width: 768px) {
-      .nav-links, .nav-wa { display: none; }
-      .ham { display: flex; }
-      .hero { min-height: 78vh; }
-      .hero-row { flex-direction: column; align-items: flex-start; }
-      .stats-row { grid-template-columns: 1fr; }
-      .stat { border-right: none; border-bottom: 1px solid var(--line); padding: 1.1rem 1rem; }
-      .stat:last-child { border-bottom: none; }
-      .sec-hd { flex-direction: column; align-items: flex-start; }
-      .sec-note { text-align: left; max-width: 100%; }
-      .fin-in { padding: 3rem 1.25rem; gap: 2rem; }
-      .f-cols { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 480px) {
-      h1.hero-h1  { font-size: 52px; }
-      .hero-body  { padding: 3.5rem 1rem 4rem; }
-      .hero-pill  { font-size: 10px; }
-      .stat-n     { font-size: 32px; }
-      .f-cols     { grid-template-columns: 1fr; }
-      .foot-in    { padding: 2.5rem 1rem 2rem; }
-    }
+    /* Animations */
+    @keyframes spin  { to { transform: rotate(360deg); } }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .float-anim { animation: float 4s ease-in-out infinite; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up  { animation: fadeUp 0.55s ease both; }
+    .fade-up-2 { animation: fadeUp 0.55s 0.1s ease both; }
+    .fade-up-3 { animation: fadeUp 0.55s 0.2s ease both; }
+
+    @media (prefers-reduced-motion: reduce) { .float-anim,.fade-up,.fade-up-2,.fade-up-3,.yng-card { animation: none !important; } }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,94,166,0.3); border-radius: 99px; }
   </style>
 </head>
 <body>
 
-<!-- ════════════ NAV ════════════ -->
-<nav class="nav">
-  <div class="nav-inner">
+<!-- ══════════ NAVIGATION ══════════ -->
+<header class="nav-blur fixed top-0 left-0 right-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
 
-    <a href="#" class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 16 16" fill="none">
-          <path d="M2 12.5 L8 3 L14 12.5 M4.5 9.5 L11.5 9.5" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="logo-copy">
-        <span class="logo-name">Go! YNG</span>
-        <span class="logo-sub">Bajaj Partner · Phidim</span>
-      </div>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
-      <li><a href="#prices"><i class="fa-solid fa-list-ul"></i> Prices</a></li>
-      <li><a href="finance.html"><i class="fa-solid fa-calculator"></i> Finance</a></li>
-      <li><a href="#"><i class="fa-solid fa-person-circle-question"></i> Enquiry</a></li>
-      <li><a href="https://yonghangishak.com.np/" target="_blank"><i class="fa-solid fa-user-tie"></i> About</a></li>
-    </ul>
-
-    <a href="https://wa.me/9779802315425" target="_blank" class="nav-wa">
-      <i class="fa-brands fa-whatsapp"></i> WhatsApp
-    </a>
-
-    <button class="ham" id="ham" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="drawer-bg" id="draw-bg"></div>
-<div class="drawer" id="drawer">
-  <p class="drawer-tag">Navigation</p>
-  <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-  <a href="#prices"><i class="fa-solid fa-list-ul"></i> Price List</a>
-  <a href="finance.html"><i class="fa-solid fa-calculator"></i> Finance</a>
-  <a href="#"><i class="fa-solid fa-person-circle-question"></i> Enquiry</a>
-  <a href="https://yonghangishak.com.np/" target="_blank"><i class="fa-solid fa-user-tie"></i> About</a>
-  <hr>
-  <a href="https://wa.me/9779802315425" target="_blank" class="d-cta">
-    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-  </a>
-</div>
-
-
-<!-- ════════════ HERO ════════════ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <img class="hero-img"
-       src="https://live.staticflickr.com/65535/52360118963_33c8110f10_b.jpg"
-       alt="Bajaj motorcycle">
-  <div class="hero-grad"></div>
-
-  <div class="hero-body">
-    <div class="hero-pill"><i class="fa-solid fa-circle-dot"></i> Authorized Bajaj Partner — Phidim, Nepal</div>
-    <h1 class="hero-h1">FIND YOUR<br><span class="r">PERFECT</span><br>RIDE.</h1>
-    <div class="hero-row">
-      <p class="hero-desc">Browse Nepal's freshest Bajaj price list — updated live. Pulsar. Dominar. Avenger. Your road, your rules.</p>
-      <div class="hero-btns">
-        <a href="#prices" class="btn-p"><i class="fa-solid fa-list-ul"></i> View Prices</a>
-        <a href="finance.html" class="btn-g"><i class="fa-solid fa-hand-holding-dollar"></i> Finance</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-scroll"><div class="scroll-line"></div> Scroll</div>
-</section>
-
-
-<!-- ════════════ STATS ════════════ -->
-<div class="stats">
-  <div class="stats-row">
-    <div class="stat"><div class="stat-n">20<sup>+</sup></div><div class="stat-l">Models Available</div></div>
-    <div class="stat"><div class="stat-n">40<sup>%</sup></div><div class="stat-l">Down Payment Option</div></div>
-    <div class="stat"><div class="stat-n">24<sup>hr</sup></div><div class="stat-l">WhatsApp Support</div></div>
-  </div>
-</div>
-
-
-<!-- ════════════ PRICE LIST ════════════ -->
-<section id="prices">
-  <div class="section">
-    <div class="sec-hd">
-      <div>
-        <div class="sec-tag">Live Price List — 2026</div>
-        <h2 class="sec-title">FIND<br>YOUR RIDE</h2>
-      </div>
-      <p class="sec-note">All prices are on-road in Phidim, Panchthar. Updated in real time from Go! YNG.</p>
-    </div>
-
-    <div class="search-wrap">
-      <i class="fa-solid fa-magnifying-glass s-icon" id="s-icon"></i>
-      <input type="text" id="search-input" placeholder="Search" autocomplete="off">
-    </div>
-
-    <div class="filters" id="filters">
-      <button class="ftab active" data-filter="all">All Models</button>
-      <button class="ftab" data-filter="pulsar">Pulsar</button>
-      <button class="ftab" data-filter="dominar">Dominar</button>
-      <button class="ftab" data-filter="avenger">Avenger</button>
-      <button class="ftab" data-filter="platina">Platina</button>
-      <button class="ftab" data-filter="ct">N/A Series</button>
-    </div>
-
-    <!-- Skeleton shown while Firebase loads -->
-    <div id="bike-container">
-      <div class="sk"><div class="sk-img"></div><div class="sk-bd"><div class="sk-ln sk-m"></div><div class="sk-ln sk-s"></div><div class="sk-ln"></div></div></div>
-      <div class="sk"><div class="sk-img"></div><div class="sk-bd"><div class="sk-ln sk-m"></div><div class="sk-ln sk-s"></div><div class="sk-ln"></div></div></div>
-      <div class="sk"><div class="sk-img"></div><div class="sk-bd"><div class="sk-ln sk-m"></div><div class="sk-ln sk-s"></div><div class="sk-ln"></div></div></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════ FINANCE BAND ════════════ -->
-<section class="fin">
-  <div class="fin-in">
-    <div>
-      <p class="fi-tag">Easy Finance</p>
-      <h2 class="fi-ttl">RIDE NOW,<br>PAY EASY.</h2>
-      <p class="fi-desc">Flexible EMI plans built around your budget. Low down payment, competitive rates, fast approval — get on the road today.</p>
-      <a href="finance.html" class="fi-cta">Explore Finance Plans <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    <div class="fi-feats">
-      <div class="fi-feat">
-        <div class="fi-ico"><i class="fa-solid fa-bolt"></i></div>
-        <div><div class="fi-ft-t">Fast Approval</div><div class="fi-ft-d">Loan approved in as little as 1 hours with minimal paperwork required.</div></div>
-      </div>
-      <div class="fi-feat">
-        <div class="fi-ico"><i class="fa-solid fa-percent"></i></div>
-        <div><div class="fi-ft-t">Competitive Interest Rates</div><div class="fi-ft-d">Flexible tenure from 12 to 36 months at market-best rates.</div></div>
-      </div>
-      <div class="fi-feat">
-        <div class="fi-ico"><i class="fa-solid fa-shield-halved"></i></div>
-        <div><div class="fi-ft-t">Zero Hidden Charges</div><div class="fi-ft-d">Fully transparent pricing. What you see is exactly what you pay.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════ FOOTER ════════════ -->
-<footer class="foot">
-  <div class="foot-in">
-    <div>
-      <div class="f-nm">Go! YNG</div>
-      <div class="f-sub">Authorized Bajaj Partner</div>
-      <address class="f-adr" style="font-style:normal;">Phidim-1, Panchthar<br>Koshi Province, Nepal</address>
-      <div class="f-soc">
-        <a href="https://www.facebook.com/sambridhi.brothers" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://wa.me/9779802315425" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://www.tiktok.com/@bajajphidim" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-      </div>
-    </div>
-    <div class="f-cols">
-      <div>
-        <div class="f-col-h">Navigate</div>
-        <div class="f-col-l">
-          <a href="#">Home</a>
-          <a href="#prices">Price List</a>
-          <a href="finance.html">Finance</a>
-          <a href="form.html">Form</a>
-          <a href="https://yonghangishak.com.np/" target="_blank">About</a>
+      <!-- Brand -->
+      <a href="#" class="flex items-center gap-2.5" aria-label="Samriddhi Auto Home">
+        <div class="w-9 h-9 rounded-lg bg-bajaj-blue flex items-center justify-center shadow-sm flex-shrink-0">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M4 16 Q7 8 11 7 Q15 6 18 10" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+            <circle cx="5" cy="17" r="2.2" fill="#fff" opacity="0.9"/>
+            <circle cx="17" cy="17" r="2.2" fill="#fff" opacity="0.9"/>
+            <path d="M5 17 L17 17" stroke="#fff" stroke-width="1.4" opacity="0.5"/>
+          </svg>
         </div>
-      </div>
-      <div>
-        <div class="f-col-h">Models</div>
-        <div class="f-col-l">
-          <a href="#">Pulsar Series</a>
-          <a href="#">Dominar Series</a>
-          <a href="#">Avenger Series</a>
-          <a href="#">Platina Series</a>
-          <a href="#">N/A Series</a>
+        <div class="leading-tight">
+          <div class="text-sm font-bold text-slate-900 tracking-tight leading-none">Samriddhi And Brothers</div>
+          <div class="text-[10px] font-medium text-bajaj-blue leading-none tracking-wide uppercase mt-0.5">Bajaj Authorized Dealer</div>
         </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-7">
+        <a href="#" class="nav-link active">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Home
+        </a>
+        <a href="#prices" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          Price List
+        </a>
+        <a href="finance.html" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          Finance
+        </a>
+        <a href="form.html" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Allocations
+        </a>
+        <a href="#" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          KYC
+        </a>
+        <a href="https://yonghangishak.com.np/" target="_blank" class="nav-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          About
+        </a>
       </div>
-      <div>
-        <div class="f-col-h">Contact</div>
-        <div class="f-col-l">
-          <a href="https://wa.me/9779802315425" target="_blank">+977 980-231-5425</a>
-          <a href="https://www.facebook.com/sambridhi.brothers" target="_blank">Facebook Page</a>
-          <a href="https://www.tiktok.com/@bajajphidim" target="_blank">TikTok</a>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="tel:+9779820907795" class="text-sm font-semibold text-bajaj-blue flex items-center gap-1.5 hover:text-bajaj-blueDark transition-colors">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Showroom
+        </a>
+        <a href="#prices" class="cta-primary text-sm py-2.5 px-5">Book a Test Ride</a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="hamburger-btn" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden">
+      <div class="py-4 border-t border-slate-100 space-y-1">
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-bajaj-blue bg-bajaj-blueLight">Home</a>
+        <a href="#prices" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">Price List</a>
+        <a href="finance.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">Finance</a>
+        <a href="form.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">Allocations</a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">KYC</a>
+        <a href="https://yonghangishak.com.np/" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50">About</a>
+        <div class="pt-2 grid grid-cols-2 gap-2">
+          <a href="tel:+9779802315425" class="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-bajaj-blue text-bajaj-blue text-sm font-semibold">Call Us</a>
+          <a href="#prices" class="flex items-center justify-center py-2.5 rounded-xl bg-bajaj-blue text-white text-sm font-semibold">Ride</a>
         </div>
       </div>
     </div>
+  </nav>
+</header>
+
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero-section pt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[calc(100vh-64px)]">
+
+      <!-- Left: Copy -->
+      <div class="space-y-7 fade-up">
+        <span class="price-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Authorized Bajaj Dealer · Phidim, Panchthar
+        </span>
+        <h1 class="headline-display text-[clamp(3.2rem,8vw,5.2rem)] text-slate-900">
+          Nepal's Hills<br/>
+          <span style="color:#005EA6;">Deserve</span><br/>
+          <span class="relative inline-block">
+            Bold Rides.
+            <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 280 12" fill="none" aria-hidden="true">
+              <path d="M4 8 Q70 2 140 6 Q210 10 276 4" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+        </h1>
+        <p class="text-slate-500 text-base lg:text-lg leading-relaxed max-w-md fade-up-2">
+          Explore every Bajaj model — from the iconic Pulsar to the future-ready Chetak Electric — with transparent showroom prices, easy EMI, and on-the-spot delivery in Panchthar.
+        </p>
+        <div class="flex flex-wrap gap-3 fade-up-3">
+          <a href="#prices" class="cta-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            Explore Price List
+          </a>
+          <a href="#finance" class="cta-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            Finance Options
+          </a>
+        </div>
+        <div class="grid grid-cols-3 gap-3 pt-2 fade-up-3">
+          <div class="stat-chip">
+            <span style="font-family:'Bebas Neue',cursive;font-size:1.6rem;color:#005EA6;line-height:1;">15+</span>
+            <span class="text-[10px] font-semibold text-slate-500 uppercase tracking-wide text-center">Models<br/>Available</span>
+          </div>
+          <div class="stat-chip">
+            <span style="font-family:'Bebas Neue',cursive;font-size:1.6rem;color:#005EA6;line-height:1;">9.99%</span>
+            <span class="text-[10px] font-semibold text-slate-500 uppercase tracking-wide text-center">Interest<br/>Schemes</span>
+          </div>
+          <div class="stat-chip">
+            <span style="font-family:'Bebas Neue',cursive;font-size:1.6rem;color:#005EA6;line-height:1;">10+</span>
+            <span class="text-[10px] font-semibold text-slate-500 uppercase tracking-wide text-center">Years<br/>Serving</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Bike Visual -->
+      <div class="flex items-center justify-center relative lg:py-12 fade-up-2">
+        <div class="bike-ring w-[340px] h-[340px] lg:w-[440px] lg:h-[440px] absolute" style="top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+        <div class="bike-ring w-[280px] h-[280px] lg:w-[360px] lg:h-[360px] absolute" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.6;"></div>
+        <div class="bike-placeholder max-w-[480px] w-full float-anim">
+          <div class="bike-svg-wrap">
+            <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" aria-label="Bajaj Pulsar motorcycle illustration">
+              <ellipse cx="260" cy="320" rx="180" ry="14" fill="rgba(0,94,166,0.1)"/>
+              <circle cx="140" cy="268" r="56" fill="none" stroke="#0F172A" stroke-width="14"/>
+              <circle cx="140" cy="268" r="42" fill="none" stroke="#334155" stroke-width="4"/>
+              <circle cx="140" cy="268" r="14" fill="#0F172A"/>
+              <line x1="140" y1="226" x2="140" y2="254" stroke="#64748B" stroke-width="2"/>
+              <line x1="140" y1="282" x2="140" y2="310" stroke="#64748B" stroke-width="2"/>
+              <line x1="98" y1="268" x2="126" y2="268" stroke="#64748B" stroke-width="2"/>
+              <line x1="154" y1="268" x2="182" y2="268" stroke="#64748B" stroke-width="2"/>
+              <line x1="110" y1="238" x2="130" y2="258" stroke="#64748B" stroke-width="2"/>
+              <line x1="150" y1="278" x2="170" y2="298" stroke="#64748B" stroke-width="2"/>
+              <line x1="170" y1="238" x2="150" y2="258" stroke="#64748B" stroke-width="2"/>
+              <line x1="110" y1="298" x2="130" y2="278" stroke="#64748B" stroke-width="2"/>
+              <circle cx="380" cy="268" r="52" fill="none" stroke="#0F172A" stroke-width="14"/>
+              <circle cx="380" cy="268" r="38" fill="none" stroke="#334155" stroke-width="4"/>
+              <circle cx="380" cy="268" r="12" fill="#0F172A"/>
+              <line x1="380" y1="230" x2="380" y2="256" stroke="#64748B" stroke-width="2"/>
+              <line x1="380" y1="280" x2="380" y2="306" stroke="#64748B" stroke-width="2"/>
+              <line x1="342" y1="268" x2="368" y2="268" stroke="#64748B" stroke-width="2"/>
+              <line x1="392" y1="268" x2="418" y2="268" stroke="#64748B" stroke-width="2"/>
+              <path d="M140 262 Q200 240 250 245" stroke="#0F172A" stroke-width="10" stroke-linecap="round" fill="none"/>
+              <path d="M250 245 L280 168 L340 148 L370 155" stroke="#1E293B" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M280 168 L268 220 L250 245" stroke="#1E293B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <rect x="220" y="218" width="80" height="52" rx="8" fill="#1E293B"/>
+              <rect x="228" y="226" width="64" height="36" rx="5" fill="#334155"/>
+              <line x1="235" y1="230" x2="235" y2="258" stroke="#475569" stroke-width="2"/>
+              <line x1="248" y1="228" x2="248" y2="260" stroke="#475569" stroke-width="2"/>
+              <line x1="261" y1="228" x2="261" y2="260" stroke="#475569" stroke-width="2"/>
+              <line x1="274" y1="228" x2="274" y2="260" stroke="#475569" stroke-width="2"/>
+              <line x1="287" y1="230" x2="287" y2="258" stroke="#475569" stroke-width="2"/>
+              <path d="M264 148 Q300 130 345 142 L370 155 L340 148 L280 168 Z" fill="#005EA6"/>
+              <path d="M264 148 Q298 134 340 148 L340 148 L295 170 Z" fill="#0070C7"/>
+              <path d="M278 142 Q305 134 338 145" stroke="rgba(255,255,255,0.3)" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <path d="M200 210 Q230 196 270 198 L280 168 L250 178 Q218 198 200 210 Z" fill="#0F172A"/>
+              <path d="M165 226 Q182 212 200 210 Q195 220 178 228 Z" fill="#1E293B"/>
+              <ellipse cx="372" cy="180" rx="24" ry="32" fill="#1E293B" transform="rotate(-15,372,180)"/>
+              <ellipse cx="378" cy="178" rx="14" ry="18" fill="#93C5FD" opacity="0.6" transform="rotate(-15,378,178)"/>
+              <path d="M355 215 L370 155" stroke="#334155" stroke-width="9" stroke-linecap="round"/>
+              <path d="M368 220 L380 162" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
+              <path d="M338 140 Q356 128 375 134" stroke="#0F172A" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <circle cx="335" cy="141" r="5" fill="#334155"/>
+              <circle cx="377" cy="135" r="5" fill="#334155"/>
+              <path d="M250 265 Q290 275 350 270 Q380 268 395 278" stroke="#94A3B8" stroke-width="8" stroke-linecap="round" fill="none"/>
+              <rect x="294" y="148" width="32" height="14" rx="3" fill="rgba(255,255,255,0.15)"/>
+              <text x="310" y="159" text-anchor="middle" font-size="7" font-weight="bold" fill="white" font-family="Arial,sans-serif">BAJAJ</text>
+              <path d="M266 155 Q300 142 342 152" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <circle cx="168" cy="212" r="5" fill="#F59E0B" opacity="0.8"/>
+              <circle cx="408" cy="192" r="5" fill="#F59E0B" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="absolute bottom-5 left-5 bg-white rounded-2xl shadow-xl px-4 py-3 border border-bajaj-blueLight">
+            <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-widest">Starting from</div>
+            <div class="text-bajaj-blue font-bold text-lg leading-tight">NPR N/A N/A</div>
+            <div class="text-[10px] text-slate-400 mt-0.5">Showroom · Phidim</div>
+          </div>
+          <div class="absolute top-5 right-5 bg-bajaj-blue text-white rounded-xl px-3 py-2 text-center">
+            <div class="text-[10px] font-semibold uppercase tracking-wider opacity-80">New Arrivals</div>
+            <div class="font-bold text-sm leading-tight" style="font-family:'Bebas Neue',cursive;font-size:1.1rem;letter-spacing:0.04em;">Pulsar</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="foot-bot">
-    <span class="f-copy">&copy; 2026 Go! YNG — Go Your Dream</span>
-    <span class="f-badge"><span class="dot"></span> Authorized Bajaj Dealer</span>
+</section>
+
+
+<!-- ══════════ TRUST BAR ══════════ -->
+<section class="border-y border-slate-100 bg-white py-5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-medium text-slate-500">
+      <span class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Official Authorized Dealer
+      </span>
+      <span class="w-px h-4 bg-slate-200 hidden sm:block"></span>
+      <span class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Transparent Showroom Prices
+      </span>
+      <span class="w-px h-4 bg-slate-200 hidden sm:block"></span>
+      <span class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        On-the-Spot EMI Approval
+      </span>
+      <span class="w-px h-4 bg-slate-200 hidden sm:block"></span>
+      <span class="flex items-center gap-2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Every Pulsar · Now Available
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ PRICE LIST SECTION ══════════ -->
+<section id="prices" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-10 lg:mb-14">
+      <span class="section-label">Live Prices ·</span>
+      <h2 class="section-title text-[clamp(2.4rem,5vw,3.5rem)] mt-2">Our Bike Collection</h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto leading-relaxed">
+        All prices are showroom for Phidim, Panchthar. Prices update live from our database — always accurate.
+      </p>
+    </div>
+
+    <!-- Controls: Filters + Search -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-2" role="tablist">
+        <button class="tab-btn active" data-filter="all">All Models</button>
+        <button class="tab-btn" data-filter="pulsar">Pulsar</button>
+        <button class="tab-btn" data-filter="platina">Platina</button>
+        <button class="tab-btn" data-filter="dominar">Dominar</button>
+        <button class="tab-btn" data-filter="avenger">Avenger</button>
+        <button class="tab-btn" data-filter="chetak">
+          <span style="display:inline-flex;align-items:center;gap:5px;">
+             Chetak
+          </span>
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search-input" type="search" placeholder="Search model…" autocomplete="off" />
+      </div>
+    </div>
+
+    <!-- Bike Cards Grid (Firebase-powered) -->
+    <div id="bike-grid">
+      <!-- Loading state -->
+      <div id="loading-state">
+        <div class="loader-ring"></div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:1.6rem;color:#0F172A;letter-spacing:.04em;">Loading Models…</div>
+        <p style="font-size:13px;color:#64748B;">Fetching live prices from our database</p>
+      </div>
+    </div>
+
+    <!-- View all -->
+    <div class="flex justify-center mt-12">
+      <a href="#" class="cta-secondary">
+        View All Models & Live Prices
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ FINANCE SECTION ══════════ -->
+<section id="finance" class="py-20 lg:py-28" style="background:#F8FAFC;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="finance-banner p-8 sm:p-12 lg:p-16">
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-6">
+          <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-white text-xs font-semibold uppercase tracking-wider">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Easy Finance · EMI Available
+          </span>
+          <h2 class="headline-display text-[clamp(2.4rem,5vw,3.8rem)] text-white leading-tight">
+            Own Your Dream<br/>Bajaj Today
+          </h2>
+          <p class="text-blue-200 text-base leading-relaxed max-w-md">
+            Low down payment. Flexible tenure up to 36 months. Instant approval through partnered banks — right from our showroom floor in Phidim.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="finance.html" class="inline-flex items-center gap-2 bg-bajaj-amber text-white font-semibold text-sm px-6 py-3 rounded-xl hover:bg-bajaj-amberDark transition-all shadow-lg shadow-amber-900/30">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              Calculate My EMI
+            </a>
+            <a href="https://wa.me/9779802315425" class="inline-flex items-center gap-2 bg-white/10 border border-white/25 text-white font-semibold text-sm px-6 py-3 rounded-xl hover:bg-white/20 transition-all">Apply for Finance</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+            <div class="text-bajaj-amber font-bold" style="font-family:'Bebas Neue',cursive;font-size:2rem;line-height:1;">40%</div>
+            <div class="text-white font-semibold text-sm">Minimum Down Payment</div>
+            <div class="text-blue-200 text-xs">On select models with valid KYC</div>
+          </div>
+          <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+            <div class="text-bajaj-amber font-bold" style="font-family:'Bebas Neue',cursive;font-size:2rem;line-height:1;">36</div>
+            <div class="text-white font-semibold text-sm">Months Max Tenure</div>
+            <div class="text-blue-200 text-xs">Flexible repayment plans</div>
+          </div>
+          <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+            <div class="text-bajaj-amber font-bold" style="font-family:'Bebas Neue',cursive;font-size:2rem;line-height:1;">0%</div>
+            <div class="text-white font-semibold text-sm">Processing Fee</div>
+            <div class="text-blue-200 text-xs">On festival season offers</div>
+          </div>
+          <div class="bg-white/10 border border-white/15 rounded-2xl p-5 space-y-2">
+            <div class="text-bajaj-amber font-bold" style="font-family:'Bebas Neue',cursive;font-size:2rem;line-height:1;">1 Hr</div>
+            <div class="text-white font-semibold text-sm">Approval Time</div>
+            <div class="text-blue-200 text-xs">Quick KYC + loan disbursal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ WHY CHOOSE US ══════════ -->
+<section id="about" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div class="space-y-8">
+        <div>
+          <span class="section-label">Why Choose Samriddhi Auto</span>
+          <h2 class="section-title text-[clamp(2.2rem,4.5vw,3.2rem)] mt-2">
+            Panchthar's Most<br/>Trusted Bajaj Dealer
+          </h2>
+          <p class="text-slate-500 mt-5 leading-relaxed">
+            For over a decade, we've been the go-to showroom for riders across Phidim, Taplejung, and Terathum.
+          </p>
+        </div>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="feature-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-900">Genuine Parts & Service</div>
+              <div class="text-slate-500 text-sm mt-1 leading-relaxed">Every service uses only Bajaj-authorized genuine parts. Your warranty stays intact, always.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="feature-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-900">No Hidden Charges</div>
+              <div class="text-slate-500 text-sm mt-1 leading-relaxed">What you see on our price list is what you pay. Total on-road cost breakdown — transparent, always.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="feature-icon-wrap">
+              <i class="fa-solid fa-bolt" style="color:#005EA6;font-size:18px;"></i>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-900">Chetak Electric — Go Green</div>
+              <div class="text-slate-500 text-sm mt-1 leading-relaxed">Panchthar's first authorized dealer.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="feature-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <div class="font-semibold text-slate-900">Customer First Culture</div>
+              <div class="text-slate-500 text-sm mt-1 leading-relaxed">10,000+ happy riders across the hills. Our reviews speak louder than any advertisement.</div>
+            </div>
+          </div>
+        </div>
+        <a href="tel:+9779820907795" class="cta-primary inline-flex w-fit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Visit Our Showroom
+        </a>
+      </div>
+
+      <!-- Contact card -->
+      <div>
+        <div class="bg-slate-50 rounded-2xl border border-slate-100 overflow-hidden">
+          <div class="bg-bajaj-blue p-5">
+            <div class="text-white font-bold" style="font-family:'Bebas Neue',cursive;font-size:1.4rem;letter-spacing:0.04em;">Samriddhi And Brothers Auto Pvt. Ltd.</div>
+            <div class="text-blue-200 text-sm mt-1">Authorized Bajaj Dealer</div>
+          </div>
+          <div class="p-5 space-y-4">
+            <div class="flex items-center gap-3 text-sm">
+              <div class="feature-icon-wrap w-9 h-9 rounded-xl">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-800">Phidim, Panchthar</div>
+                <div class="text-slate-500 text-xs">Koshi Province, Nepal</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+              <div class="feature-icon-wrap w-9 h-9 rounded-xl">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-800">9802315425</div>
+                <div class="text-slate-500 text-xs">Sun – Fri, 9AM – 6PM</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+              <div class="feature-icon-wrap w-9 h-9 rounded-xl">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <div class="font-semibold text-slate-800">Showroom Hours</div>
+                <div class="text-slate-500 text-xs">Sunday – Friday · 9:00 AM – 6:00 PM</div>
+              </div>
+            </div>
+            <div class="rounded-xl bg-gradient-to-br from-slate-100 to-bajaj-blueLight h-36 mt-2 flex items-center justify-center border border-bajaj-blueLight overflow-hidden relative">
+              <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 150">
+                <path d="M0 75 Q50 30 100 70 Q150 110 200 50 Q250 -10 300 65 Q350 130 400 60" stroke="#005EA6" stroke-width="2" fill="none"/>
+                <path d="M0 100 Q60 140 120 90 Q180 40 240 100 Q300 145 360 80 L400 90 L400 150 L0 150 Z" fill="rgba(0,94,166,0.06)"/>
+                <circle cx="180" cy="80" r="8" fill="#005EA6" opacity="0.6"/>
+                <circle cx="180" cy="80" r="14" fill="none" stroke="#005EA6" stroke-width="1.5" opacity="0.4"/>
+              </svg>
+              <div class="relative z-10 text-center">
+                <div class="text-bajaj-blue font-bold text-sm">📍 Phidim, Panchthar</div>
+                <div class="text-slate-500 text-xs mt-1">Open in Google Maps</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="py-12 lg:py-14">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="space-y-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-lg bg-bajaj-blue flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 16 Q7 8 11 7 Q15 6 18 10" stroke="#F59E0B" stroke-width="2.2" stroke-linecap="round" fill="none"/><circle cx="5" cy="17" r="2.2" fill="#fff" opacity="0.9"/><circle cx="17" cy="17" r="2.2" fill="#fff" opacity="0.9"/></svg>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Samriddhi Auto</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-wide">Bajaj</div>
+          </div>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">Panchthar's premier destination for Bajaj motorcycles, genuine parts, and trusted after-sales service.</p>
+        <div class="flex gap-3">
+          <a href="https://www.facebook.com/sambridhi.brothers" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-bajaj-blue transition-all" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="tel:+9779802315425" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-bajaj-blue transition-all" aria-label="Phone">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Quick Links</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#" class="footer-link">Home</a></li>
+          <li><a href="#prices" class="footer-link">Price List</a></li>
+          <li><a href="#finance" class="footer-link">Finance / EMI</a></li>
+          <li><a href="#" class="footer-link">Allocations</a></li>
+          <li><a href="#" class="footer-link">KYC Form</a></li>
+          <li><a href="#about" class="footer-link">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Popular Models</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#prices" class="footer-link">Pulsar N150</a></li>
+          <li><a href="#prices" class="footer-link">Pulsar N160</a></li>
+          <li><a href="#prices" class="footer-link">Pulsar NS200</a></li>
+          <li><a href="#prices" class="footer-link">Dominar 250</a></li>
+          <li><a href="#prices" class="footer-link">Avenger Street 160</a></li>
+          <li><a href="#prices" class="footer-link">Chetak Electric</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Contact</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2 text-slate-400 text-sm">
+            <svg class="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Phidim, Panchthar, Koshi Province, Nepal
+          </li>
+          <li class="flex items-start gap-2 text-slate-400 text-sm">
+            <svg class="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.22 2 2 0 012 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            +977-9802315425
+          </li>
+          <li class="flex items-start gap-2 text-slate-400 text-sm">
+            <svg class="mt-0.5 flex-shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005EA6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Sun – Fri: 9AM – 6PM
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-slate-500 text-xs text-center sm:text-left">© Samriddhi And Brothers Auto Pvt. Ltd. All prices are indicative and subject to change without notice.</p>
+      <p class="text-slate-600 text-xs">Powered by <span class="text-bajaj-blue font-semibold">Go! YNG</span></p>
+    </div>
   </div>
 </footer>
 
 
-<script>
-  /* Mobile nav */
-  const ham   = document.getElementById('ham');
-  const drawBg = document.getElementById('draw-bg');
-  const drawer = document.getElementById('drawer');
+<!-- ══════════ SCRIPTS ══════════ -->
+<script type="module">
+  import { initializeApp }                        from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
 
-  function setDrawer(open) {
-    ham.classList.toggle('open', open);
-    drawer.classList.toggle('open', open);
-    drawBg.classList.toggle('open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
+  /* ── Firebase config ── */
+  const firebaseConfig = {
+    apiKey:            "AIzaSyAXQW4khEovrBUtP5JpYFTUch_p5KT-8F8",
+    authDomain:        "first-project-2082-12-26.firebaseapp.com",
+    projectId:         "first-project-2082-12-26",
+    storageBucket:     "first-project-2082-12-26.firebasestorage.app",
+    messagingSenderId: "545170954251",
+    appId:             "1:545170954251:web:0d2f7905834af3b0be8f0e",
+    measurementId:     "G-17X7R542YC"
+  };
+  const app      = initializeApp(firebaseConfig);
+  const db       = getFirestore(app);
+  const bikesCol = collection(db, "bikes");
+
+  /* ── State ── */
+  let allBikes     = [];
+  let activeFilter = "all";
+
+  /* ── Helpers ── */
+  function sortBySn(bikes) {
+    return [...bikes].sort((a, b) => {
+      const A = (a.sn != null && a.sn !== "") ? Number(a.sn) : 9999;
+      const B = (b.sn != null && b.sn !== "") ? Number(b.sn) : 9999;
+      return A - B;
+    });
   }
-  ham.addEventListener('click', () => setDrawer(!drawer.classList.contains('open')));
-  drawBg.addEventListener('click', () => setDrawer(false));
-  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
 
-  /* Search icon colour */
-  const si = document.getElementById('search-input');
-  const ic = document.getElementById('s-icon');
-  si.addEventListener('focus', () => ic.style.color = '#D0271D');
-  si.addEventListener('blur',  () => ic.style.color = '');
+  function getCategory(name = "") {
+    const n = name.toLowerCase();
+    if (n.includes("chetak"))  return "chetak";
+    if (n.includes("pulsar"))  return "pulsar";
+    if (n.includes("dominar")) return "dominar";
+    if (n.includes("avenger")) return "avenger";
+    if (n.includes("platina")) return "platina";
+    // ── CT model removed — map to "other" so it gets filtered/hidden ──
+    if (n.includes(" ct ") || n.startsWith("ct ") || n === "ct" || /\bct\d/.test(n)) return "other";
+    return "other";
+  }
+
+  function getSeries(name = "") {
+    const cat = getCategory(name);
+    const map = {
+      chetak:  "Chetak Electric",
+      pulsar:  "Pulsar Series",
+      dominar: "Dominar Series",
+      avenger: "Avenger Series",
+      platina: "Platina Series",
+    };
+    return map[cat] || "Bajaj Motorcycles";
+  }
+
+  function fmtPrice(val) {
+    const n = parseFloat(val);
+    if (!val || isNaN(n)) return "On Request";
+    return "Rs. " + n.toLocaleString("en-IN");
+  }
+
+  function fmtInsurance(val) {
+    const n = Number(val);
+    if (!val || isNaN(n) || n === 0) return null;
+    return "Rs. " + n.toLocaleString("en-IN");
+  }
+
+  /* ── Build card ── */
+  function buildCard(bike, idx) {
+    const name   = bike.name || "Bajaj";
+    const series = getSeries(bike.name);
+    const price  = fmtPrice(bike.price);
+    const ins    = fmtInsurance(bike.Insurance);
+    const isNew  = !!bike.isNew;
+    const badge  = bike.badge || null;
+    const cat    = getCategory(bike.name);
+    const isChetak = cat === "chetak";
+
+    const imgSrc = bike.img
+      || `https://placehold.co/600x340/EBF4FF/005EA6?text=${encodeURIComponent(name)}`;
+
+    /* Top-left chip */
+    let chipL = "";
+    if (isChetak) {
+      chipL = `<span style="position:absolute;top:11px;left:11px;
+        background:linear-gradient(135deg,#005EA6,#10B981);color:#fff;
+        font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+        padding:4px 10px;border-radius:6px;display:flex;align-items:center;gap:4px;">
+        <i class="fa-solid fa-bolt" style="font-size:9px;"></i> ELECTRIC
+      </span>`;
+    } else if (isNew) {
+      chipL = `<span style="position:absolute;top:11px;left:11px;
+        background:#005EA6;color:#fff;
+        font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+        padding:4px 10px;border-radius:6px;">NEW</span>`;
+    } else if (badge) {
+      chipL = `<span style="position:absolute;top:11px;left:11px;
+        background:#0F172A;color:#fff;
+        font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+        padding:4px 10px;border-radius:6px;">${badge}</span>`;
+    }
+
+    /* Top-right "Official" chip */
+    const chipR = `
+      <span style="position:absolute;top:11px;right:11px;
+        background:rgba(255,255,255,.94);border:1px solid #E8E6E1;
+        color:#1A6B3C;font-size:10px;font-weight:700;letter-spacing:.06em;
+        padding:4px 9px;border-radius:6px;
+        display:flex;align-items:center;gap:5px;">
+        <i class="fa-solid fa-circle-check" style="font-size:10px;color:#1A6B3C;"></i>
+        Official
+      </span>`;
+
+    /* Insurance row */
+    const insRow = ins ? `
+      <div style="display:flex;align-items:center;justify-content:space-between;
+        padding:10px 0;border-bottom:1px solid #E8E6E1;">
+        <span style="display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:#6B6B68;">
+          <i class="fa-solid fa-shield-halved" style="color:#005EA6;font-size:12px;"></i>
+          Insurance
+        </span>
+        <span style="font-size:13px;font-weight:600;color:#3A3A38;">${ins}</span>
+      </div>` : "";
+
+    /* Optional specs */
+    const specs = [];
+    if (bike.cc)      specs.push({ l: "Engine",  v: bike.cc + (isChetak ? " kWh" : " cc") });
+    if (bike.power)   specs.push({ l: "Power",   v: bike.power });
+    if (bike.mileage) specs.push({ l: isChetak ? "Range" : "Mileage", v: bike.mileage });
+    if (bike.weight)  specs.push({ l: "Weight",  v: bike.weight });
+
+    const specGrid = specs.length ? `
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:10px;border-top:1px solid #E8E6E1;">
+        ${specs.map(s => `
+          <div style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9A9A97;">${s.l}</span>
+            <span style="font-size:12.5px;font-weight:500;color:#3A3A38;">${s.v}</span>
+          </div>`).join("")}
+      </div>` : "";
+
+    /* Card bg tint for Chetak */
+    const imgBg = isChetak
+      ? "linear-gradient(135deg,#E8F5F0,#D1FAE5)"
+      : "linear-gradient(135deg,#EBF4FF,#DCEEFB)";
+
+    /* Price badge accent */
+    const priceAccent = isChetak ? "#10B981" : "#005EA6";
+    const priceBgAccent = isChetak ? "rgba(16,185,129,0.08)" : "#EBF4FF";
+    const priceBorder   = isChetak ? "rgba(16,185,129,0.18)" : "rgba(0,94,166,0.14)";
+
+    const delay = `${Math.min(idx, 9) * 55}ms`;
+
+    return `
+      <div class="yng-card" style="animation-delay:${delay};">
+        <!-- Image -->
+        <div style="position:relative;height:200px;background:${imgBg};overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img class="yng-img"
+            src="${imgSrc}"
+            alt="${name}"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/600x340/EBF4FF/005EA6?text=Bajaj'"
+            style="width:100%;height:100%;object-fit:cover;"
+          >
+          ${chipL}
+          ${chipR}
+        </div>
+
+        <!-- Body -->
+        <div style="padding:1.1rem;display:flex;flex-direction:column;gap:.85rem;flex:1;">
+
+          <!-- Name + Price -->
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-family:'Bebas Neue',cursive;font-size:21px;letter-spacing:.03em;line-height:1.1;color:#111110;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                ${name}
+              </div>
+              <div style="font-size:10.5px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#6B6B68;margin-top:2px;">
+                ${series}
+              </div>
+            </div>
+            <div style="flex-shrink:0;background:${priceBgAccent};border:1px solid ${priceBorder};border-radius:8px;padding:7px 11px;text-align:right;">
+              <div style="font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${priceAccent};margin-bottom:1px;">
+                MRP Price
+              </div>
+              <div style="font-family:'Bebas Neue',cursive;font-size:18px;letter-spacing:.02em;color:${priceAccent};line-height:1.2;white-space:nowrap;">
+                ${price}
+              </div>
+            </div>
+          </div>
+
+          ${insRow}
+          ${specGrid}
+
+          <!-- Footer row -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.15rem;">
+            <span style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500;color:#6B6B68;">
+              <i class="fa-solid fa-${isChetak ? 'bolt' : 'hand-holding-dollar'}" style="color:${priceAccent};font-size:13px;"></i>
+              ${isChetak ? "EV Subsidy Available" : "EMI Available"}
+            </span>
+            <span class="yng-arr" style="width:30px;height:30px;border-radius:7px;
+              background:#F6F4F0;border:1px solid #E8E6E1;
+              display:flex;align-items:center;justify-content:center;
+              color:#3A3A38;font-size:11px;">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+          </div>
+
+        </div>
+      </div>`;
+  }
+
+  /* ── Empty state ── */
+  function emptyState(msg) {
+    return `
+      <div style="grid-column:1/-1;display:flex;flex-direction:column;
+        align-items:center;padding:4.5rem 1rem;gap:1rem;text-align:center;">
+        <div style="width:58px;height:58px;border-radius:14px;
+          background:#EBF4FF;border:1px solid rgba(0,94,166,0.15);
+          display:flex;align-items:center;justify-content:center;
+          color:#005EA6;font-size:22px;">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div style="font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:.03em;color:#0F172A;">No Results Found</div>
+        <p style="font-size:13.5px;color:#64748B;max-width:240px;line-height:1.7;">${msg}</p>
+      </div>`;
+  }
+
+  /* ── Render ── */
+  function render(bikes) {
+    const grid = document.getElementById("bike-grid");
+    if (!grid) return;
+
+    const q = (document.getElementById("search-input")?.value || "").toLowerCase().trim();
+
+    const list = sortBySn(
+      bikes.filter(b => {
+        const n   = (b.name || "").toLowerCase();
+        const cat = getCategory(b.name);
+        if (cat === "other") return false; // hide CT and unrecognized
+        return (!q || n.includes(q)) &&
+               (activeFilter === "all" || cat === activeFilter);
+      })
+    );
+
+    if (!list.length) {
+      grid.innerHTML = emptyState(
+        q ? `No bikes found for "${q}". Try a different name.`
+          : "No bikes listed in this category yet."
+      );
+      return;
+    }
+
+    grid.innerHTML = list.map((b, i) => buildCard(b, i)).join("");
+  }
+
+  /* ── Firebase real-time listener ── */
+  onSnapshot(bikesCol, snap => {
+    allBikes = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    render(allBikes);
+  }, err => {
+    /* Fallback: show demo Chetak + Pulsar cards if Firebase is unreachable */
+    console.warn("Firebase error:", err.message);
+    allBikes = [
+      { id:"demo1", sn:1, name:"Chetak Electric",        price:389900, isNew:true, img:"" },
+      { id:"demo2", sn:2, name:"Chetak Premium",         price:449900, isNew:true, img:"" },
+      { id:"demo3", sn:3, name:"Platina 100",             price:219900, img:"" },
+      { id:"demo4", sn:4, name:"Pulsar N150",             price:339900, img:"" },
+      { id:"demo5", sn:5, name:"Pulsar N160",             price:379900, img:"" },
+      { id:"demo6", sn:6, name:"Pulsar P150",             price:315900, img:"" },
+      { id:"demo7", sn:7, name:"Pulsar NS200",            price:449900, img:"" },
+      { id:"demo8", sn:8, name:"Avenger Street 160",      price:349900, img:"" },
+      { id:"demo9", sn:9, name:"Dominar 250",             price:489900, img:"" },
+    ];
+    render(allBikes);
+  });
+
+  /* ── Wire up controls ── */
+  document.querySelectorAll(".tab-btn").forEach(tab => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      activeFilter = tab.dataset.filter;
+      render(allBikes);
+    });
+  });
+
+  document.getElementById("search-input")?.addEventListener("input", () => render(allBikes));
+
+
+  /* ── Hamburger ── */
+  const btn      = document.getElementById("hamburger-btn");
+  const mMenu    = document.getElementById("mobile-menu");
+  const icoOpen  = document.getElementById("icon-open");
+  const icoClose = document.getElementById("icon-close");
+
+  btn?.addEventListener("click", () => {
+    const open = mMenu.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open);
+    icoOpen.classList.toggle("hidden", open);
+    icoClose.classList.toggle("hidden", !open);
+  });
+
+  mMenu?.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => {
+      mMenu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      icoOpen.classList.remove("hidden");
+      icoClose.classList.add("hidden");
+    });
+  });
+
+
+  /* ── Scroll-reveal for static elements ── */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = "1";
+        e.target.style.transform = "translateY(0)";
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  document.querySelectorAll(".stat-chip, .feature-icon-wrap").forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(16px)";
+    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+    revealObs.observe(el);
+  });
 </script>
-<script type="module" src="script.js"></script>
+
 </body>
 </html>
