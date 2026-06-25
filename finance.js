@@ -70,7 +70,7 @@ window.calculateFinance = function() {
   const loanAmount    = afterDiscount - dpAmountOnly;
 
   let rate = 13.99;
-  if      (dpPercentVal >= 60) rate = 9.99;
+  if      (dpPercentVal >= 60) rate = 8.99;
   else if (dpPercentVal >= 50) rate = 11.99;
   else if (dpPercentVal >= 40) rate = 12.99;
 
